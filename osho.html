@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Inner Journey | A Student of Osho</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    :root {
+      --osho-bg: #100b18;
+      --osho-bg-soft: #1a1024;
+      --osho-card: rgba(34, 21, 43, 0.72);
+      --osho-gold: #d7b56d;
+      --osho-gold-light: #f2dca3;
+      --osho-text: #f4eee5;
+      --osho-muted: #b9aebf;
+      --osho-border: rgba(215, 181, 109, 0.2);
+
+      --font-heading: "Playfair Display", serif;
+      --font-body: "Montserrat", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--osho-bg);
+      color: var(--osho-text);
+      font-family: var(--font-body);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =========================
+       MAIN SECTION
+    ========================= */
+
+    .osho-page {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 100vh;
+      padding: 110px 7% 120px;
+      background:
+        radial-gradient(
+          circle at 50% 12%,
+          rgba(115, 67, 139, 0.2),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 8% 72%,
+          rgba(145, 95, 48, 0.1),
+          transparent 28%
+        ),
+        linear-gradient(180deg, #100b18 0%, #160e20 52%, #100b18 100%);
+    }
+
+    .osho-page::before,
+    .osho-page::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(1px);
+    }
+
+    .osho-page::before {
+      width: 520px;
+      height: 520px;
+      top: 12%;
+      right: -260px;
+      border: 1px solid rgba(215, 181, 109, 0.08);
+      box-shadow:
+        0 0 0 45px rgba(215, 181, 109, 0.018),
+        0 0 0 90px rgba(215, 181, 109, 0.015);
+    }
+
+    .osho-page::after {
+      width: 420px;
+      height: 420px;
+      bottom: 4%;
+      left: -230px;
+      border: 1px solid rgba(179, 133, 203, 0.1);
+      box-shadow:
+        0 0 0 50px rgba(179, 133, 203, 0.025),
+        0 0 0 100px rgba(179, 133, 203, 0.018);
+    }
+
+    .osho-container {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+   /* =========================================
+   OSHO INTRO — CINEMATIC, READABLE HERO
+========================================= */
+
+.osho-intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  /* Keep the existing desktop grid */
+  border-radius: 8px;
+  padding: clamp(2rem, 5vw, 4.5rem);
+
+  background: #100b18;
+}
+
+/* Osho image layer */
+.osho-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("./assets/osho.jpg");
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+
+  opacity: 0.42;
+  transform: scale(1.02);
+}
+
+/* Dark overlay — protects text readability */
+.osho-intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(16, 11, 24, 0.98) 0%,
+      rgba(16, 11, 24, 0.88) 38%,
+      rgba(16, 11, 24, 0.48) 72%,
+      rgba(16, 11, 24, 0.72) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(16, 11, 24, 0.12) 0%,
+      rgba(16, 11, 24, 0.25) 65%,
+      rgba(16, 11, 24, 0.95) 100%
+    );
+}
+
+/* Keep all intro content above the image and overlay */
+.osho-intro-content,
+.osho-visual {
+  position: relative;
+  z-index: 1;
+}
+
+/* Improve heading contrast */
+.osho-title {
+  color: #fff8ef;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Make the paragraph easier to read */
+.osho-intro-copy {
+  color: #e3d9e7;
+  max-width: 490px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* Student note as a subtle highlighted strip */
+.osho-student-note {
+  max-width: 490px;
+  padding: 18px 20px;
+  margin-top: 28px;
+
+  border: 1px solid rgba(215, 181, 109, 0.3);
+  border-radius: 6px;
+
+  background: rgba(16, 11, 24, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.osho-student-note p {
+  color: #f0e5d4;
+  line-height: 1.7;
+}
+
+.osho-student-note strong {
+  color: #f2dca3;
+}
+
+/* =========================================
+   MOBILE REFINEMENT
+========================================= */
+
+@media (max-width: 900px) {
+  .osho-intro {
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .osho-intro::before {
+    background-position: center 25%;
+    opacity: 0.3;
+  }
+
+  .osho-intro::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(16, 11, 24, 0.72) 0%,
+        rgba(16, 11, 24, 0.88) 45%,
+        rgba(16, 11, 24, 0.98) 100%
+      );
+  }
+
+  .osho-intro-content {
+    max-width: 650px;
+  }
+
+  .osho-student-note {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .osho-intro {
+    padding: 1.5rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .osho-intro::before {
+    background-position: center 20%;
+    opacity: 0.9;
+  }
+
+  .osho-intro::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(16, 11, 24, 0.58) 0%,
+        rgba(16, 11, 24, 0.82) 28%,
+        rgba(16, 11, 24, 0.96) 72%,
+        rgba(16, 11, 24, 1) 100%
+      );
+  }
+
+  .osho-eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .osho-title {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+    line-height: 1.02;
+  }
+
+  .osho-intro-copy {
+    margin-top: 1.1rem;
+    font-size: 0.84rem;
+    line-height: 1.8;
+    color: #eee5f0;
+  }
+
+  .osho-student-note {
+    padding: 14px 15px;
+    gap: 10px;
+    background: rgba(16, 11, 24, 0.82);
+  }
+
+  .osho-student-note p {
+    font-size: 0.75rem;
+  }
+}
+    .osho-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--osho-gold);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .osho-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--osho-gold);
+    }
+
+    .osho-title {
+      max-width: 650px;
+      font-family: var(--font-heading);
+      font-size: clamp(3.2rem, 6.5vw, 6.2rem);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .osho-title span {
+      display: block;
+      color: var(--osho-gold-light);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .osho-intro-copy {
+      max-width: 520px;
+      margin-top: 28px;
+      color: var(--osho-muted);
+      font-size: 0.96rem;
+      line-height: 1.95;
+    }
+
+    .osho-student-note {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--osho-border);
+    }
+
+    .osho-student-note i {
+      color: var(--osho-gold);
+      font-size: 1rem;
+    }
+
+    .osho-student-note p {
+      color: #e8d9c2;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+    }
+
+    .osho-student-note strong {
+      color: var(--osho-gold-light);
+      font-weight: 600;
+    }
+
+    /* =========================
+       MANDALA VISUAL
+    ========================= */
+
+    .osho-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 440px;
+    }
+
+    .osho-aura {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(215, 181, 109, 0.14),
+        rgba(139, 84, 166, 0.06) 45%,
+        transparent 72%
+      );
+      animation: auraPulse 6s ease-in-out infinite;
+    }
+
+    .osho-mandala {
+      position: relative;
+      width: min(340px, 78vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .mandala-ring {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(215, 181, 109, 0.48);
+      border-radius: 50%;
+    }
+
+    .mandala-ring:nth-child(1) {
+      transform: scale(0.98);
+      animation: mandalaRotate 70s linear infinite;
+    }
+
+    .mandala-ring:nth-child(2) {
+      inset: 11%;
+      border-style: dashed;
+      border-color: rgba(215, 181, 109, 0.3);
+      animation: mandalaRotateReverse 90s linear infinite;
+    }
+
+    .mandala-ring:nth-child(3) {
+      inset: 22%;
+      border-color: rgba(215, 181, 109, 0.55);
+      box-shadow: 0 0 35px rgba(215, 181, 109, 0.08);
+      animation: mandalaRotate 45s linear infinite;
+    }
+
+    .mandala-ring:nth-child(4) {
+      inset: 31%;
+      border-style: dotted;
+      border-color: rgba(190, 143, 207, 0.5);
+      animation: mandalaRotateReverse 55s linear infinite;
+    }
+
+    .mandala-petal {
+      position: absolute;
+      width: 42%;
+      height: 42%;
+      border: 1px solid rgba(215, 181, 109, 0.45);
+      border-radius: 100% 0 100% 0;
+      transform-origin: center;
+    }
+
+    .mandala-petal:nth-child(5) {
+      transform: rotate(0deg) translateY(-22%);
+    }
+
+    .mandala-petal:nth-child(6) {
+      transform: rotate(45deg) translateY(-22%);
+    }
+
+    .mandala-petal:nth-child(7) {
+      transform: rotate(90deg) translateY(-22%);
+    }
+
+    .mandala-petal:nth-child(8) {
+      transform: rotate(135deg) translateY(-22%);
+    }
+
+    .mandala-petal:nth-child(9) {
+      transform: rotate(180deg) translateY(-22%);
+    }
+
+    .mandala-petal:nth-child(10) {
+      transform: rotate(225deg) translateY(-22%);
+    }
+
+    .mandala-petal:nth-child(11) {
+      transform: rotate(270deg) translateY(-22%);
+    }
+
+    .mandala-petal:nth-child(12) {
+      transform: rotate(315deg) translateY(-22%);
+    }
+
+    .mandala-center {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 112px;
+      height: 112px;
+      border: 1px solid rgba(242, 220, 163, 0.65);
+      border-radius: 50%;
+      background: rgba(25, 15, 32, 0.8);
+      box-shadow:
+        0 0 30px rgba(215, 181, 109, 0.12),
+        inset 0 0 24px rgba(215, 181, 109, 0.06);
+    }
+
+    .mandala-center span {
+      color: var(--osho-gold-light);
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-style: italic;
+    }
+
+    .visual-caption {
+      position: absolute;
+      bottom: 4px;
+      color: rgba(215, 181, 109, 0.7);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       TEACHINGS
+    ========================= */
+
+    .osho-teachings {
+      position: relative;
+    }
+
+    .teachings-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+
+    .teachings-heading h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4vw, 3.7rem);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .teachings-heading h2 span {
+      color: var(--osho-gold-light);
+      font-style: italic;
+    }
+
+    .teachings-heading p {
+      max-width: 340px;
+      color: var(--osho-muted);
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    .osho-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .osho-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 285px;
+      padding: 34px;
+      border: 1px solid var(--osho-border);
+      border-radius: 4px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(48, 30, 59, 0.75),
+          rgba(25, 16, 33, 0.78)
+        );
+      transition:
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        background 0.5s ease;
+    }
+
+    .osho-card::before {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -100px;
+      bottom: -110px;
+      border: 1px solid rgba(215, 181, 109, 0.16);
+      border-radius: 50%;
+      transition: transform 0.7s ease;
+    }
+
+    .osho-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(215, 181, 109, 0.55);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(59, 36, 70, 0.88),
+          rgba(27, 17, 36, 0.9)
+        );
+    }
+
+    .osho-card:hover::before {
+      transform: scale(1.6);
+    }
+
+    .card-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .card-number {
+      color: rgba(215, 181, 109, 0.7);
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(215, 181, 109, 0.28);
+      border-radius: 50%;
+      color: var(--osho-gold-light);
+      font-size: 0.95rem;
+    }
+
+    .osho-card h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 14px;
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 500;
+    }
+
+    .osho-card > p {
+      position: relative;
+      z-index: 1;
+      max-width: 430px;
+      color: var(--osho-muted);
+      font-size: 0.84rem;
+      line-height: 1.85;
+    }
+
+    .reflection-toggle {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--osho-gold-light);
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .reflection-toggle i {
+      transition: transform 0.3s ease;
+    }
+
+    .osho-card.is-open .reflection-toggle i {
+      transform: rotate(45deg);
+    }
+
+    .card-reflection {
+      position: relative;
+      z-index: 1;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition:
+        max-height 0.5s ease,
+        opacity 0.35s ease,
+        margin 0.35s ease;
+    }
+
+    .osho-card.is-open .card-reflection {
+      max-height: 150px;
+      margin-top: 18px;
+      opacity: 1;
+    }
+
+    .card-reflection p {
+      padding-top: 16px;
+      border-top: 1px solid rgba(215, 181, 109, 0.18);
+      color: #e6d5bd;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    /* =========================
+       REFLECTION MOMENT
+    ========================= */
+
+    .osho-reflection {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      margin-top: 100px;
+      padding: 48px 54px;
+      border: 1px solid rgba(215, 181, 109, 0.26);
+      background:
+        radial-gradient(
+          circle at 0% 50%,
+          rgba(130, 79, 154, 0.16),
+          transparent 45%
+        ),
+        rgba(26, 16, 35, 0.65);
+    }
+
+    .reflection-label {
+      margin-bottom: 14px;
+      color: var(--osho-gold);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .osho-reflection h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .osho-reflection h3 span {
+      color: var(--osho-gold-light);
+      font-style: italic;
+    }
+
+    .reflection-message {
+      max-width: 640px;
+      min-height: 48px;
+      margin-top: 18px;
+      color: var(--osho-muted);
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    .reflection-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-width: 190px;
+      padding: 16px 22px;
+      border: 1px solid var(--osho-gold);
+      background: transparent;
+      color: var(--osho-gold-light);
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .reflection-button:hover {
+      transform: translateY(-3px);
+      background: var(--osho-gold);
+      color: #17101b;
+    }
+
+    /* =========================
+       CLOSING
+    ========================= */
+
+    .osho-closing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 110px;
+      text-align: center;
+    }
+
+    .closing-symbol {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(215, 181, 109, 0.4);
+      border-radius: 50%;
+      color: var(--osho-gold);
+      animation: closingGlow 4s ease-in-out infinite;
+    }
+
+    .osho-closing p {
+      max-width: 700px;
+      color: #d4c5d9;
+      font-family: var(--font-heading);
+      font-size: clamp(1.45rem, 3vw, 2.3rem);
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .osho-closing small {
+      margin-top: 22px;
+      color: var(--osho-muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    .osho-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .osho-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .osho-card:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .osho-card:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    .osho-card:nth-child(4) {
+      transition-delay: 0.3s;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes mandalaRotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes mandalaRotateReverse {
+      from {
+        transform: rotate(360deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes auraPulse {
+      0%,
+      100% {
+        opacity: 0.65;
+        transform: scale(0.94);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+    }
+
+    @keyframes closingGlow {
+      0%,
+      100% {
+        box-shadow: 0 0 0 rgba(215, 181, 109, 0);
+      }
+      50% {
+        box-shadow: 0 0 28px rgba(215, 181, 109, 0.14);
+      }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .osho-page {
+        padding: 85px 6% 90px;
+      }
+
+      .osho-intro {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-bottom: 90px;
+      }
+
+      .osho-visual {
+        min-height: 370px;
+      }
+
+      .osho-mandala {
+        width: 300px;
+      }
+
+      .teachings-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .osho-reflection {
+        grid-template-columns: 1fr;
+        padding: 38px;
+      }
+
+      .reflection-button {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .osho-page {
+        padding: 72px 20px 80px;
+      }
+
+      .osho-eyebrow {
+        font-size: 0.62rem;
+        letter-spacing: 0.16em;
+      }
+
+      .osho-title {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+      }
+
+      .osho-intro-copy {
+        font-size: 0.86rem;
+      }
+
+      .osho-visual {
+        min-height: 310px;
+      }
+
+      .osho-aura {
+        width: 250px;
+        height: 250px;
+      }
+
+      .osho-mandala {
+        width: 250px;
+      }
+
+      .mandala-center {
+        width: 82px;
+        height: 82px;
+      }
+
+      .mandala-center span {
+        font-size: 1.8rem;
+      }
+
+      .visual-caption {
+        bottom: -3px;
+        font-size: 0.55rem;
+        letter-spacing: 0.16em;
+      }
+
+      .osho-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .osho-card {
+        min-height: auto;
+        padding: 28px;
+      }
+
+      .osho-card h3 {
+        font-size: 1.55rem;
+      }
+
+      .osho-reflection {
+        margin-top: 70px;
+        padding: 30px 24px;
+      }
+
+      .reflection-button {
+        width: 100%;
+      }
+
+      .osho-closing {
+        margin-top: 80px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .osho-reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* =========================
+       RESPONSIVE REFINEMENT
+       Fluid layouts from small phones to wide desktops
+    ========================= */
+
+    :root {
+      --page-gutter: clamp(1.1rem, 5vw, 5.5rem);
+      --section-space: clamp(4rem, 8vw, 7.5rem);
+    }
+
+    html {
+      width: 100%;
+      overflow-x: clip;
+      scroll-padding-top: 2rem;
+    }
+
+    body {
+      width: 100%;
+      min-width: 320px;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg, video, canvas {
+      max-width: 100%;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .osho-page {
+      width: 100%;
+      min-height: 100svh;
+      padding: clamp(4.5rem, 8vw, 7rem) var(--page-gutter)
+               clamp(5rem, 9vw, 7.5rem);
+    }
+
+    .osho-container {
+      width: min(100%, 1180px);
+    }
+
+    .osho-intro {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      margin-bottom: var(--section-space);
+    }
+
+    .osho-intro-content,
+    .osho-visual,
+    .osho-teachings,
+    .teachings-heading,
+    .osho-card,
+    .osho-reflection {
+      min-width: 0;
+    }
+
+    .osho-title {
+      font-size: clamp(2.75rem, 6.2vw, 6.2rem);
+      overflow-wrap: anywhere;
+    }
+
+    .osho-intro-copy {
+      font-size: clamp(0.88rem, 1.15vw, 0.96rem);
+    }
+
+    .osho-visual {
+      min-height: clamp(300px, 36vw, 440px);
+    }
+
+    .osho-aura {
+      width: min(78%, 320px);
+      height: auto;
+      aspect-ratio: 1;
+    }
+
+    .osho-mandala {
+      width: min(100%, 340px);
+    }
+
+    .teachings-heading {
+      margin-bottom: clamp(1.75rem, 4vw, 2.6rem);
+    }
+
+    .osho-card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(0.85rem, 2vw, 1.25rem);
+    }
+
+    .osho-card {
+      padding: clamp(1.35rem, 3vw, 2.15rem);
+    }
+
+    .osho-card h3 {
+      font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+      overflow-wrap: anywhere;
+    }
+
+    .osho-card > p {
+      font-size: clamp(0.8rem, 1vw, 0.84rem);
+    }
+
+    .osho-reflection {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      margin-top: var(--section-space);
+      padding: clamp(1.5rem, 4.5vw, 3.4rem);
+    }
+
+    .reflection-button {
+      white-space: normal;
+    }
+
+    .osho-closing {
+      margin-top: var(--section-space);
+      padding-inline: clamp(0rem, 3vw, 1.5rem);
+    }
+
+    /* Medium screens / tablets */
+    @media (max-width: 900px) {
+      .osho-page {
+        padding-top: 5.25rem;
+      }
+
+      .osho-intro {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.75rem;
+        margin-bottom: 5rem;
+      }
+
+      .osho-intro-content {
+        max-width: 720px;
+        margin-inline: auto;
+        width: 100%;
+      }
+
+      .osho-visual {
+        width: 100%;
+        min-height: clamp(290px, 48vw, 370px);
+      }
+
+      .osho-mandala {
+        width: min(70vw, 300px);
+      }
+
+      .teachings-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .teachings-heading p {
+        max-width: 560px;
+      }
+
+      .osho-reflection {
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
+      }
+
+      .reflection-button {
+        justify-self: start;
+        width: auto;
+        max-width: 100%;
+      }
+    }
+
+    /* Phones */
+    @media (max-width: 600px) {
+      :root {
+        --page-gutter: 1.15rem;
+      }
+
+      .osho-page {
+        padding-top: 4.5rem;
+        padding-bottom: 5rem;
+      }
+
+      .osho-page::before {
+        width: 340px;
+        height: 340px;
+        right: -220px;
+      }
+
+      .osho-page::after {
+        width: 300px;
+        height: 300px;
+        left: -210px;
+      }
+
+      .osho-eyebrow {
+        gap: 0.6rem;
+        margin-bottom: 1.25rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.13em;
+      }
+
+      .osho-eyebrow::before {
+        width: 1.5rem;
+        flex: 0 0 auto;
+      }
+
+      .osho-title {
+        max-width: 100%;
+        font-size: clamp(2.7rem, 13.5vw, 4.2rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .osho-intro-copy {
+        margin-top: 1.25rem;
+        font-size: 0.86rem;
+        line-height: 1.8;
+      }
+
+      .osho-student-note {
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1.1rem;
+      }
+
+      .osho-student-note p {
+        font-size: 0.76rem;
+        line-height: 1.6;
+      }
+
+      .osho-visual {
+        min-height: 285px;
+      }
+
+      .osho-aura {
+        width: min(78%, 245px);
+      }
+
+      .osho-mandala {
+        width: min(76vw, 250px);
+      }
+
+      .mandala-center {
+        width: 24%;
+        height: 24%;
+      }
+
+      .mandala-center span {
+        font-size: clamp(1.45rem, 8vw, 1.8rem);
+      }
+
+      .visual-caption {
+        bottom: 0;
+        max-width: 100%;
+        text-align: center;
+        font-size: 0.52rem;
+        letter-spacing: 0.12em;
+      }
+
+      .teachings-heading {
+        margin-bottom: 1.6rem;
+      }
+
+      .teachings-heading h2 {
+        font-size: clamp(2rem, 9vw, 2.7rem);
+      }
+
+      .teachings-heading p {
+        font-size: 0.78rem;
+        line-height: 1.75;
+      }
+
+      .osho-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.9rem;
+      }
+
+      .osho-card {
+        min-height: 0;
+        padding: 1.4rem;
+      }
+
+      .card-topline {
+        margin-bottom: 1.35rem;
+      }
+
+      .card-number {
+        font-size: 1rem;
+      }
+
+      .card-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        flex: 0 0 auto;
+      }
+
+      .osho-card h3 {
+        margin-bottom: 0.7rem;
+        font-size: 1.45rem;
+      }
+
+      .osho-card > p {
+        font-size: 0.8rem;
+        line-height: 1.8;
+      }
+
+      .reflection-toggle {
+        min-height: 2.75rem;
+        margin-top: 1rem;
+        font-size: 0.7rem;
+      }
+
+      .osho-card.is-open .card-reflection {
+        max-height: 260px;
+      }
+
+      .card-reflection p {
+        font-size: 0.98rem;
+        line-height: 1.6;
+      }
+
+      .osho-reflection {
+        gap: 1.5rem;
+        margin-top: 4.5rem;
+        padding: 1.5rem 1.25rem;
+      }
+
+      .reflection-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+      }
+
+      .osho-reflection h3 {
+        font-size: clamp(1.7rem, 7.5vw, 2.2rem);
+      }
+
+      .reflection-message {
+        min-height: 0;
+        font-size: 0.78rem;
+        line-height: 1.75;
+      }
+
+      .reflection-button {
+        width: 100%;
+        min-height: 3.1rem;
+        padding: 0.9rem 1rem;
+        font-size: 0.68rem;
+      }
+
+      .osho-closing {
+        margin-top: 4.5rem;
+      }
+
+      .closing-symbol {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .osho-closing p {
+        font-size: clamp(1.35rem, 6.5vw, 1.8rem);
+        line-height: 1.5;
+      }
+
+      .osho-closing small {
+        max-width: 100%;
+        font-size: 0.56rem;
+        letter-spacing: 0.12em;
+        line-height: 1.7;
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width: 380px) {
+      :root {
+        --page-gutter: 1rem;
+      }
+
+      .osho-title {
+        font-size: 2.55rem;
+      }
+
+      .osho-visual {
+        min-height: 255px;
+      }
+
+      .osho-mandala {
+        width: min(72vw, 225px);
+      }
+
+      .osho-card {
+        padding: 1.2rem;
+      }
+
+      .card-number {
+        font-size: 0.9rem;
+      }
+
+      .osho-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .osho-reflection {
+        padding: 1.25rem 1rem;
+      }
+    }
+
+    /* Wide desktop: use space without making content feel stretched */
+    @media (min-width: 1400px) {
+      .osho-page {
+        padding-top: 8rem;
+      }
+
+      .osho-container {
+        width: min(100%, 1240px);
+      }
+
+      .osho-intro {
+        gap: 5.5rem;
+      }
+    }
+
+    /* Hover effects only on devices that actually support hover */
+    @media (hover: none) {
+      .osho-card:hover {
+        transform: none;
+      }
+
+      .reflection-button:hover {
+        transform: none;
+        background: transparent;
+        color: var(--osho-gold-light);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+    <header>
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          <i class="fa-solid fa-om"></i>
+        </div>
+
+        <div class="brand-title">
+          <h1>Paras Baba</h1>
+          <span>Katha Vachak • Spiritual Guru</span>
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <!-- Navigation -->
+      <ul class="nav-menu" id="primary-navigation">
+
+        <li><a href="./index.html" class="nav-link active">Home</a></li>
+        <li><a href="./index.html#about" class="nav-link">About</a></li>
+        <li><a href="./ashtavakra.html" class="nav-link">Ashtavakra</a></li>
+        <li><a href="./index.html#katha-events" class="nav-link">Events</a></li>
+        <li><a href="./index.html#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="./blog.html" class="nav-link">Blog</a></li>
+        <li><a href="./index.html#contact" class="nav-link">Contact</a></li>
+
+      </ul>
+
+      <button class="btn-satsang">
+        Join Satsang
+      </button>
+
+    </header>
+  <main class="osho-page">
+
+    <div class="osho-container">
+
+      <!-- INTRO -->
+<section class="osho-intro">
+            <div class="osho-intro-content osho-reveal">
+          <div class="osho-eyebrow">A journey within</div>
+
+          <h1 class="osho-title">
+            The Inner
+            <span>Journey</span>
+          </h1>
+
+          <p class="osho-intro-copy">
+            My path of understanding has been deeply influenced by the
+            teachings of Osho. His words invite me to look beyond borrowed
+            beliefs, become more aware of the present moment, and discover
+            a deeper understanding of myself.
+          </p>
+
+          <div class="osho-student-note">
+            <i class="fa-solid fa-sun"></i>
+            <p><strong>I am a student of Osho.</strong> Learning, observing, and evolving.</p>
+          </div>
+        </div>
+
+        <div class="osho-visual osho-reveal">
+          <div class="osho-aura"></div>
+
+          <div class="osho-mandala" aria-hidden="true">
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring"></div>
+
+            <div class="mandala-petal"></div>
+            <div class="mandala-petal"></div>
+            <div class="mandala-petal"></div>
+            <div class="mandala-petal"></div>
+            <div class="mandala-petal"></div>
+            <div class="mandala-petal"></div>
+            <div class="mandala-petal"></div>
+            <div class="mandala-petal"></div>
+
+            <div class="mandala-center">
+              <span>ॐ</span>
+            </div>
+          </div>
+
+          <div class="visual-caption">From noise to awareness</div>
+        </div>
+      </section>
+
+      <!-- TEACHINGS -->
+      <section class="osho-teachings">
+        <div class="teachings-heading osho-reveal">
+          <h2>
+            A few doors to
+            <span>awareness</span>
+          </h2>
+
+          <p>
+            Reflections inspired by themes found in Osho’s teachings.
+            Each one is an invitation to explore—not a rule to follow.
+          </p>
+        </div>
+
+        <div class="osho-card-grid">
+
+          <!-- CARD 1 -->
+          <article class="osho-card osho-reveal">
+            <div class="card-topline">
+              <span class="card-number">01 / Awareness</span>
+              <span class="card-icon"><i class="fa-regular fa-eye"></i></span>
+            </div>
+
+            <h3>The Art of Witnessing</h3>
+
+            <p>
+              Notice thoughts and emotions as they arise. Instead of
+              immediately becoming them, create a little space to observe.
+            </p>
+
+            <button
+              class="reflection-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+              Explore reflection <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="card-reflection">
+              <p>
+                “Can I observe this thought without judging it or following it?”
+              </p>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="osho-card osho-reveal">
+            <div class="card-topline">
+              <span class="card-number">02 / Meditation</span>
+              <span class="card-icon"><i class="fa-solid fa-water"></i></span>
+            </div>
+
+            <h3>Return to This Moment</h3>
+
+            <p>
+              Meditation can begin with simple awareness: breathing,
+              walking, listening, or giving your full attention to what
+              is happening now.
+            </p>
+
+            <button
+              class="reflection-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+              Explore reflection <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="card-reflection">
+              <p>
+                “For one quiet moment, can I be fully here?”
+              </p>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="osho-card osho-reveal">
+            <div class="card-topline">
+              <span class="card-number">03 / Freedom</span>
+              <span class="card-icon"><i class="fa-solid fa-feather"></i></span>
+            </div>
+
+            <h3>Question the Borrowed</h3>
+
+            <p>
+              Look closely at the beliefs, expectations, and labels that
+              shape your choices. Understanding them can help you live
+              with greater clarity and authenticity.
+            </p>
+
+            <button
+              class="reflection-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+              Explore reflection <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="card-reflection">
+              <p>
+                “Is this truly my understanding—or something I accepted without question?”
+              </p>
+            </div>
+          </article>
+
+          <!-- CARD 4 -->
+          <article class="osho-card osho-reveal">
+            <div class="card-topline">
+              <span class="card-number">04 / Celebration</span>
+              <span class="card-icon"><i class="fa-solid fa-sparkles"></i></span>
+            </div>
+
+            <h3>Make Life a Celebration</h3>
+
+            <p>
+              Bring presence into ordinary experiences. A meal, a song,
+              a conversation, or a quiet morning can become meaningful
+              when lived with awareness.
+            </p>
+
+            <button
+              class="reflection-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+              Explore reflection <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="card-reflection">
+              <p>
+                “What simple thing in my life can I experience more fully today?”
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- REFLECTION MOMENT -->
+      <section class="osho-reflection osho-reveal">
+        <div>
+          <div class="reflection-label">A moment for yourself</div>
+
+          <h3>
+            Pause. Observe.
+            <span>Reflect.</span>
+          </h3>
+
+          <p class="reflection-message" id="reflectionMessage">
+            Take a breath. You do not need to solve anything in this moment.
+            Simply notice that you are here.
+          </p>
+        </div>
+
+        <button class="reflection-button" id="pauseButton" type="button">
+          <i class="fa-solid fa-circle-pause"></i>
+          Begin a pause
+        </button>
+      </section>
+
+      <!-- CLOSING -->
+      <section class="osho-closing osho-reveal">
+        <div class="closing-symbol">
+          <i class="fa-solid fa-infinity"></i>
+        </div>
+
+        <p>
+          “The journey is not about becoming someone else.
+          It is about seeing more clearly who you are.”
+        </p>
+
+        <small>A personal reflection inspired by the inner journey</small>
+      </section>
+
+    </div>
+  </main>
+<script src="./index.js" ></script>
+  <script>
+    // Expand and collapse reflection prompts
+    document.querySelectorAll(".reflection-toggle").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".osho-card");
+        const isOpen = card.classList.toggle("is-open");
+
+        button.setAttribute("aria-expanded", isOpen);
+        button.innerHTML = isOpen
+          ? 'Close reflection <i class="fa-solid fa-plus"></i>'
+          : 'Explore reflection <i class="fa-solid fa-plus"></i>';
+      });
+    });
+
+    // Pause / reflect interaction
+    const pauseButton = document.getElementById("pauseButton");
+    const reflectionMessage = document.getElementById("reflectionMessage");
+
+    const reflectionMoments = [
+      "Take a breath. You do not need to solve anything in this moment. Simply notice that you are here.",
+      "Relax your shoulders. Feel the ground beneath you. Let this moment be enough.",
+      "Notice one thought passing through your mind. You can observe it without needing to follow it.",
+      "Listen to the sounds around you. For a few seconds, let listening be your only task."
+    ];
+
+    let reflectionIndex = 0;
+
+    pauseButton.addEventListener("click", () => {
+      reflectionIndex = (reflectionIndex + 1) % reflectionMoments.length;
+
+      reflectionMessage.style.opacity = "0";
+
+      setTimeout(() => {
+        reflectionMessage.textContent = reflectionMoments[reflectionIndex];
+        reflectionMessage.style.opacity = "1";
+      }, 220);
+
+      pauseButton.innerHTML =
+        '<i class="fa-solid fa-circle-pause"></i> Another moment';
+    });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".osho-reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,574 +1,1646 @@
-q<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paras Baba - Spiritual Guru | Namo Bhagvate Vasudevaye Namah</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Official website of Paras Baba, a katha vachak and spiritual guru spreading the message of devotion, Sanatan Dharma, and peace. Join our katha and bhajan sessions.">
-    <meta name="keywords" content="Paras Baba, Paras Raina, shiv bhakt, proud hindu, akhand bharat, katha vachak, guru, spiritual teacher, Sanatan Dharma, Bhajan, Bhagvad Gita, Vedas, Puranas, meditation, spiritual events, devotion">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paras Baba - Path of Bhakti and Moksha</title>
 
-        :root {
-            --color-primary: #FF9800; /* Saffron/Gold */
-            --color-secondary: #0D47A1; /* Deep Blue */
-            --color-background: #0d0d19; /* Dark Navy */
-            --color-text: #c0c0c0; /* Gray-ish */
-            --color-accent: #fcd34d; /* Bright Gold */
-            --color-card: #1a1a2b; /* Slightly lighter dark card */
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-background);
-            color: var(--color-text);
-            scroll-behavior: smooth;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-        .font-heading {
-            font-family: 'Playfair Display', serif;
-        }
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .text-gradient {
-            background: linear-gradient(45deg, var(--color-accent), var(--color-primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* Premium Hero section animation with subtle background texture */
-        .hero-bg {
-            /* Using a subtle radial gradient to mimic a halo or divine light effect */
-            background-image: radial-gradient(circle at center, rgba(30, 30, 50, 0.4), var(--color-background)), 
-                             url('./assets/Gemini_Generated_Image_em4m4sem4m4sem4m.png');
-            background-size: cover;
-            background-position: center;
-            animation: pan 15s linear infinite alternate;
-        }
-        @keyframes pan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    /* =========================================
+   ABOUT — EDITORIAL SPIRITUAL ART DIRECTION
+========================================= */
 
-        /* Bento Grid styling */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 16px;
-        }
-        @media (min-width: 1024px) {
-            .bento-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .bento-grid .span-2 {
-                grid-column: span 2;
-                grid-row: span 2;
-                min-height: 400px;
-            }
-        }
-        .bento-item {
-            min-height: 200px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .bento-item img {
-            height: 100%;
-            width: 100%;
-        }
+.about-art {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(90px, 11vw, 160px) 0;
+  color: #f1e8d8;
+  background:
+    radial-gradient(
+      ellipse at 78% 38%,
+      rgba(151, 106, 62, 0.13),
+      transparent 34%
+    ),
+    #100b18;
+}
 
-        /* Bento Grid/Card enhancements */
-        .bento-item, .blog-card, .event-card, .testimonial-card {
-            background-color: var(--color-card);
-            border: 1px solid rgba(255, 152, 0, 0.1); /* Subtle primary border */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .bento-item:hover, .blog-card:hover, .event-card:hover, .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 20px var(--color-primary); /* Adding a subtle glow */
-        }
+.about-art::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(201, 166, 107, 0.12) 20%,
+    rgba(201, 166, 107, 0.12) 80%,
+    transparent
+  );
+  pointer-events: none;
+}
 
-        /* Scroll Animation Utility */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.about-art-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto;
+}
 
-        /* Custom animation for the divine circle border */
-        @keyframes spin-slow { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
-        }
-        .animate-spin-slow {
-            animation: spin-slow 60s linear infinite;
-        }
-    </style>
+/* Top line */
+
+.about-art-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(201, 166, 107, 0.25);
+}
+
+.about-kicker,
+.about-index {
+  color: #bda16f;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+}
+
+.about-index {
+  color: rgba(238, 229, 215, 0.38);
+}
+
+/* Main layout */
+
+.about-art-composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.8fr);
+  align-items: center;
+  gap: clamp(50px, 9vw, 130px);
+  padding: clamp(65px, 8vw, 110px) 0;
+}
+
+/* Copy */
+
+.about-art-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.about-overline {
+  margin: 0 0 28px;
+  color: #c9a66b;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-art-copy h2 {
+  margin: 0;
+  color: #f1e8d8;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(54px, 7.2vw, 100px);
+  font-weight: 400;
+  letter-spacing: -4px;
+  line-height: 0.98;
+}
+
+.about-art-copy h2 span {
+  color: rgba(241, 232, 216, 0.72);
+}
+
+.about-art-copy h2 em {
+  color: #c9a66b;
+  font-weight: 400;
+}
+
+.about-art-rule {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 180px;
+  margin: 34px 0 28px;
+}
+
+.about-art-rule > span:first-child {
+  width: 100%;
+  height: 1px;
+  background: #8e7046;
+}
+
+.about-rule-om {
+  color: #c9a66b;
+  font-family: serif;
+  font-size: 22px;
+}
+
+.about-art-intro {
+  max-width: 490px;
+  margin: 0 0 18px;
+  color: #e8dcc8;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.65;
+}
+
+.about-art-body {
+  max-width: 470px;
+  margin: 0;
+  color: rgba(238, 229, 215, 0.58);
+  font-size: 13px;
+  line-height: 2;
+}
+
+/* Link */
+
+.about-art-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 34px;
+  padding-bottom: 10px;
+  color: #c9a66b;
+  border-bottom: 1px solid rgba(201, 166, 107, 0.45);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: gap 250ms ease, color 250ms ease;
+}
+
+.about-art-link:hover {
+  gap: 34px;
+  color: #f1d6a3;
+}
+
+.about-link-arrow {
+  font-size: 16px;
+}
+
+/* Portrait composition */
+
+.about-art-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+  padding: 18px 18px 0 0;
+}
+
+.portrait-image-wrap {
+  position: relative;
+  aspect-ratio: 0.76;
+  overflow: hidden;
+  background: #211726;
+}
+
+.portrait-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(16, 11, 24, 0.02) 55%,
+    rgba(16, 11, 24, 0.38) 100%
+  );
+  pointer-events: none;
+}
+
+.about-art-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.78);
+  transition: transform 900ms ease, filter 900ms ease;
+}
+
+.about-art-portrait:hover .about-art-image {
+  transform: scale(1.035);
+  filter: saturate(1);
+}
+
+/* Fine gold frame */
+
+.about-art-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 18px 18px;
+  border: 1px solid rgba(201, 166, 107, 0.45);
+  pointer-events: none;
+}
+
+.portrait-ornament {
+  position: absolute;
+  top: -28px;
+  right: 4px;
+  z-index: 3;
+  color: rgba(201, 166, 107, 0.75);
+  font-family: serif;
+  font-size: 38px;
+}
+
+.portrait-caption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.portrait-caption-line {
+  width: 30px;
+  height: 1px;
+  background: #c9a66b;
+}
+
+.portrait-caption > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.portrait-caption-title {
+  color: #e8dcc8;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.portrait-caption-subtitle {
+  color: rgba(238, 229, 215, 0.42);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.portrait-side-note {
+  position: absolute;
+  right: -34px;
+  bottom: 110px;
+  color: rgba(201, 166, 107, 0.65);
+  font-family: serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+}
+
+/* Closing statement */
+
+.about-art-footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 42px 20px 0;
+  border-top: 1px solid rgba(201, 166, 107, 0.2);
+  text-align: center;
+}
+
+.about-footer-mark {
+  height: 32px;
+  color: #c9a66b;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 58px;
+  line-height: 1;
+}
+
+.about-art-footer p {
+  margin: 16px 0 18px;
+  color: #e8dcc8;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(19px, 2.5vw, 29px);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.about-footer-note {
+  color: rgba(201, 166, 107, 0.65);
+  font-size: 8px;
+  letter-spacing: 2.5px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .about-art-composition {
+    grid-template-columns: 1fr;
+    gap: 65px;
+  }
+
+  .about-art-copy {
+    max-width: 720px;
+  }
+
+  .about-art-portrait {
+    width: min(100%, 500px);
+    justify-self: center;
+  }
+
+  .about-art-copy h2 {
+    font-size: clamp(60px, 10vw, 88px);
+  }
+
+  .portrait-side-note {
+    right: -26px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .about-art {
+    padding: 78px 0;
+  }
+
+  .about-art-shell {
+    width: calc(100% - 40px);
+  }
+
+  .about-kicker,
+  .about-index {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .about-art-composition {
+    gap: 52px;
+    padding: 58px 0;
+  }
+
+  .about-overline {
+    margin-bottom: 22px;
+    font-size: 9px;
+  }
+
+  .about-art-copy h2 {
+    font-size: clamp(48px, 13vw, 68px);
+    letter-spacing: -2.5px;
+  }
+
+  .about-art-rule {
+    margin: 26px 0 22px;
+  }
+
+  .about-art-intro {
+    font-size: 17px;
+  }
+
+  .about-art-body {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  .about-art-link {
+    margin-top: 28px;
+    font-size: 9px;
+  }
+
+  .about-art-portrait {
+    max-width: 390px;
+    padding: 12px 12px 0 0;
+  }
+
+  .about-art-portrait::before {
+    inset: 0 0 12px 12px;
+  }
+
+  .portrait-ornament {
+    top: -24px;
+    right: 0;
+    font-size: 32px;
+  }
+
+  .portrait-side-note {
+    right: -21px;
+    bottom: 90px;
+    font-size: 9px;
+  }
+
+  .portrait-caption {
+    margin-top: 17px;
+  }
+
+  .about-art-footer {
+    padding: 32px 5px 0;
+  }
+
+  .about-art-footer p {
+    font-size: 19px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+}
+  </style>
 </head>
-<body class="flex flex-col min-h-screen">
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md shadow-2xl shadow-black/50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-2">
-                <span class="text-3xl text-gradient font-heading font-bold tracking-wider">Paras Baba</span>
-            </a>
-            <div class="hidden md:flex space-x-8 text-lg">
-                <a href="#about" class="text-white hover:text-accent transition duration-300 relative group">About <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-                <a href="#philosophy" class="text-white hover:text-accent transition duration-300 relative group">Mission <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-                <a href="#schedule" class="text-white hover:text-accent transition duration-300 relative group">Schedule <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-                <a href="#videos" class="text-white hover:text-accent transition duration-300 relative group">Gallery <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-                <a href="#blogs" class="text-white hover:text-accent transition duration-300 relative group">Blogs <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-                <a href="#contact" class="text-white hover:text-accent transition duration-300 relative group">Contact <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
-            </div>
-            <button class="md:hidden text-white text-2xl" id="mobile-menu-button">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-md p-4 transition-all duration-500 ease-in-out">
-            <a href="#about" class="block py-2 hover:text-accent transition duration-300 border-b border-gray-700">About</a>
-            <a href="#philosophy" class="block py-2 hover:text-accent transition duration-300 border-b border-gray-700">Mission & Philosophy</a>
-            <a href="#schedule" class="block py-2 hover:text-accent transition duration-300 border-b border-gray-700">Katha Schedule</a>
-            <a href="#videos" class="block py-2 hover:text-accent transition duration-300 border-b border-gray-700">Gallery</a>
-            <a href="#blogs" class="block py-2 hover:text-accent transition duration-300 border-b border-gray-700">Blogs & Insights</a>
-            <a href="#contact" class="block py-2 hover:text-accent transition duration-300">Contact</a>
+
+<body>
+
+  <div class="hero-container">
+
+    <div class="hero-overlay"></div>
+
+    <!-- HEADER -->
+    <header>
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          <i class="fa-solid fa-om"></i>
         </div>
+
+        <div class="brand-title">
+          <h1>Paras Baba</h1>
+          <span>Katha Vachak • Spiritual Guru</span>
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <!-- Navigation -->
+      <ul class="nav-menu" id="primary-navigation">
+
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="./osho.html" class="nav-link">Osho</a></li>
+        <li><a href="./ashtavakra.html" class="nav-link">Ashtavakra</a></li>
+        <li><a href="#katha-events" class="nav-link">Events</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="./blog.html" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+
+      </ul>
+
+      <button class="btn-satsang">
+        Join Satsang
+      </button>
+
     </header>
-    
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <section class="hero-bg h-screen w-full flex flex-col items-center justify-center text-center px-6 relative overflow-hidden" id="hero">
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <div class="z-20 p-4">
-                <p class="text-lg sm:text-xl text-accent mb-3 animate-pulse">|| Om Namah Shivay ||</p>
-                <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl font-bold text-white mb-6 drop-shadow-lg">
-                    <span class="text-gradient">Namo Bhagvate Vasudevaye Namah</span>
-                </h1>
-                <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
-                    Embrace the path of *Dharma*, *Bhakti*, and *Gyan*. A spiritual journey with **Paras Baba**, a Shiv Bhakt and proud Hindu.
-                </p>
-                <a href="#schedule" class="px-8 py-3 bg-blue-300 text-gray-900 font-bold rounded-full text-lg shadow-xl hover:bg-white transition-all duration-300 transform hover:scale-105">
-                    View Katha Schedule <i class="fas fa-calendar-alt ml-2"></i>
-                </a>
-            </div>
-        </section>
 
-        <!-- About Us Section -->
-        <section class="py-24 px-6" id="about">
-            <div class="container mx-auto">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-accent fade-in-up">About Paras Baba: The Voice of Sanatan Dharma</h2>
-                <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
-                    <div class="lg:w-1/2 flex justify-center fade-in-up">
-                        <div class="relative w-full max-w-lg">
-                            <!-- This SVG provides a circular religious border effect -->
-                            <svg class="absolute inset-0 w-full h-full -top-4 -left-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="46" fill="none" stroke="var(--color-primary)" stroke-width="1" stroke-dasharray="8 4" class="animate-spin-slow stroke-current text-accent/50" />
-                            </svg>
-                            <img src="./assets/Gemini_Generated_Image_cxhd0dcxhd0dcxhd.png" alt="Paras Baba Portrait" class="w-full rounded-3xl border-4 border-primary shadow-2xl shadow-primary/30 transition-transform transform hover:scale-[1.02]">
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2 text-center lg:text-left fade-in-up">
-                        <h3 class="font-heading text-3xl font-bold text-white mb-4">A Devotee's Journey</h3>
-                        <p class="text-lg leading-relaxed mb-4 text-gray-300">
-                            Paras Baba is a revered spiritual teacher and **Katha Vachak** dedicated to spreading the profound wisdom of Sanatan Dharma. His powerful and heartfelt narration of sacred texts—from the deep philosophy of the **Bhagavad Gita** to the heroic narratives of the **Ramayana** and the divine insights of the **Puranas**—has become a beacon of hope and knowledge.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-4 text-gray-300">
-                            Rooted in deep devotion to Lord Shiva, he embodies the spirit of a true **Shiv Bhakt**. His mission transcends religious boundaries, focusing on unifying spiritual seekers and fostering the cultural renaissance of **Akhand Bharat** through truth, morality, and selfless service (*Seva*).
-                        </p>
-                        <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3 text-center">
-                            <span class="bg-primary/20 text-accent border border-primary rounded-full px-4 py-2 text-sm font-semibold shadow-md">Shiv Bhakt</span>
-                            <span class="bg-primary/20 text-accent border border-primary rounded-full px-4 py-2 text-sm font-semibold shadow-md">Katha Vachak</span>
-                            <span class="bg-primary/20 text-accent border border-primary rounded-full px-4 py-2 text-sm font-semibold shadow-md">Namo Vasudevaye</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- HERO CONTENT -->
+    <main class="hero-main">
+        <!-- Falling Flower Animation -->
+<div class="flower-shower" aria-hidden="true">
+  <div class="flower flower-1">
+    <img src="./assets/pushpvarsha.png" alt="">
+  </div>
 
-        <!-- Mission & Philosophy Section (New) -->
-        <section class="py-24 px-6 bg-[#121223]" id="philosophy">
-            <div class="container mx-auto">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-gradient fade-in-up">The Three Pillars of Our Mission</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    
-                    <!-- Pillar 1: Gyan (Knowledge) -->
-                    <div class="p-8 event-card rounded-2xl text-center fade-in-up" style="transition-delay: 0.1s;">
-                        <i class="fas fa-book-reader text-5xl text-accent mb-4"></i>
-                        <h3 class="font-heading text-2xl font-bold text-white mb-3">Gyan: Spreading Vedic Knowledge</h3>
-                        <p class="text-base text-gray-400">
-                            To make the deep spiritual science of the Vedas, Upanishads, and Granths accessible to the common person, bridging the gap between ancient wisdom and modern life.
-                        </p>
-                    </div>
+  <div class="flower flower-2">
+    <img src="./assets/pushpvarsha.png" alt="">
+  </div>
 
-                    <!-- Pillar 2: Bhakti (Devotion) -->
-                    <div class="p-8 event-card rounded-2xl text-center fade-in-up" style="transition-delay: 0.2s;">
-                        <i class="fas fa-hands-praying text-5xl text-accent mb-4"></i>
-                        <h3 class="font-heading text-2xl font-bold text-white mb-3">Bhakti: Cultivating Pure Devotion</h3>
-                        <p class="text-base text-gray-400">
-                            Fostering an environment of pure love and devotion to the Divine. Through *Bhajans* and *Kirtans*, we encourage a personal, heartfelt relationship with God.
-                        </p>
-                    </div>
+  <div class="flower flower-3">
+    <img src="./assets/pushpvarsha.png" alt="">
+  </div>
 
-                    <!-- Pillar 3: Seva (Selfless Service) -->
-                    <div class="p-8 event-card rounded-2xl text-center fade-in-up" style="transition-delay: 0.3s;">
-                        <i class="fas fa-hand-holding-heart text-5xl text-accent mb-4"></i>
-                        <h3 class="font-heading text-2xl font-bold text-white mb-3">Seva: Uplifting Humanity</h3>
-                        <p class="text-base text-gray-400">
-                            Committing to selfless service in the community. Our spiritual awakening must translate into compassion and action for the welfare of all beings (*Sarve Bhavantu Sukhinah*).
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="flower flower-4">
+    <img src="./assets/flower.png" alt="">
+  </div>
 
-        <!-- Upcoming Katha Schedule Section (New) -->
-        <section class="py-24 px-6" id="schedule">
-            <div class="container mx-auto">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-accent fade-in-up">Upcoming Katha Schedule</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Event 1 -->
-                    <div class="event-card rounded-2xl overflow-hidden fade-in-up" style="transition-delay: 0.1s;">
-                        <div class="bg-primary text-white py-3 text-center font-bold text-xl uppercase">
-                            <span class="block text-sm">Oct 20 - Oct 27</span>
-                            Ramcharitmanas Katha
-                        </div>
-                        <div class="p-6">
-                            <p class="font-heading text-2xl text-white mb-3">Location: Ayodhya, Uttar Pradesh, India</p>
-                            <p class="text-gray-400 mb-4">Topic: The path of Dharma as illustrated by Lord Rama. Focus on Bal Kand and Ayodhya Kand.</p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-300 mb-4">
-                                <i class="fas fa-clock text-accent"></i>
-                                <span>Time: Daily 5:00 PM - 8:00 PM IST</span>
-                            </div>
-                            <a href="#" class="inline-block w-full text-center bg-gray-700 text-white font-semibold py-2 rounded-full hover:bg-blue-400 hover:text-white transition-colors">Register for Live Stream</a>
-                        </div>
-                    </div>
+  <div class="flower flower-5">
+    <img src="./assets/pushpvarsha.png" alt="">
+  </div>
 
-                    <!-- Event 2 -->
-                    <div class="event-card rounded-2xl overflow-hidden fade-in-up" style="transition-delay: 0.3s;">
-                        <div class="bg-secondary text-white py-3 text-center font-bold text-xl uppercase">
-                            <span class="block text-sm">Nov 15 - Nov 22</span>
-                            Bhagavad Gita Mahakatha
-                        </div>
-                        <div class="p-6">
-                            <p class="font-heading text-2xl text-white mb-3">Location: Toronto, Canada (Global Tour)</p>
-                            <p class="text-gray-400 mb-4">Topic: Detailed analysis of Chapters 2 & 3 - Sankhya Yoga and Karma Yoga, focusing on selfless action.</p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-300 mb-4">
-                                <i class="fas fa-clock text-accent"></i>
-                                <span>Time: Daily 7:30 PM - 10:00 PM EST</span>
-                            </div>
-                            <a href="#" class="inline-block w-full text-center bg-gray-700 text-white font-semibold py-2 rounded-full hover:bg-blue-400 hover:text-white transition-colors">Get Local Directions</a>
-                        </div>
-                    </div>
+  <div class="flower flower-6">
+    <img src="./assets/pushpvarsha.png" alt="">
+  </div>
+</div>
 
-                    <!-- Event 3 -->
-                    <div class="event-card rounded-2xl overflow-hidden fade-in-up" style="transition-delay: 0.5s;">
-                        <div class="bg-primary/70 text-white py-3 text-center font-bold text-xl uppercase">
-                            <span class="block text-sm">Dec 5 - Dec 10</span>
-                            Shiva Puran Pravachan
-                        </div>
-                        <div class="p-6">
-                            <p class="font-heading text-2xl text-white mb-3">Location: Shiv Mandir, Maharashtra, India</p>
-                            <p class="text-gray-400 mb-4">Topic: The glory of Lord Shiva, Rudraksha Mahima, and the path of Bhole Nath's benevolence.</p>
-                            <div class="flex items-center space-x-2 text-sm text-gray-300 mb-4">
-                                <i class="fas fa-clock text-accent"></i>
-                                <span>Time: Daily 4:00 PM - 7:00 PM IST</span>
-                            </div>
-                            <a href="#" class="inline-block w-full text-center bg-gray-700 text-white font-semibold py-2 rounded-full hover:bg-blue-400 hover:text-white transition-colors">View Temple Details</a>
-                        </div>
-                    </div>
+      <div class="hero-left">
 
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Bento Grid & Videos Section -->
-        <section class="py-24 px-6 bg-[#1a1a2b]" id="videos">
-            <div class="container mx-auto">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-accent fade-in-up">Katha & Bhajans Gallery</h2>
-                <div class="bento-grid">
-                    <!-- Item 1: Featured Video (Span 2) -->
-                    <div class="bento-item span-2 relative overflow-hidden rounded-2xl fade-in-up">
-                        <img src="https://placehold.co/1200x800/2a2a3a/fcd34d?text=FEATURED+KATHA+SESSION" alt="Featured Katha Session" class="w-full h-full object-cover opacity-60 transition-opacity duration-500 hover:opacity-80">
-                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-8 text-white text-center">
-                            <i class="fas fa-play-circle text-6xl text-accent mb-4"></i>
-                            <h3 class="font-heading text-3xl font-bold">The Essence of Dharma: Bhagavad Gita Chapter 4</h3>
-                            <p class="text-md mt-2 max-w-xl text-gray-300">A deep dive into Gyan-Karma-Sanyasa Yoga. Understand the true meaning of action in knowledge.</p>
-                            <a href="#" class="mt-6 px-8 py-3 bg-accent text-gray-900 font-semibold rounded-full hover:bg-white transition-colors shadow-lg">Watch Full Katha</a>
-                        </div>
-                    </div>
-                    <!-- Item 2: Latest Bhajan Video -->
-                    <div class="bento-item p-6 rounded-2xl fade-in-up" style="transition-delay: 0.1s;">
-                        <img src="https://placehold.co/600x400/2a2a3a/c0c0c0?text=LATEST+BHAJAN" alt="Latest Bhajan" class="w-full object-cover rounded-lg mb-4">
-                        <h3 class="font-heading text-xl font-bold text-accent">New Release: Om Namah Shivay Dhun</h3>
-                        <p class="text-sm text-gray-400">A high-energy, soulful bhajan recorded live during the Maha Shivaratri festival.</p>
-                        <a href="#" class="mt-4 text-primary font-semibold hover:underline flex items-center">Watch Video <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
-                    </div>
-                    <!-- Item 3: Ramayana Katha Video -->
-                    <div class="bento-item p-6 rounded-2xl fade-in-up" style="transition-delay: 0.2s;">
-                        <img src="https://placehold.co/600x400/2a2a3a/c0c0c0?text=RAMAYANA+KATHA" alt="Ramayana Katha" class="w-full object-cover rounded-lg mb-4">
-                        <h3 class="font-heading text-xl font-bold text-accent">Ramayana Katha: Sita-Rama Vivah</h3>
-                        <p class="text-sm text-gray-400">The divine story of the marriage of Lord Rama and Devi Sita, exploring the values of commitment.</p>
-                        <a href="#" class="mt-4 text-primary font-semibold hover:underline flex items-center">Watch Video <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
-                    </div>
-                    <!-- Item 4: Upanishads Talk -->
-                    <div class="bento-item p-6 rounded-2xl fade-in-up" style="transition-delay: 0.3s;">
-                        <img src="https://placehold.co/600x400/2a2a3a/c0c0c0?text=UPANISHAD+TALK" alt="Upanishads Talk" class="w-full object-cover rounded-lg mb-4">
-                        <h3 class="font-heading text-xl font-bold text-accent">Meditative Talk: Essence of the Upanishads</h3>
-                        <p class="text-sm text-gray-400">A deep dive into the spiritual teachings on Atman (Soul) and Brahman (Absolute Reality).</p>
-                        <a href="#" class="mt-4 text-primary font-semibold hover:underline flex items-center">Watch Video <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Devotee Testimonials Section (New) -->
-        <section class="py-24 px-6" id="testimonials">
-            <div class="container mx-auto">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-gradient fade-in-up">What Devotees Say</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card p-6 rounded-2xl border-l-4 border-accent fade-in-up" style="transition-delay: 0.1s;">
-                        <i class="fas fa-quote-left text-3xl text-primary mb-4"></i>
-                        <p class="italic text-lg text-gray-300 mb-6">"Listening to Paras Baba's Katha is a transformative experience. His words brought clarity to my life and strengthened my commitment to Sanatan Dharma. The way he simplifies the Bhagavad Gita is unmatched."</p>
-                        <div class="font-bold text-white">- Rajesh Verma, Mumbai</div>
-                        <div class="text-sm text-accent">Lifetime Devotee</div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-card p-6 rounded-2xl border-l-4 border-accent fade-in-up" style="transition-delay: 0.2s;">
-                        <i class="fas fa-quote-left text-3xl text-primary mb-4"></i>
-                        <p class="italic text-lg text-gray-300 mb-6">"The Bhajans are pure *Amrit*. They instantly connect the soul to the divine. We hosted his first international session in London, and the atmosphere was truly electric with devotion and spirituality."</p>
-                        <div class="font-bold text-white">- Priya Sharma, London, UK</div>
-                        <div class="text-sm text-accent">Organizer & Seva Member</div>
-                    </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-card p-6 rounded-2xl border-l-4 border-accent fade-in-up" style="transition-delay: 0.3s;">
-                        <i class="fas fa-quote-left text-3xl text-primary mb-4"></i>
-                        <p class="italic text-lg text-gray-300 mb-6">"Paras Baba's teachings on selfless action (Karma Yoga) completely changed my perspective on work and service. He taught me that devotion is not just ritual, but the attitude we carry in every moment."</p>
-                        <div class="font-bold text-white">- Arvind Patil, Technology Professional</div>
-                        <div class="text-sm text-accent">Inspired Follower</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blogs Section -->
-        <section class="py-24 px-6 bg-[#121223]" id="blogs">
-            <div class="container mx-auto">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-accent fade-in-up">Latest Insights & Blogs</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Blog Card 1 -->
-                    <div class="blog-card rounded-xl p-6 shadow-lg fade-in-up" style="transition-delay: 0.1s;">
-                        <img src="https://placehold.co/600x300/2a2a3a/fcd34d?text=VEDIC+WISDOM" alt="Meditation Blog" class="w-full rounded-lg mb-4 border border-gray-700">
-                        <h3 class="font-heading text-2xl font-bold text-accent mb-2">The Power of Meditative Practices</h3>
-                        <p class="text-gray-400 text-sm mb-4">Discover simple meditation techniques to find inner peace and clarity in your daily life, inspired by ancient yogic texts.</p>
-                        <a href="#" class="text-primary hover:text-white transition font-semibold">Read More <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                    <!-- Blog Card 2 -->
-                    <div class="blog-card rounded-xl p-6 shadow-lg fade-in-up" style="transition-delay: 0.2s;">
-                        <img src="https://placehold.co/600x300/2a2a3a/fcd34d?text=GITA+DECODED" alt="Vedas and Granths Blog" class="w-full rounded-lg mb-4 border border-gray-700">
-                        <h3 class="font-heading text-2xl font-bold text-accent mb-2">Decoding the Vedas & Granths</h3>
-                        <p class="text-gray-400 text-sm mb-4">An introductory guide to the four Vedas, major Puranas, and the Bhagavad Gita, explained in simple terms.</p>
-                        <a href="#" class="text-primary hover:text-white transition font-semibold">Read More <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                    <!-- Blog Card 3 -->
-                    <div class="blog-card rounded-xl p-6 shadow-lg fade-in-up" style="transition-delay: 0.3s;">
-                        <img src="https://placehold.co/600x300/2a2a3a/fcd34d?text=KATHA+TRAVEL" alt="Katha Sessions Blog" class="w-full rounded-lg mb-4 border border-gray-700">
-                        <h3 class="font-heading text-2xl font-bold text-accent mb-2">Upcoming Katha Sessions</h3>
-                        <p class="text-gray-400 text-sm mb-4">Details on our next spiritual sessions, locations, and how to participate in person or online. </p>
-                        <a href="#" class="text-primary hover:text-white transition font-semibold">Read More <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-                <div class="text-center mt-12 fade-in-up">
-                    <a href="#" class="px-8 py-3 bg-blue-300 text-black font-bold rounded-full text-lg shadow-xl hover:bg-white transition-colors transform hover:scale-105">
-                        View All Blogs <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Us Section -->
-        <section class="py-24 px-6" id="contact">
-            <div class="container mx-auto">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16 text-accent fade-in-up">Connect with Us for Seva & Support</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <!-- Contact Info & Map -->
-                    <div class="space-y-8 fade-in-up">
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-map-marker-alt text-3xl text-accent pt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-xl text-white">Ashram & Headquarters</h4>
-                                <p class="text-md text-gray-400">Shiv Mandir Marg, Akhand Bharat - Global Center for Sanatan Dharma Revival.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-envelope text-3xl text-accent pt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-xl text-white">Seva & General Enquiries</h4>
-                                <p class="text-md text-gray-400">seva@parasbaba.in (For volunteering, donations & events)</p>
-                                <p class="text-md text-gray-400">info@parasbaba.in (General questions)</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <i class="fab fa-whatsapp text-3xl text-accent pt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-xl text-white">WhatsApp & Telegram</h4>
-                                <p class="text-md text-gray-400">+91 98765 43210 (India Support Line)</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Map Placeholder -->
-                        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl h-80 border-2 border-gray-700">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.000000000001!2d77.216667!3d28.613939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b00000001%3A0x199c01777085a210!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Contact Form (Completed) -->
-                    <div class="fade-in-up">
-                        <form id="contact-form" class="space-y-6 bg-gray-900 rounded-2xl p-10 shadow-2xl shadow-black/50 border border-gray-700">
-                            <p class="text-gray-300 text-lg mb-4">Send us your thoughts, Katha requests, or Seva proposals.</p>
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-accent" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-accent" required>
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                                <textarea id="message" name="message" rows="5" class="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
-                            </div>
-                            <button 
-  type="submit" 
-  class="w-full px-8 py-3 bg-blue-500 text-white font-bold rounded-full text-lg shadow-xl hover:bg-blue-600 transition-all duration-300 transform hover:scale-[1.02]">
-  Send Message <i class="fas fa-paper-plane ml-2"></i>
-</button>
-
-                        </form>
-                        <!-- Form Submission Message Placeholder -->
-                        <div id="form-message" class="mt-8 text-center text-xl font-semibold text-accent p-4 bg-gray-900 rounded-xl hidden">Thank you for connecting with Paras Baba's mission! We will respond shortly.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="bg-black/80 border-t border-primary/20 py-12 px-6">
-        <div class="container mx-auto text-center">
-            <a href="#" class="inline-block mb-6">
-                <span class="text-4xl text-gradient font-heading font-bold tracking-wider">Paras Baba</span>
-            </a>
-            <div class="flex flex-wrap justify-center space-x-6 mb-8 text-sm">
-                <a href="#about" class="text-gray-300 hover:text-accent transition duration-300">About Us</a>
-                <a href="#philosophy" class="text-gray-300 hover:text-accent transition duration-300">Mission</a>
-                <a href="#schedule" class="text-gray-300 hover:text-accent transition duration-300">Schedule</a>
-                <a href="#videos" class="text-gray-300 hover:text-accent transition duration-300">Gallery</a>
-                <a href="#blogs" class="text-gray-300 hover:text-accent transition duration-300">Blogs</a>
-                <a href="#contact" class="text-gray-300 hover:text-accent transition duration-300">Contact</a>
-            </div>
-            
-            <div class="flex justify-center space-x-6 text-2xl mb-8">
-                <a href="#" aria-label="YouTube" class="text-gray-400 hover:text-red-600 transition duration-300"><i class="fab fa-youtube"></i></a>
-                <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-blue-600 transition duration-300"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-pink-500 transition duration-300"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Telegram" class="text-gray-400 hover:text-sky-500 transition duration-300"><i class="fab fa-telegram-plane"></i></a>
-            </div>
-            
-            <div class="border-t border-gray-700 pt-6 text-sm text-gray-500">
-                &copy; 2025 Paras Baba | Dedicated to Sanatan Dharma & Akhand Bharat.
-            </div>
+        <div class="mantra">
+          || Namo Bhagvate Vasudevaye Namah ||
         </div>
+
+        <h1 class="main-heading">
+          Paras Baba
+        </h1>
+
+        <p class="sub-heading-role">
+          Katha Vachak • Spiritual Guide • Devotee of Sanatan Dharma
+        </p>
+
+        <h3 class="path-title">
+          The Path of
+        </h3>
+
+        <p class="sub-heading-role">
+          Bhakti • Gyan • Dhyan • Moksha
+        </p>
+
+        <p class="hero-description">
+          Spreading the eternal wisdom of Sanatan Dharma through Katha,
+          Bhajan and the light of the Bhagavad Gita.
+        </p>
+
+        <!-- CTA BUTTONS -->
+        <div class="cta-group">
+
+          <a href="#bhagwat-katha" class="btn-watch">
+            Watch Katha
+            <i class="fa-solid fa-play"></i>
+          </a>
+
+          <a href="#katha-events" class="btn-events">
+            <i class="fa-regular fa-calendar-days"></i>
+            Upcoming Events
+          </a>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- FOUR PILLARS -->
+    <footer class="hero-bottom">
+
+      <div class="pillars-grid">
+
+        <div class="pillar-card">
+
+          <div class="pillar-icon">
+            <i class="fa-solid fa-hands-praying"></i>
+          </div>
+
+          <div class="pillar-title">
+            Bhakti
+          </div>
+
+          <div class="pillar-desc">
+            The Love for the Divine
+          </div>
+
+        </div>
+
+        <div class="pillar-card">
+
+          <div class="pillar-icon">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+
+          <div class="pillar-title">
+            Gyan
+          </div>
+
+          <div class="pillar-desc">
+            The Wisdom of Scriptures
+          </div>
+
+        </div>
+
+        <div class="pillar-card">
+
+          <div class="pillar-icon">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+
+          <div class="pillar-title">
+            Dhyan
+          </div>
+
+          <div class="pillar-desc">
+            The Journey Within
+          </div>
+
+        </div>
+
+        <div class="pillar-card">
+
+          <div class="pillar-icon">
+            <i class="fa-solid fa-infinity"></i>
+          </div>
+
+          <div class="pillar-title">
+            Moksha
+          </div>
+
+          <div class="pillar-desc">
+            The Ultimate Liberation
+          </div>
+
+        </div>
+
+      </div>
+
+      
+
     </footer>
+ </footer>
+</div> <!-- END .hero-container -->
+<section class="about-art" id="about">
+  <div class="about-art-shell">
 
-    <script>
-        // 1. Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Small editorial header -->
+    <div class="about-art-top reveal">
+      <span class="about-kicker">THE SPIRIT BEHIND THE KATHA</span>
+      <span class="about-index">01 / ABOUT</span>
+    </div>
 
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
-            mobileMenuButton.querySelector('i').classList.toggle('fa-times');
-        });
-        
-        // Close mobile menu when a link is clicked
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.querySelector('i').classList.add('fa-bars');
-                mobileMenuButton.querySelector('i').classList.remove('fa-times');
-            });
-        });
+    <!-- Main composition -->
+    <div class="about-art-composition">
 
-        // 2. Scroll Animation (Intersection Observer)
-        const faders = document.querySelectorAll('.fade-in-up');
+      <!-- Typography -->
+      <div class="about-art-copy reveal">
+        <p class="about-overline">A life devoted to wisdom</p>
 
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
+        <h2>
+          Not just words.
+          <br />
+          <span>A way of</span>
+          <em>seeing.</em>
+        </h2>
 
-        const appearOnScroll = new IntersectionObserver(function(
-            entries, 
-            appearOnScroll
-        ) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('visible');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
+        <div class="about-art-rule">
+          <span></span>
+          <span class="about-rule-om">ॐ</span>
+        </div>
 
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
+        <p class="about-art-intro">
+          Through the timeless wisdom of Sanatan Dharma, Paras Baba
+          invites seekers to pause, reflect, and rediscover the sacred
+          within everyday life.
+        </p>
 
-        // 3. Form Submission Handling (Prevent actual submission/refresh, show message)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formMessage = document.getElementById('form-message');
-            
-            // Disable button and change text while "submitting"
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin ml-2"></i>';
-            
-            // Simulate form submission success after a delay
-            setTimeout(() => {
-                this.reset();
-                formMessage.classList.remove('hidden');
-                
-                submitButton.disabled = false;
-                submitButton.innerHTML = 'Send Message <i class="fas fa-paper-plane ml-2"></i>';
+        <p class="about-art-body">
+          In the gathering of Katha and Satsang, ancient stories become
+          living wisdom — guiding us toward devotion, compassion, clarity,
+          and a deeper connection with the Divine.
+        </p>
 
-                setTimeout(() => {
-                    formMessage.classList.add('hidden');
-                }, 5000);
-            }, 1500);
-        });
-    </script>
-    
+        <a href="#satsang" class="about-art-link">
+          <span>Step into the satsang</span>
+          <span class="about-link-arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Portrait -->
+      <div class="about-art-portrait reveal">
+        <div class="portrait-ornament">ॐ</div>
+
+        <div class="portrait-image-wrap">
+          <img
+            src="./assets/Gemini_Generated_Image_cxhd0dcxhd0dcxhd.png"
+            alt="Paras Baba sharing spiritual wisdom"
+            class="about-art-image"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="portrait-caption">
+          <span class="portrait-caption-line"></span>
+          <div>
+            <span class="portrait-caption-title">PARAS BABA</span>
+            <span class="portrait-caption-subtitle">Katha Vachak · Spiritual Guide</span>
+          </div>
+        </div>
+
+        <span class="portrait-side-note">श्रद्धा · ज्ञान · शांति</span>
+      </div>
+
+    </div>
+
+    <!-- Closing statement -->
+    <div class="about-art-footer reveal">
+      <span class="about-footer-mark">“</span>
+      <p>
+        The purpose of wisdom is not merely to be heard,
+        <br class="desktop-break" />
+        but to become a light within.
+      </p>
+      <span class="about-footer-note">A MESSAGE FOR THE SEEKER</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================
+     GALLERY — MOMENTS OF DEVOTION
+========================================= -->
+<section class="pb-gallery" id="gallery">
+
+  <div class="pb-gallery-shell">
+
+    <!-- Section intro -->
+    <div class="pb-gallery-heading">
+      <div>
+        <span class="pb-gallery-kicker">A VISUAL JOURNEY</span>
+        <h2>Moments of <em>Devotion.</em></h2>
+        <p>
+          Glimpses of Katha, Satsang, and the beautiful moments
+          shared on the path of faith.
+        </p>
+      </div>
+
+      <div class="pb-gallery-heading-note">
+        <span>श्रद्धा · भक्ति · शांति</span>
+        <span class="pb-gallery-count">01 — 04</span>
+      </div>
+    </div>
+
+    <!-- Featured editorial gallery -->
+    <div class="pb-gallery-feature">
+
+      <button
+        class="pb-gallery-image pb-gallery-feature-main"
+        type="button"
+        data-gallery-image="./assets/gallery/gallery-01.jpg"
+        data-gallery-caption="An evening immersed in the wisdom of Katha"
+        aria-label="View featured Katha photograph"
+      >
+        <img
+          src="./assets/Gemini_Generated_Image_em4m4sem4m4sem4m.png"
+          alt="Paras Baba sharing spiritual wisdom during Katha"
+          loading="lazy"
+        />
+        <span class="pb-gallery-image-label">KATHA · 01</span>
+        <span class="pb-gallery-image-arrow">↗</span>
+      </button>
+
+      <button
+        class="pb-gallery-image pb-gallery-feature-side"
+        type="button"
+        data-gallery-image="./assets/baba.png"
+        data-gallery-caption="A gathering of hearts in Satsang"
+        aria-label="View Satsang photograph"
+      >
+        <img
+          src="./assets/satsang.png"
+          alt="Devotees gathered for Satsang"
+          loading="lazy"
+        />
+        <span class="pb-gallery-image-label">SATSANG · 02</span>
+        <span class="pb-gallery-image-arrow">↗</span>
+      </button>
+
+      <div class="pb-gallery-feature-quote">
+        <span class="pb-gallery-quote-mark">“</span>
+        <p>
+          Some moments are not captured by the camera,
+          but by the heart.
+        </p>
+        <span>THE SPIRIT OF SATSANG</span>
+      </div>
+
+    </div>
+
+    <!-- Carousel: Katha moments -->
+    <div class="pb-gallery-row">
+
+      <div class="pb-gallery-row-heading">
+        <div>
+          <span class="pb-gallery-kicker">01 / THE SACRED WORD</span>
+          <h3>From the <em>Katha.</em></h3>
+        </div>
+
+        <div class="pb-gallery-controls">
+          <button class="pb-gallery-arrow" type="button" data-gallery-prev="katha" aria-label="Previous Katha images">
+            ←
+          </button>
+          <button class="pb-gallery-arrow" type="button" data-gallery-next="katha" aria-label="Next Katha images">
+            →
+          </button>
+        </div>
+      </div>
+
+      <div class="pb-gallery-track" data-gallery-track="katha">
+
+        <button class="pb-gallery-image pb-gallery-card pb-gallery-card-tall"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-03.jpg"
+          data-gallery-caption="The timeless wisdom of Sanatan Dharma">
+          <img src="./assets/gallery/gallery-03.jpg" alt="Spiritual discourse" loading="lazy" />
+          <span class="pb-gallery-image-label">THE DISCOURSE</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+        <button class="pb-gallery-image pb-gallery-card"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-04.jpg"
+          data-gallery-caption="A moment of reflection">
+          <img src="./assets/gallery/gallery-04.jpg" alt="A moment during Katha" loading="lazy" />
+          <span class="pb-gallery-image-label">REFLECTION</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+        <button class="pb-gallery-image pb-gallery-card pb-gallery-card-tall"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-05.jpg"
+          data-gallery-caption="Sharing the message of devotion">
+          <img src="./assets/gallery/gallery-05.jpg" alt="Paras Baba during a spiritual event" loading="lazy" />
+          <span class="pb-gallery-image-label">THE MESSAGE</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+        <button class="pb-gallery-image pb-gallery-card"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-06.jpg"
+          data-gallery-caption="The gathering of seekers">
+          <img src="./assets/gallery/gallery-06.jpg" alt="Seekers attending a spiritual gathering" loading="lazy" />
+          <span class="pb-gallery-image-label">THE SEEKERS</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Carousel: Satsang and community -->
+    <div class="pb-gallery-row pb-gallery-row-community">
+
+      <div class="pb-gallery-row-heading">
+        <div>
+          <span class="pb-gallery-kicker">02 / TOGETHER IN FAITH</span>
+          <h3>Life in <em>Satsang.</em></h3>
+        </div>
+
+        <div class="pb-gallery-controls">
+          <button class="pb-gallery-arrow" type="button" data-gallery-prev="satsang" aria-label="Previous Satsang images">
+            ←
+          </button>
+          <button class="pb-gallery-arrow" type="button" data-gallery-next="satsang" aria-label="Next Satsang images">
+            →
+          </button>
+        </div>
+      </div>
+
+      <div class="pb-gallery-track" data-gallery-track="satsang">
+
+        <button class="pb-gallery-image pb-gallery-card"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-07.jpg"
+          data-gallery-caption="A shared moment of devotion">
+          <img src="./assets/gallery/gallery-07.jpg" alt="Devotees sharing a devotional moment" loading="lazy" />
+          <span class="pb-gallery-image-label">DEVOTION</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+        <button class="pb-gallery-image pb-gallery-card pb-gallery-card-tall"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-08.jpg"
+          data-gallery-caption="The warmth of a spiritual gathering">
+          <img src="./assets/gallery/gallery-08.jpg" alt="A spiritual gathering" loading="lazy" />
+          <span class="pb-gallery-image-label">TOGETHER</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+        <button class="pb-gallery-image pb-gallery-card"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-09.jpg"
+          data-gallery-caption="Moments of prayer and gratitude">
+          <img src="./assets/gallery/gallery-09.jpg" alt="Prayer and gratitude during Satsang" loading="lazy" />
+          <span class="pb-gallery-image-label">GRATITUDE</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+        <button class="pb-gallery-image pb-gallery-card pb-gallery-card-tall"
+          type="button"
+          data-gallery-image="./assets/gallery/gallery-10.jpg"
+          data-gallery-caption="A memory from the spiritual journey">
+          <img src="./assets/gallery/gallery-10.jpg" alt="A memorable spiritual event" loading="lazy" />
+          <span class="pb-gallery-image-label">A MEMORY</span>
+          <span class="pb-gallery-image-arrow">↗</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Gallery footer -->
+    <div class="pb-gallery-footer">
+      <span class="pb-gallery-footer-line"></span>
+      <p>Every photograph holds a moment. Every moment holds a story.</p>
+      <span class="pb-gallery-footer-line"></span>
+    </div>
+
+  </div>
+
+  <!-- Lightbox -->
+  <div class="pb-gallery-lightbox" aria-hidden="true">
+    <button class="pb-gallery-lightbox-close" type="button" aria-label="Close image">×</button>
+    <button class="pb-gallery-lightbox-prev" type="button" aria-label="Previous image">←</button>
+
+    <figure>
+      <img class="pb-gallery-lightbox-image" src="" alt="" />
+      <figcaption class="pb-gallery-lightbox-caption"></figcaption>
+    </figure>
+
+    <button class="pb-gallery-lightbox-next" type="button" aria-label="Next image">→</button>
+  </div>
+
+</section>
+<!-- BHAGWAT KATHA VIDEOS -->
+<section class="pb-youtube-section" id="bhagwat-katha">
+  <div class="pb-youtube-container">
+
+    <div class="pb-youtube-heading">
+      <span class="pb-youtube-eyebrow">THE WISDOM OF SHRIMAD BHAGWAT</span>
+      <h2>Bhagwat <em>Katha.</em></h2>
+      <p>
+        Listen, reflect, and immerse yourself in the timeless stories
+        and teachings of Shrimad Bhagwat.
+      </p>
+    </div>
+
+    <div class="pb-youtube-toolbar">
+      <div>
+        <span class="pb-youtube-small-label">VIDEO LIBRARY</span>
+        <h3>Explore Katha Videos</h3>
+      </div>
+
+      <form class="pb-youtube-search" id="pbYoutubeSearchForm">
+        <input
+          type="search"
+          id="pbYoutubeSearch"
+          placeholder="Search Bhagwat Katha..."
+          aria-label="Search Bhagwat Katha videos"
+        />
+        <button type="submit" aria-label="Search videos">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
+
+    <div class="pb-youtube-grid" id="pbYoutubeGrid">
+      <div class="pb-youtube-status">
+        Loading Bhagwat Katha videos...
+      </div>
+    </div>
+
+    <div class="pb-youtube-footer">
+      <a
+        href="https://www.youtube.com/results?search_query=Shrimad+Bhagwat+Katha"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Explore more on YouTube <span>↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= KATHA EVENTS SECTION ================= -->
+<!-- Upcoming Katha -->
+<!-- ============ UPCOMING KATHA EVENTS ============ -->
+<section class="pb-katha-events" id="katha-events">
+  <div class="pb-katha-events-inner">
+
+    <div class="pb-katha-events-heading">
+      <span class="pb-katha-events-eyebrow">Gather in devotion</span>
+      <h2>Upcoming <em>Katha Events</em></h2>
+      <p>Join us for moments of spiritual wisdom, prayer, and togetherness.</p>
+    </div>
+
+    <!-- Event cards -->
+    <div class="pb-katha-event-grid">
+
+      <article class="pb-katha-event-card">
+        <div class="pb-katha-event-top">
+          <span class="pb-katha-event-icon">❀</span>
+          <span class="pb-katha-event-status">Upcoming</span>
+        </div>
+
+        <span class="pb-katha-event-type">Shrimad Bhagwat</span>
+        <h3>Bhagwat Katha</h3>
+        <p>A sacred journey through divine stories and timeless wisdom.</p>
+
+        <div class="pb-katha-event-meta">
+          <span>♡ Date to be announced</span>
+          <span>⌖ Venue to be announced</span>
+        </div>
+
+        <a href="#katha-booking" class="pb-katha-event-link">
+          Event details <span>↗</span>
+        </a>
+      </article>
+
+      <article class="pb-katha-event-card">
+        <div class="pb-katha-event-top">
+          <span class="pb-katha-event-icon">✿</span>
+          <span class="pb-katha-event-status">Upcoming</span>
+        </div>
+
+        <span class="pb-katha-event-type">Devotional Gathering</span>
+        <h3>Satsang</h3>
+        <p>Come together for reflection, prayer, and spiritual connection.</p>
+
+        <div class="pb-katha-event-meta">
+          <span>♡ Date to be announced</span>
+          <span>⌖ Venue to be announced</span>
+        </div>
+
+        <a href="#katha-booking" class="pb-katha-event-link">
+          Event details <span>↗</span>
+        </a>
+      </article>
+
+      <article class="pb-katha-event-card">
+        <div class="pb-katha-event-top">
+          <span class="pb-katha-event-icon">❀</span>
+          <span class="pb-katha-event-status">Upcoming</span>
+        </div>
+
+        <span class="pb-katha-event-type">Bhajan & Kirtan</span>
+        <h3>Bhakti Sandhya</h3>
+        <p>An evening of devotional music, heartfelt prayer, and bliss.</p>
+
+        <div class="pb-katha-event-meta">
+          <span>♡ Date to be announced</span>
+          <span>⌖ Venue to be announced</span>
+        </div>
+
+        <a href="#katha-booking" class="pb-katha-event-link">
+          Event details <span>↗</span>
+        </a>
+      </article>
+
+    </div>
+
+    <!-- Booking panel -->
+    <div class="pb-katha-booking" id="katha-booking">
+      <div class="pb-katha-booking-flower" aria-hidden="true">❀</div>
+
+      <div class="pb-katha-booking-copy">
+        <span class="pb-katha-events-eyebrow">You are warmly invited</span>
+        <h3>Join the next <em>divine gathering</em></h3>
+        <p>
+          Interested in attending or hosting a Katha? Get in touch
+          for event dates, venue details, and booking enquiries.
+        </p>
+      </div>
+
+      <a
+        href="https://wa.me/91XXXXXXXXXX?text=Namaste%2C%20I%20would%20like%20to%20enquire%20about%20an%20upcoming%20Katha%20event."
+        class="pb-katha-booking-button"
+        target="_blank"
+        rel="noopener"
+      >
+        Enquire / Book <span>↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+<section class="pb-contact" id="contact">
+  <div class="pb-contact-container">
+
+    <div class="pb-contact-heading">
+      <span>GET IN TOUCH</span>
+      <h2>Let's Connect</h2>
+      <p>
+        For satsang enquiries, event bookings, or any questions,
+        feel free to reach out.
+      </p>
+    </div>
+
+    <div class="pb-contact-grid">
+
+      <!-- Contact Form -->
+      <div class="pb-contact-form-wrap">
+        <h3>Send us a message</h3>
+
+        <form id="pbContactForm" novalidate>
+
+          <div class="pb-form-group">
+            <label for="pbName">Your Name</label>
+            <input
+              type="text"
+              id="pbName"
+              name="name"
+              placeholder="Enter your name"
+              minlength="2"
+              maxlength="60"
+              required
+            />
+            <small class="pb-error" id="pbNameError"></small>
+          </div>
+
+          <div class="pb-form-row">
+            <div class="pb-form-group">
+              <label for="pbEmail">Email Address</label>
+              <input
+                type="email"
+                id="pbEmail"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+              <small class="pb-error" id="pbEmailError"></small>
+            </div>
+
+            <div class="pb-form-group">
+              <label for="pbPhone">Phone Number</label>
+              <input
+                type="tel"
+                id="pbPhone"
+                name="phone"
+                placeholder="10-digit number"
+                pattern="[6-9][0-9]{9}"
+                maxlength="10"
+                required
+              />
+              <small class="pb-error" id="pbPhoneError"></small>
+            </div>
+          </div>
+
+          <div class="pb-form-group">
+            <label for="pbSubject">Subject</label>
+            <select id="pbSubject" name="subject" required>
+              <option value="">Select an enquiry</option>
+              <option value="Satsang Enquiry">Satsang Enquiry</option>
+              <option value="Event Booking">Event Booking</option>
+              <option value="General Enquiry">General Enquiry</option>
+              <option value="Other">Other</option>
+            </select>
+            <small class="pb-error" id="pbSubjectError"></small>
+          </div>
+
+          <div class="pb-form-group">
+            <label for="pbMessage">Your Message</label>
+            <textarea
+              id="pbMessage"
+              name="message"
+              rows="4"
+              minlength="10"
+              maxlength="1000"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
+            <small class="pb-error" id="pbMessageError"></small>
+          </div>
+
+          <button type="submit" class="pb-submit-btn">
+            Send Message <span>↗</span>
+          </button>
+
+          <p class="pb-form-status" id="pbFormStatus" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Map -->
+      <div class="pb-contact-map-wrap">
+        <div class="pb-map-heading">
+          <div>
+            <span>FIND US</span>
+            <h3>Our Location</h3>
+          </div>
+          <span class="pb-map-icon">⌖</span>
+        </div>
+
+        <div class="pb-map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=YOUR_LOCATION&output=embed"
+            title="Paras Baba location map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <p class="pb-map-note">
+          We welcome you to connect with us and be a part of the journey.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ============ END KATHA EVENTS ============ -->
+<!-- =============== END KATHA EVENTS SECTION =============== -->
+
+  <!-- =========================
+       MOBILE MENU JAVASCRIPT
+  ========================= -->
+<script>
+  const contactForm = document.getElementById("pbContactForm");
+
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const fields = {
+      pbName: {
+        error: "pbNameError",
+        message: "Please enter at least 2 characters.",
+        valid: value => /^[a-zA-Z\s.'-]{2,60}$/.test(value.trim())
+      },
+      pbEmail: {
+        error: "pbEmailError",
+        message: "Please enter a valid email address.",
+        valid: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
+      },
+      pbPhone: {
+        error: "pbPhoneError",
+        message: "Enter a valid 10-digit Indian mobile number.",
+        valid: value => /^[6-9]\d{9}$/.test(value.trim())
+      },
+      pbSubject: {
+        error: "pbSubjectError",
+        message: "Please select an enquiry type.",
+        valid: value => value !== ""
+      },
+      pbMessage: {
+        error: "pbMessageError",
+        message: "Message must contain at least 10 characters.",
+        valid: value => value.trim().length >= 10
+      }
+    };
+
+    let isValid = true;
+
+    Object.entries(fields).forEach(([id, config]) => {
+      const input = document.getElementById(id);
+      const error = document.getElementById(config.error);
+      const valid = config.valid(input.value);
+
+      error.textContent = valid ? "" : config.message;
+      input.style.borderColor = valid ? "#E5DCEE" : "#C04455";
+
+      if (!valid) isValid = false;
+    });
+
+    const status = document.getElementById("pbFormStatus");
+
+    if (!isValid) {
+      status.textContent = "Please correct the highlighted fields.";
+      status.style.color = "#C04455";
+      return;
+    }
+
+    status.textContent = "Your details are valid. Please connect a form service to send your message.";
+    status.style.color = "#79569F";
+
+    // Connect your backend or form service here.
+  });
+
+  contactForm.querySelectorAll("input, select, textarea").forEach(input => {
+    input.addEventListener("input", () => {
+      const error = document.getElementById(input.id + "Error");
+      if (error) {
+        error.textContent = "";
+        input.style.borderColor = "#E5DCEE";
+      }
+    });
+  });
+</script>
+  <script>
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+    const menuIcon = menuToggle.querySelector("i");
+
+    // Toggle mobile menu
+    menuToggle.addEventListener("click", () => {
+
+      const isOpen = navMenu.classList.toggle("is-open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+
+      menuIcon.classList.toggle("fa-bars", !isOpen);
+      menuIcon.classList.toggle("fa-xmark", isOpen);
+
+    });
+
+    // Close menu after clicking a navigation link
+    navMenu.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navMenu.classList.remove("is-open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+
+        menuIcon.classList.add("fa-bars");
+        menuIcon.classList.remove("fa-xmark");
+
+      });
+
+    });
+
+    // Close menu when clicking outside the header
+    document.addEventListener("click", event => {
+
+      if (
+        !event.target.closest("header") &&
+        navMenu.classList.contains("is-open")
+      ) {
+
+        navMenu.classList.remove("is-open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+
+        menuIcon.classList.add("fa-bars");
+        menuIcon.classList.remove("fa-xmark");
+
+      }
+
+    });
+
+  </script>
+  <script>
+  const youtubeGrid = document.getElementById("pbYoutubeGrid");
+  const youtubeSearch = document.getElementById("pbYoutubeSearch");
+  const youtubeSearchForm = document.getElementById("pbYoutubeSearchForm");
+
+  // Add your Google YouTube Data API key here.
+  const YOUTUBE_API_KEY = "YOUR_YOUTUBE_API_KEY";
+
+  const YOUTUBE_API_URL =
+    "https://www.googleapis.com/youtube/v3/search";
+
+  async function fetchKathaVideos(query = "Shrimad Bhagwat Katha") {
+    youtubeGrid.innerHTML = `
+      <div class="pb-youtube-status">
+        Gathering spiritual videos...
+      </div>
+    `;
+
+    try {
+      const params = new URLSearchParams({
+        part: "snippet",
+        q: query,
+        type: "video",
+        maxResults: "12",
+        order: "relevance",
+        videoEmbeddable: "true",
+        key: YOUTUBE_API_KEY
+      });
+
+      const response = await fetch(
+        `${YOUTUBE_API_URL}?${params.toString()}`
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || data.error) {
+        throw new Error(
+          data.error?.message || "Unable to load YouTube videos."
+        );
+      }
+
+      const videos = data.items || [];
+
+      if (!videos.length) {
+        youtubeGrid.innerHTML = `
+          <div class="pb-youtube-status">
+            No videos found. Try another search.
+          </div>
+        `;
+        return;
+      }
+
+      renderKathaVideos(videos);
+
+    } catch (error) {
+      console.error("YouTube API error:", error);
+
+      youtubeGrid.innerHTML = `
+        <div class="pb-youtube-status">
+          <h3>Videos are temporarily unavailable</h3>
+          <p>${escapeYoutubeHTML(error.message)}</p>
+          <br>
+          <button class="filter-btn" onclick="fetchKathaVideos()">
+            Try again
+          </button>
+        </div>
+      `;
+    }
+  }
+
+  function renderKathaVideos(videos) {
+    youtubeGrid.innerHTML = videos.map(video => {
+      const videoId = video.id?.videoId;
+      const snippet = video.snippet || {};
+
+      if (!videoId) return "";
+
+      const thumbnail =
+        snippet.thumbnails?.high?.url ||
+        snippet.thumbnails?.medium?.url ||
+        snippet.thumbnails?.default?.url ||
+        "";
+
+      const title = snippet.title || "Bhagwat Katha";
+      const channel = snippet.channelTitle || "YouTube Channel";
+
+      return `
+        <article class="pb-youtube-card">
+
+          <a
+            class="pb-youtube-thumbnail"
+            href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch ${escapeYoutubeHTML(title)}"
+          >
+            <img
+              src="${escapeYoutubeHTML(thumbnail)}"
+              alt="${escapeYoutubeHTML(title)}"
+              loading="lazy"
+            >
+
+            <span class="pb-youtube-play">
+              <i class="fa-solid fa-play"></i>
+            </span>
+          </a>
+
+          <div class="pb-youtube-card-content">
+
+            <span class="pb-youtube-channel">
+              ${escapeYoutubeHTML(channel)}
+            </span>
+
+            <h4>${escapeYoutubeHTML(title)}</h4>
+
+            <a
+              class="pb-youtube-watch"
+              href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch Katha <span>↗</span>
+            </a>
+
+          </div>
+        </article>
+      `;
+    }).join("");
+  }
+
+  function escapeYoutubeHTML(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    })[character]);
+  }
+
+  youtubeSearchForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const query = youtubeSearch.value.trim();
+
+    if (query.length >= 2) {
+      fetchKathaVideos(query);
+    } else {
+      fetchKathaVideos();
+    }
+  });
+
+  // Load Bhagwat Katha videos when the page opens.
+  fetchKathaVideos();
+</script>
+  <script>
+  // =========================================
+  // PARAS BABA — GALLERY CAROUSELS + LIGHTBOX
+  // =========================================
+
+  // Carousel navigation
+  document.querySelectorAll("[data-gallery-next]").forEach(button => {
+    button.addEventListener("click", () => {
+      const trackName = button.dataset.galleryNext;
+      const track = document.querySelector(
+        `[data-gallery-track="${trackName}"]`
+      );
+
+      if (!track) return;
+
+      track.scrollBy({
+        left: track.clientWidth * 0.8,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-gallery-prev]").forEach(button => {
+    button.addEventListener("click", () => {
+      const trackName = button.dataset.galleryPrev;
+      const track = document.querySelector(
+        `[data-gallery-track="${trackName}"]`
+      );
+
+      if (!track) return;
+
+      track.scrollBy({
+        left: -track.clientWidth * 0.8,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  // Lightbox
+  const galleryLightbox = document.querySelector(".pb-gallery-lightbox");
+  const galleryLightboxImage = document.querySelector(".pb-gallery-lightbox-image");
+  const galleryLightboxCaption = document.querySelector(".pb-gallery-lightbox-caption");
+
+  const galleryImages = Array.from(
+    document.querySelectorAll(".pb-gallery [data-gallery-image]")
+  );
+
+  let activeGalleryIndex = 0;
+
+  function showGalleryImage(index) {
+    activeGalleryIndex = (index + galleryImages.length) % galleryImages.length;
+
+    const selectedImage = galleryImages[activeGalleryIndex];
+
+    galleryLightboxImage.src = selectedImage.dataset.galleryImage;
+    galleryLightboxImage.alt =
+      selectedImage.querySelector("img")?.alt || "Gallery photograph";
+
+    galleryLightboxCaption.textContent =
+      selectedImage.dataset.galleryCaption || "";
+
+    galleryLightbox.classList.add("is-open");
+    galleryLightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeGalleryLightbox() {
+    galleryLightbox.classList.remove("is-open");
+    galleryLightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  galleryImages.forEach((image, index) => {
+    image.addEventListener("click", () => showGalleryImage(index));
+  });
+
+  document.querySelector(".pb-gallery-lightbox-close")
+    .addEventListener("click", closeGalleryLightbox);
+
+  document.querySelector(".pb-gallery-lightbox-prev")
+    .addEventListener("click", () => {
+      showGalleryImage(activeGalleryIndex - 1);
+    });
+
+  document.querySelector(".pb-gallery-lightbox-next")
+    .addEventListener("click", () => {
+      showGalleryImage(activeGalleryIndex + 1);
+    });
+
+  galleryLightbox.addEventListener("click", event => {
+    if (event.target === galleryLightbox) {
+      closeGalleryLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (!galleryLightbox.classList.contains("is-open")) return;
+
+    if (event.key === "Escape") {
+      closeGalleryLightbox();
+    }
+
+    if (event.key === "ArrowRight") {
+      showGalleryImage(activeGalleryIndex + 1);
+    }
+
+    if (event.key === "ArrowLeft") {
+      showGalleryImage(activeGalleryIndex - 1);
+    }
+  });
+</script>
+
 </body>
 </html>

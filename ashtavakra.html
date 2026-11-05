@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#e9e4d8" />
+<meta name="description" content="An immersive exploration of Sage Ashtavakra, the Ashtavakra Gita, and the radical non-dual wisdom of Advaita Vedanta." />
+<title>Ashtavakra — The Unbound Self</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="./styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#e9e4d8;--paper2:#f4f0e7;--ink:#20251f;--muted:#62665b;--green:#344d3d;--green2:#526b56;--rust:#a65c3d;--line:rgba(32,37,31,.18);--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif;--mono:'DM Mono',monospace;--gutter:clamp(20px,5.4vw,88px);--max:1440px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:90px}body{background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:clip}img,svg{max-width:100%;display:block}button,a{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--rust);outline-offset:4px}.shell{width:min(var(--max),100% - 2*var(--gutter));margin-inline:auto}.eyebrow{font:500 .68rem var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--rust);display:flex;gap:12px;align-items:center}.eyebrow:before{content:'';width:26px;height:1px;background:currentColor}.masthead{position:absolute;z-index:5;top:0;left:0;width:100%;padding:25px var(--gutter);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(32,37,31,.12)}.brand{font:500 1rem var(--serif);letter-spacing:.02em}.brand small{font: .58rem var(--mono);letter-spacing:.13em;display:block;margin-top:3px;color:var(--muted)}.nav{display:flex;gap:clamp(14px,2.5vw,36px);align-items:center;font-size:.72rem;color:var(--muted)}.nav a:hover{color:var(--rust)}.nav-toggle{display:none;border:1px solid var(--line);background:transparent;padding:10px 12px;color:var(--ink)}
+/* HERO — deliberately architectural, not the previous mandala aesthetic */
+.hero{min-height:min(900px,100svh);padding:150px 0 80px;position:relative;isolation:isolate;overflow:hidden;background:var(--paper)}.hero:before{content:'अहं';position:absolute;z-index:-1;right:-.04em;top:12%;font:clamp(15rem,39vw,40rem)/.8 var(--serif);color:rgba(52,77,61,.055);pointer-events:none}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.8fr);gap:clamp(36px,8vw,130px);align-items:center}.hero-copy{padding-block:35px}.hero h1{font:400 clamp(4rem,10.2vw,10rem)/.88 var(--serif);letter-spacing:-.065em;margin:28px 0 26px;max-width:850px}.hero h1 em{font-weight:400;color:var(--green);display:block;padding-left:clamp(20px,5vw,76px)}.hero-lede{font-size:clamp(.95rem,1.2vw,1.1rem);line-height:1.85;color:var(--muted);max-width:490px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 19px;border:1px solid var(--green);background:var(--green);color:var(--paper2);font-size:.72rem;letter-spacing:.04em;transition:transform .25s,background .25s,color .25s}.button:hover{transform:translateY(-3px);background:transparent;color:var(--green)}.button.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.button.secondary:hover{border-color:var(--rust);color:var(--rust)}.hero-art{min-height:clamp(350px,46vw,620px);position:relative;display:grid;place-items:center}.art-frame{width:min(100%,520px);aspect-ratio:4/5;position:relative;background:var(--green);overflow:hidden;clip-path:polygon(0 0,100% 0,100% 86%,83% 100%,0 100%)}.art-frame:before{content:'';position:absolute;inset:8%;border:1px solid rgba(233,228,216,.38)}.art-frame:after{content:'';position:absolute;width:75%;aspect-ratio:1;border:1px solid rgba(233,228,216,.32);border-radius:50%;left:12%;top:12%;box-shadow:0 0 0 25px rgba(233,228,216,.035),0 0 0 60px rgba(233,228,216,.025)}.figure{position:absolute;inset:0;display:grid;place-items:center;color:var(--paper);font:italic clamp(7rem,18vw,15rem)/1 var(--serif);opacity:.92}.figure span{transform:translate(-3%,-4%)}.art-label{position:absolute;bottom:7%;left:12%;right:12%;display:flex;justify-content:space-between;align-items:end;color:rgba(233,228,216,.78);font: .58rem var(--mono);letter-spacing:.12em;text-transform:uppercase;z-index:1}.vertical-note{position:absolute;right:-22px;top:18%;writing-mode:vertical-rl;font: .6rem var(--mono);letter-spacing:.15em;color:var(--rust)}.hero-foot{display:flex;justify-content:space-between;align-items:center;margin-top:clamp(45px,7vw,90px);padding-top:18px;border-top:1px solid var(--line);font: .62rem var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}.scroll-mark{display:flex;align-items:center;gap:10px}.scroll-mark:before{content:'';height:30px;width:1px;background:var(--rust)}
+/* Core ideas */
+.section{padding:clamp(76px,11vw,160px) 0}.section-head{display:grid;grid-template-columns:1fr minmax(220px,420px);gap:40px;align-items:end;margin-bottom:clamp(36px,6vw,78px)}.section h2{font:400 clamp(2.8rem,6.2vw,6rem)/.98 var(--serif);letter-spacing:-.045em}.section h2 em{color:var(--green);font-weight:400}.section-intro{font-size:.88rem;line-height:1.9;color:var(--muted);max-width:420px}.dark{background:var(--green);color:var(--paper2)}.dark .eyebrow{color:#d6a27f}.dark .section-intro{color:rgba(244,240,231,.68)}.dark h2 em{color:#d6c7a5}.principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(244,240,231,.25);border-bottom:1px solid rgba(244,240,231,.25)}.principle{padding:26px 22px 30px 0;min-width:0}.principle+.principle{padding-left:22px;border-left:1px solid rgba(244,240,231,.2)}.principle .num{font: .65rem var(--mono);color:#d6a27f}.principle h3{font:400 clamp(1.25rem,2vw,2rem) var(--serif);margin:26px 0 12px}.principle p{font-size:.78rem;line-height:1.8;color:rgba(244,240,231,.68)}.note-line{margin-top:30px;font: .65rem var(--mono);letter-spacing:.04em;color:rgba(244,240,231,.55)}
+/* Dialogue */
+.dialogue-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(35px,8vw,120px);align-items:start}.dialogue-aside{position:sticky;top:35px}.dialogue-aside .big-number{font:400 clamp(5rem,12vw,11rem)/.8 var(--serif);color:var(--rust);letter-spacing:-.08em;margin:28px 0}.dialogue-aside p{max-width:290px;color:var(--muted);font-size:.83rem;line-height:1.9}.dialogue{border-top:1px solid var(--line)}.exchange{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid var(--line)}.speaker{font: .62rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--rust);padding-top:5px}.exchange blockquote{font:400 clamp(1.2rem,2.2vw,2rem)/1.45 var(--serif)}.exchange p{font-size:.78rem;line-height:1.8;color:var(--muted);margin-top:12px;max-width:650px}.citation-note{font-size:.65rem;color:var(--muted);margin-top:22px;line-height:1.7}
+/* Chapter map */
+.chapter-intro{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}.chapter-intro p{max-width:360px;color:var(--muted);font-size:.8rem;line-height:1.8}.chapter-list{border-top:1px solid var(--line)}.chapter{display:grid;grid-template-columns:70px minmax(0,1fr) 28px;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}.chapter-num{font: .65rem var(--mono);color:var(--rust)}.chapter h3{font:400 clamp(1.1rem,1.8vw,1.55rem) var(--serif)}.chapter p{font-size:.72rem;color:var(--muted);line-height:1.65;margin-top:5px}.chapter .arrow{color:var(--rust);font-size:1.1rem;transition:transform .2s}.chapter:hover .arrow{transform:translateX(4px)}.chapter-extra{display:none;padding:0 0 20px 88px;color:var(--muted);font-size:.78rem;line-height:1.8}.chapter.open .chapter-extra{display:block}.chapter button{display:contents;text-align:left;color:inherit;background:none;border:0}
+/* Story */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,7vw,100px);align-items:center}.story-graphic{min-height:430px;background:#d9d2c3;position:relative;overflow:hidden;display:grid;place-items:center}.story-graphic:before{content:'';position:absolute;width:68%;aspect-ratio:1;border:1px solid rgba(52,77,61,.45);border-radius:50%;box-shadow:0 0 0 24px rgba(52,77,61,.04),0 0 0 52px rgba(52,77,61,.04)}.story-graphic:after{content:'८';position:absolute;font:clamp(10rem,22vw,20rem)/1 var(--serif);color:rgba(52,77,61,.17);transform:rotate(-12deg)}.story-graphic span{position:absolute;bottom:22px;left:24px;font:.6rem var(--mono);letter-spacing:.1em;color:var(--green);z-index:1}.story-copy h2{margin:22px 0}.story-copy p{color:var(--muted);font-size:.85rem;line-height:1.9;margin-top:16px}.fact-list{margin-top:26px;border-top:1px solid var(--line)}.fact{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.75rem;line-height:1.7}.fact strong{font: .62rem var(--mono);color:var(--rust);text-transform:uppercase;letter-spacing:.06em}
+/* contemplative practice */
+.practice{background:#d8d1c2}.practice-box{display:grid;grid-template-columns:1fr auto;gap:35px;align-items:center;border:1px solid rgba(32,37,31,.25);padding:clamp(28px,5vw,65px)}.practice-box h2{font:400 clamp(2.4rem,5vw,4.8rem)/1 var(--serif);margin:18px 0}.practice-box p{max-width:600px;color:var(--muted);font-size:.83rem;line-height:1.9}.practice-action{display:grid;justify-items:center;gap:12px}.breath-orb{width:100px;aspect-ratio:1;border:1px solid var(--green);border-radius:50%;display:grid;place-items:center;color:var(--green);font:italic 1.7rem var(--serif);animation:breathe 8s ease-in-out infinite}.practice-action small{font:.58rem var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}.practice-message{margin-top:18px;min-height:28px;color:var(--green)!important;font-style:italic}
+.footer{padding:35px 0 45px;background:var(--ink);color:var(--paper2)}.footer-row{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer p{font: .62rem var(--mono);letter-spacing:.05em;color:rgba(244,240,231,.55)}.footer strong{font:400 1.2rem var(--serif)}.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:none}@keyframes breathe{0%,100%{transform:scale(.88);opacity:.72}50%{transform:scale(1.08);opacity:1}}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr .78fr;gap:35px}.hero h1{font-size:clamp(4rem,10vw,7rem)}.principles{grid-template-columns:repeat(2,minmax(0,1fr))}.principle:nth-child(3){border-left:0;padding-left:0;border-top:1px solid rgba(244,240,231,.2)}.principle:nth-child(4){border-top:1px solid rgba(244,240,231,.2)}.dialogue-layout{grid-template-columns:.6fr 1.4fr;gap:35px}.story-grid{gap:35px}}
+@media(max-width:700px){:root{--gutter:22px}.masthead{padding-block:17px}.nav{display:none;position:absolute;top:100%;left:0;right:0;padding:18px var(--gutter);background:var(--paper2);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:17px}.nav.open{display:flex}.nav-toggle{display:block}.hero{padding:112px 0 48px;min-height:auto}.hero-grid{grid-template-columns:1fr;gap:24px}.hero-copy{padding-block:18px 0}.hero h1{font-size:clamp(3.8rem,17vw,7rem);margin:22px 0}.hero h1 em{padding-left:8vw}.hero-art{min-height:0;width:min(84%,420px);margin:0 auto}.art-frame{aspect-ratio:4/4.6}.vertical-note{right:-20px}.hero-foot{margin-top:38px;font-size:.52rem}.section{padding:76px 0}.section-head{grid-template-columns:1fr;gap:18px;margin-bottom:34px}.section h2{font-size:clamp(2.8rem,12vw,5rem)}.principles{grid-template-columns:1fr}.principle,.principle+.principle,.principle:nth-child(3),.principle:nth-child(4){padding:22px 0;border-left:0;border-top:1px solid rgba(244,240,231,.2)}.principle:first-child{border-top:0}.principle h3{margin:14px 0 8px}.dialogue-layout{grid-template-columns:1fr;gap:30px}.dialogue-aside{position:static}.dialogue-aside .big-number{font-size:6rem;margin:18px 0}.dialogue-aside p{max-width:520px}.exchange{grid-template-columns:65px 1fr;gap:12px;padding:20px 0}.exchange blockquote{font-size:1.25rem}.chapter-intro{align-items:start;flex-direction:column}.chapter{grid-template-columns:42px minmax(0,1fr) 18px;gap:10px;padding:16px 0}.chapter-extra{padding:0 0 18px 52px}.story-grid{grid-template-columns:1fr}.story-graphic{min-height:300px;order:2}.story-copy{order:1}.fact{grid-template-columns:85px 1fr}.practice-box{grid-template-columns:1fr;padding:25px}.practice-action{justify-items:start;display:flex;align-items:center}.breath-orb{width:64px;font-size:1.2rem}.footer-row{align-items:flex-start;flex-direction:column;gap:14px}}
+@media(max-width:380px){:root{--gutter:17px}.hero h1{font-size:3.5rem}.hero-actions .button{width:100%}.exchange{grid-template-columns:1fr;gap:8px}.fact{grid-template-columns:1fr;gap:3px}.hero-foot{align-items:flex-start;gap:14px;flex-direction:column}}
+@media(hover:none){.button:hover{transform:none;background:var(--green);color:var(--paper2)}.button.secondary:hover{background:transparent;color:var(--ink)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* RESPONSIVE REFINEMENT — fluid across phones, tablets, laptops and ultrawide screens */
+:root{
+  --gutter:clamp(16px,4.5vw,76px);
+  --section-space:clamp(56px,8vw,132px);
+}
+html{scroll-padding-top:clamp(68px,8vw,100px);overflow-x:clip}
+body{min-width:320px;overflow-wrap:anywhere}
+.shell{width:min(var(--max),calc(100% - 2 * var(--gutter)))}
+.hero{min-height:clamp(640px,100svh,980px);padding-top:clamp(105px,12vw,160px)}
+.hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.82fr);gap:clamp(28px,5vw,90px)}
+.hero-copy,.hero-art,.story-copy,.section-head>*{min-width:0}
+.hero h1{font-size:clamp(3.4rem,8.6vw,9.5rem);max-width:100%;text-wrap:balance}
+.hero h1 em{padding-left:clamp(10px,4vw,68px)}
+.hero-lede,.section-intro,.dialogue-aside p,.exchange p,.chapter-intro p,.story-copy p,.practice-box p{max-width:100%}
+.hero-art{min-height:clamp(320px,43vw,620px)}
+.art-frame{width:min(100%,520px)}
+.vertical-note{right:clamp(-22px,-1.5vw,-8px)}
+.hero-foot{gap:18px;flex-wrap:wrap}
+.section{padding-block:var(--section-space)}
+.section-head{grid-template-columns:minmax(0,1fr) minmax(220px,.65fr);gap:clamp(22px,4vw,60px)}
+.section h2{font-size:clamp(2.5rem,5.8vw,6rem);text-wrap:balance}
+.principles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.principle{min-width:0;padding-inline:clamp(10px,1.5vw,22px)}
+.principle:first-child{padding-left:0}
+.dialogue-layout{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(28px,6vw,100px)}
+.exchange{grid-template-columns:clamp(64px,7vw,90px) minmax(0,1fr)}
+.chapter{grid-template-columns:clamp(42px,5vw,70px) minmax(0,1fr) 24px}
+.chapter button{display:grid;grid-column:1/-1;grid-template-columns:inherit;gap:inherit;align-items:center;width:100%;min-width:0}
+.chapter-extra{padding-left:calc(clamp(42px,5vw,70px) + 18px)}
+.story-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,85px)}
+.story-graphic{min-height:clamp(300px,38vw,520px)}
+.fact{grid-template-columns:clamp(78px,8vw,110px) minmax(0,1fr)}
+.practice-box{grid-template-columns:minmax(0,1fr) auto;gap:clamp(22px,4vw,55px)}
+.practice-action{min-width:0;max-width:260px}
+.practice-action .button{white-space:normal;text-align:center}
+.footer-row{gap:20px;flex-wrap:wrap}
+/* Tablet landscape / small laptop */
+@media(max-width:1100px){
+ .hero{min-height:auto}
+ .hero-grid{grid-template-columns:minmax(0,1fr) minmax(260px,.8fr);gap:30px}
+ .hero h1{font-size:clamp(3.6rem,8.5vw,6.8rem)}
+ .principles{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .principle:nth-child(3){border-left:0;padding-left:0;border-top:1px solid rgba(244,240,231,.2)}
+ .principle:nth-child(4){border-top:1px solid rgba(244,240,231,.2)}
+ .dialogue-layout{grid-template-columns:minmax(0,.55fr) minmax(0,1.45fr);gap:28px}
+ .story-grid{gap:30px}
+}
+/* Tablet portrait and mobile */
+@media(max-width:760px){
+ :root{--gutter:clamp(17px,5vw,28px);--section-space:clamp(58px,12vw,88px)}
+ .masthead{padding:16px var(--gutter)}
+ .brand{font-size:.95rem}
+ .nav{display:none;position:absolute;top:100%;left:0;right:0;padding:20px var(--gutter);background:var(--paper2);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(32,37,31,.08);flex-direction:column;align-items:stretch;gap:0}
+ .nav.open{display:flex}
+ .nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:.78rem}
+ .nav a:last-child{border-bottom:0}
+ .nav-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:76px;min-height:42px}
+ .hero{padding:clamp(100px,17vw,130px) 0 44px;min-height:auto}
+ .hero-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+ .hero-copy{padding:8px 0 0}
+ .hero h1{font-size:clamp(3.5rem,15vw,7rem);line-height:.9;margin:20px 0 22px}
+ .hero h1 em{padding-left:clamp(8px,8vw,44px)}
+ .hero-lede{font-size:clamp(.9rem,2.5vw,1rem);line-height:1.75}
+ .hero-actions{gap:10px;margin-top:24px}
+ .hero-actions .button{flex:1 1 180px;min-height:46px}
+ .hero-art{width:min(86%,440px);min-height:0;margin:8px auto 0}
+ .art-frame{aspect-ratio:4/4.5}
+ .figure{font-size:clamp(7rem,30vw,12rem)}
+ .vertical-note{right:-20px;top:12%}
+ .hero-foot{margin-top:35px;padding-top:15px;font-size:.56rem}
+ .section-head{grid-template-columns:minmax(0,1fr);gap:16px;margin-bottom:32px}
+ .section h2{font-size:clamp(2.7rem,11vw,5rem)}
+ .section-intro{font-size:.84rem}
+ .principles{grid-template-columns:minmax(0,1fr)}
+ .principle,.principle+.principle,.principle:nth-child(3),.principle:nth-child(4){padding:21px 0;border-left:0;border-top:1px solid rgba(244,240,231,.2)}
+ .principle:first-child{border-top:0}
+ .principle h3{margin:13px 0 8px;font-size:1.55rem}
+ .dialogue-layout{grid-template-columns:minmax(0,1fr);gap:26px}
+ .dialogue-aside{position:static}
+ .dialogue-aside .big-number{font-size:clamp(4.5rem,18vw,7rem);margin:16px 0}
+ .exchange{grid-template-columns:clamp(58px,18vw,78px) minmax(0,1fr);gap:12px;padding:20px 0}
+ .exchange blockquote{font-size:clamp(1.15rem,4.5vw,1.5rem)}
+ .chapter-intro{align-items:flex-start;flex-direction:column;gap:14px}
+ .chapter{grid-template-columns:38px minmax(0,1fr) 20px;gap:10px;padding:15px 0}
+ .chapter button{grid-template-columns:inherit;gap:inherit}
+ .chapter h3{font-size:clamp(1.05rem,4.2vw,1.35rem)}
+ .chapter p{font-size:.68rem}
+ .chapter-extra{padding:0 0 17px 48px;font-size:.75rem}
+ .story-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+ .story-graphic{min-height:clamp(250px,70vw,360px);order:2}
+ .story-copy{order:1}
+ .story-copy h2{font-size:clamp(2.7rem,11vw,4.6rem)}
+ .fact{grid-template-columns:clamp(76px,23vw,100px) minmax(0,1fr);gap:12px;font-size:.72rem}
+ .practice-box{grid-template-columns:minmax(0,1fr);padding:clamp(22px,6vw,34px);gap:24px}
+ .practice-box h2{font-size:clamp(2.4rem,9vw,4rem)}
+ .practice-action{display:flex;flex-wrap:wrap;flex-direction:row;justify-items:start;align-items:center;max-width:none;gap:12px}
+ .breath-orb{width:58px;font-size:1rem;flex:0 0 auto}
+ .practice-action small{flex:1 1 100px}
+ .practice-action .button{flex:1 1 100%;min-height:46px}
+ .footer-row{align-items:flex-start;flex-direction:column;gap:12px}
+}
+/* Narrow phones */
+@media(max-width:420px){
+ .hero h1{font-size:clamp(3.15rem,15.5vw,4.3rem);letter-spacing:-.07em}
+ .eyebrow{font-size:.58rem;letter-spacing:.09em;gap:8px}
+ .eyebrow:before{width:18px}
+ .hero-actions{flex-direction:column}
+ .hero-actions .button{width:100%;flex-basis:auto}
+ .hero-foot{align-items:flex-start;flex-direction:column;gap:12px}
+ .exchange{grid-template-columns:minmax(0,1fr);gap:7px}
+ .fact{grid-template-columns:minmax(0,1fr);gap:3px}
+ .fact strong{font-size:.58rem}
+ .chapter{grid-template-columns:30px minmax(0,1fr) 16px;gap:8px}
+ .chapter button{grid-template-columns:inherit;gap:inherit}
+ .chapter-extra{padding-left:38px}
+ .art-label{font-size:.48rem;letter-spacing:.07em}
+ .practice-action{align-items:flex-start}
+}
+/* Smallest supported viewport */
+@media(max-width:340px){
+ :root{--gutter:14px}
+ .brand{font-size:.86rem}
+ .nav-toggle{min-width:68px;padding:8px}
+ .hero h1{font-size:3rem}
+ .chapter h3{font-size:1rem}
+}
+@media(hover:none){.button:hover{transform:none}.chapter:hover .arrow{transform:none}}
+
+
+/* =========================================================
+   STRUCTURE + RESPONSIVE REFINEMENT
+   Clear section rhythm, resilient grids, accessible controls
+========================================================= */
+:root{--content-width:min(1280px,calc(100% - 2 * var(--gutter)));--section-space:clamp(4.25rem,9vw,9rem)}
+.shell{width:var(--content-width)}
+section[id]{scroll-margin-top:clamp(76px,9vw,110px)}
+.section{padding-block:var(--section-space)}
+.hero-grid>*,.section-head>*,.dialogue-layout>*,.story-grid>*,.practice-box>*{min-width:0}
+.hero-copy,.story-copy,.dialogue,.section-head>div{min-width:0}
+.hero h1{max-width:10ch;text-wrap:balance}
+.hero-lede,.section-intro,.principle p,.exchange p,.chapter p,.story-copy p,.practice-box p{overflow-wrap:anywhere}
+.hero-art{min-width:0}.art-frame{width:100%;max-width:500px}
+.principles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.principle{padding:clamp(18px,2.3vw,30px)}.principle+.principle{padding-left:clamp(18px,2.3vw,30px)}
+.exchange{grid-template-columns:minmax(72px,.22fr) minmax(0,1fr)}
+.chapter button{display:grid;grid-template-columns:inherit;align-items:center;width:100%;min-height:54px;padding:0;text-align:left}
+.chapter button:focus-visible{outline-offset:5px}.chapter-extra{padding-left:calc(70px + 18px)}
+.story-graphic{min-width:0;min-height:clamp(280px,36vw,500px)}
+.practice-box,.practice-action{min-width:0;max-width:100%}.practice-action .button{max-width:100%;white-space:normal;text-align:center}
+.footer{padding-block:28px}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+img{height:auto}button,a{-webkit-tap-highlight-color:transparent}
+@media(max-width:1100px){
+ :root{--gutter:clamp(24px,4vw,48px)}.hero{padding-top:clamp(125px,15vw,165px)}
+ .hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:clamp(28px,4vw,55px)}
+ .hero h1{font-size:clamp(4rem,8.5vw,7rem)}.principles{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .principle:nth-child(3){border-left:0}.principle:nth-child(3),.principle:nth-child(4){border-top:1px solid rgba(244,240,231,.2)}
+ .dialogue-layout{grid-template-columns:minmax(180px,.65fr) minmax(0,1.35fr)}.story-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media(max-width:760px){
+ :root{--gutter:clamp(18px,5vw,28px);--section-space:clamp(4rem,12vw,6rem)}
+ .masthead{position:absolute;gap:16px;padding-inline:var(--gutter)}.brand{font-size:.95rem}
+ .nav{max-height:calc(100svh - 75px);overflow-y:auto}
+ .hero{padding:105px 0 42px;min-height:auto}.hero-grid{grid-template-columns:minmax(0,1fr);gap:clamp(24px,7vw,42px)}
+ .hero-copy{padding:12px 0 0}.hero h1{font-size:clamp(3.55rem,14vw,6.5rem);max-width:9ch;line-height:.91}
+ .hero h1 em{padding-left:clamp(12px,7vw,48px)}.hero-lede{max-width:60ch;font-size:clamp(.9rem,2.3vw,1rem)}
+ .hero-art{width:min(100%,430px);margin-inline:auto;min-height:0}.art-frame{aspect-ratio:4/4.6}
+ .vertical-note{right:-16px;font-size:.52rem}.hero-foot{margin-top:34px;gap:14px;align-items:flex-start}
+ .section-head{grid-template-columns:minmax(0,1fr);gap:18px}.section h2{font-size:clamp(2.65rem,10.5vw,4.6rem)}
+ .principles{grid-template-columns:minmax(0,1fr)}
+ .principle,.principle+.principle,.principle:nth-child(3),.principle:nth-child(4){padding:22px 0;border-left:0;border-top:1px solid rgba(244,240,231,.2)}.principle:first-child{border-top:0}
+ .principle h3{margin:13px 0 8px}.dialogue-layout{grid-template-columns:minmax(0,1fr);gap:28px}.dialogue-aside{position:static}
+ .dialogue-aside .big-number{font-size:clamp(4.5rem,18vw,7rem);margin:20px 0}
+ .exchange{grid-template-columns:minmax(0,1fr);gap:8px}.exchange blockquote{font-size:clamp(1.2rem,4.8vw,1.7rem)}
+ .chapter-intro{flex-direction:column;align-items:flex-start}.chapter{grid-template-columns:34px minmax(0,1fr) 18px;gap:10px}
+ .chapter button{grid-template-columns:inherit;gap:inherit}.chapter-extra{padding-left:44px}
+ .story-grid{grid-template-columns:minmax(0,1fr);gap:30px}.story-graphic{order:2;min-height:clamp(250px,70vw,390px)}.story-copy{order:1}
+ .fact{grid-template-columns:minmax(0,1fr);gap:4px}.practice-box{grid-template-columns:minmax(0,1fr);gap:28px;padding:clamp(22px,6vw,36px)}
+ .practice-action{display:flex;align-items:center;justify-items:start;flex-wrap:wrap;gap:14px}.breath-orb{width:68px;flex:0 0 auto}
+ .practice-action .button{width:auto}.footer-row{align-items:flex-start;flex-direction:column;gap:12px}
+}
+@media(max-width:420px){
+ :root{--gutter:17px}.brand{font-size:.84rem}.brand small{font-size:.5rem}.nav-toggle{padding:9px 10px;font-size:.65rem}
+ .hero h1{font-size:clamp(3.15rem,15vw,4rem)}.hero-actions{flex-direction:column}.hero-actions .button{width:100%}
+ .hero-foot{font-size:.5rem}.art-label{left:10%;right:10%;font-size:.45rem;letter-spacing:.05em}
+ .chapter{grid-template-columns:27px minmax(0,1fr) 16px;gap:8px}.chapter h3{font-size:1.05rem}.chapter-extra{padding-left:35px}
+ .practice-action{align-items:flex-start}.practice-action .button{width:100%}
+}
+@media(max-width:340px){:root{--gutter:13px}.hero h1{font-size:2.9rem}.hero .eyebrow{letter-spacing:.04em}.chapter h3{font-size:.98rem}}
+@media(hover:hover) and (pointer:fine){.principle{transition:background .25s ease}.principle:hover{background:rgba(255,255,255,.035)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
+
+
+/* FIX: Scripture chapter expand layout */
+.chapter {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 18px;
+}
+
+.chapter button {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 70px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+
+.chapter-extra {
+  display: none;
+  grid-column: 2 / -1;
+  padding: 0 0 22px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.9;
+  max-width: 760px;
+}
+
+.chapter.open .chapter-extra {
+  display: block;
+}
+
+.chapter.open .arrow {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 760px) {
+  .chapter {
+    grid-template-columns: 34px minmax(0, 1fr) 20px;
+    gap: 10px;
+  }
+
+  .chapter button {
+    grid-template-columns: 34px minmax(0, 1fr) 20px;
+    gap: 10px;
+  }
+
+  .chapter-extra {
+    grid-column: 2 / -1;
+    padding-bottom: 18px;
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .chapter {
+    grid-template-columns: 27px minmax(0, 1fr) 16px;
+    gap: 8px;
+  }
+
+  .chapter button {
+    grid-template-columns: 27px minmax(0, 1fr) 16px;
+    gap: 8px;
+  }
+}
+
+
+/* ===== HEADER STACK FIX: main site header, then Ashtavakra sub-navigation ===== */
+body > header {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 1000 !important;
+  width: 100%;
+}
+
+body > .masthead {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 20 !important;
+  width: 100%;
+  min-height: 76px;
+  padding: 18px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  background: var(--paper2);
+  border-top: 1px solid rgba(32,37,31,.08);
+  border-bottom: 1px solid var(--line);
+}
+
+body > .masthead .brand {
+  flex: 0 0 auto;
+  line-height: 1.3;
+}
+
+body > .masthead .nav {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 2vw, 28px);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+body > main#top {
+  position: relative;
+}
+
+body > main#top .hero {
+  padding-top: clamp(70px, 8vw, 115px);
+}
+
+@media (max-width: 760px) {
+  body > .masthead {
+    min-height: 64px;
+    padding-block: 14px;
+    position: relative !important;
+  }
+
+  body > .masthead .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  body > .masthead .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    padding: 12px var(--gutter);
+    background: var(--paper2);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 24px rgba(32,37,31,.1);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  body > .masthead .nav.open {
+    display: flex;
+  }
+
+  body > .masthead .nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  body > .masthead .nav a:last-child {
+    border-bottom: 0;
+  }
+
+  body > main#top .hero {
+    padding-top: 56px;
+  }
+}
+.brand-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: clamp(36px, 4vw, 42px);
+      aspect-ratio: 1;
+
+      border-radius: 50%;
+
+      background: radial-gradient(
+        circle,
+        #ffe395 0%,
+        #d4a017 100%
+      );
+
+      color: #3b0903;
+      font-size: 1.3rem;
+
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    }
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+
+      color: var(--gold);
+
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .brand-title span {
+      margin-top: 0.2rem;
+
+      font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+      color: var(--text-light);
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    }
+/* Om logo */
+.om-logo {
+  font-size: 34px;
+  color: #e7c36c;
+  line-height: 1;
+}
+
+/* Hamburger icon */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #e7c36c;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu.is-open {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* =====================================
+   ASHTAVAKRA — OPENING QUESTION SECTION
+===================================== */
+
+#dialogue {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background: #17120e;
+}
+
+/* Background image */
+#dialogue::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("./assets/Ashtavakra.jpg");
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+
+  opacity: 0.42;
+}
+
+/* Dark overlay to keep text readable */
+#dialogue::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(16, 11, 24, 0.94) 0%,
+      rgba(16, 11, 24, 0.78) 50%,
+      rgba(16, 11, 24, 0.52) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(16, 11, 24, 0.35) 0%,
+      rgba(16, 11, 24, 0.9) 100%
+    );
+}
+
+/* Keep section content above the image */
+#dialogue .shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Make the opening question stand out */
+#dialogue blockquote {
+  color: #fff8ed;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.7;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+#dialogue p {
+  color: #e8ded2;
+  line-height: 1.8;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #dialogue::before {
+    background-position: 58% center;
+    opacity: 1;
+  }
+
+  #dialogue::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(16, 11, 24, 0.68) 0%,
+        rgba(16, 11, 24, 0.88) 45%,
+        rgba(16, 11, 24, 0.97) 100%
+      );
+  }
+}
+</style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header style="background-color:  #100b18;">
+
+      <div class="brand">
+
+       <a href="index.html" class="logo color-gold">
+  <span class="om-logo color-gold">ॐ</span>
+  
+</a>
+
+        <div class="brand-title">
+          <h1>Paras Baba</h1>
+          <span>Katha Vachak • Spiritual Guru</span>
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+  ☰
+      </button>
+
+      <!-- Navigation -->
+      <ul class="nav-menu" id="primary-navigation">
+
+        <li><a href="./index.html" class="nav-link active">Home</a></li>
+        <li><a href="./index.html#about" class="nav-link">About</a></li>
+        <li><a href="./osho.html" class="nav-link">Osho</a></li>
+        <li><a href="./index.html#katha-events" class="nav-link">Events</a></li>
+        <li><a href="./index.html#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="./blog.html" class="nav-link">Blog</a></li>
+        <li><a href="./index.html#contact" class="nav-link">Contact</a></li>
+
+      </ul>
+
+      <button class="btn-satsang">
+        Join Satsang
+      </button>
+
+    </header>
+<div class="masthead">
+  <a class="brand" href="#top">AṢṬĀVAKRA <small>THE UNBOUND SELF</small></a>
+  <nav class="nav" id="siteNav" aria-label="Main navigation"><a href="#essence">The essence</a><a href="#dialogue">The dialogue</a><a href="#gita">The Gita</a><a href="#sage">The sage</a><a href="#pause">Pause</a></nav>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">MENU +</button>
+</div>
+<main id="top">
+<section class="hero">
+ <div class="shell">
+  <div class="hero-grid">
+   <div class="hero-copy reveal">
+    <div class="eyebrow">A direct inquiry into being</div>
+    <h1>The one<br>who sees <em>all.</em></h1>
+    <p class="hero-lede">A journey into the uncompromising non-dual wisdom of Sage Ashtavakra—where freedom is not something to become, but something to recognize.</p>
+    <div class="hero-actions"><a class="button" href="#essence">Enter the inquiry <span aria-hidden="true">↘</span></a><a class="button secondary" href="#gita">Explore the Gita</a></div>
+   </div>
+   <div class="hero-art reveal">
+  <div class="art-frame hero-image">
+    <img
+      src="./assets/theonewhoseesall.png"
+      alt="Sage Ashtavakra in a peaceful ancient Indian setting"
+    />
+    <div class="art-label">
+      <span>Beyond form</span>
+      <span>अद्वैत · Advaita</span>
+    </div>
+  </div>
+  <div class="vertical-note">Not a path to somewhere else</div>
+</div>
+  </div>
+  <div class="hero-foot"><span>Twenty chapters · A dialogue of recognition</span><span class="scroll-mark">Scroll to inquire</span></div>
+ </div>
+</section>
+<section class="section dark" id="essence">
+ <div class="shell">
+  <div class="section-head reveal"><div><div class="eyebrow">The central insight</div><h2>Not becoming.<br><em>Recognizing.</em></h2></div><p class="section-intro">The Ashtavakra Gita speaks from the standpoint of Advaita: the deepest Self is not separate from reality, and freedom is not produced by changing what you are.</p></div>
+  <div class="principles reveal">
+   <article class="principle"><span class="num">01 / SĀKṢĪ</span><h3>The Witness</h3><p>Thoughts, sensations, and experiences are known. The teaching invites inquiry into that which knows them—the witnessing awareness.</p></article>
+   <article class="principle"><span class="num">02 / ADVAITA</span><h3>Non-duality</h3><p>At the deepest level, the division between a separate “me” and the whole is questioned. Reality is described as one, not two.</p></article>
+   <article class="principle"><span class="num">03 / ASANGA</span><h3>Unattached</h3><p>The Self is presented as untouched by changing states. Dispassion means seeing clearly, not suppressing life or emotion.</p></article>
+   <article class="principle"><span class="num">04 / MUKTI</span><h3>Freedom now</h3><p>Liberation is framed as recognition of an ever-free nature—not a future achievement owned by the ego.</p></article>
+  </div>
+  <p class="note-line">A philosophical summary of the text—not a substitute for reading its verses in context.</p>
+ </div>
+</section>
+<section class="section" id="dialogue">
+ <div class="shell dialogue-layout">
+  <aside class="dialogue-aside reveal"><div class="eyebrow">The opening question</div><div class="big-number">01</div><p>King Janaka asks how knowledge, liberation, and dispassion are attained. Ashtavakra’s response turns the search toward the identity of the seeker.</p></aside>
+  <div class="dialogue reveal">
+   <div class="exchange"><div class="speaker">Janaka</div><div><blockquote>How is knowledge to be acquired? How is liberation to be attained? How does dispassion arise?</blockquote><p>The king’s question begins the dialogue that runs through all twenty chapters.</p></div></div>
+   <div class="exchange"><div class="speaker">Ashtavakra</div><div><blockquote>You are not merely what can be observed. Know yourself as the awareness that witnesses.</blockquote><p>Paraphrase of the opening instruction. Translation wording differs across editions; consult a chosen translation for exact verse language.</p></div></div>
+   <div class="exchange"><div class="speaker">Inquiry</div><div><blockquote>What changes—and what is aware of change?</blockquote><p>Notice a thought arrive and pass. Notice a feeling shift. The text points toward the knower rather than asking the seeker to collect another experience.</p></div></div>
+   <p class="citation-note">Textual grounding: Ashtavakra Gita, Chapter 1; the dialogue is traditionally presented between Ashtavakra and Janaka. <a href="https://www.wisdomlib.org/hinduism/book/ashtavakra-gita/d/doc81439.html" target="_blank" rel="noopener">Read Chapter 1 ↗</a></p>
+  </div>
+ </div>
+</section>
+<section class="section" id="gita" style="background:var(--paper2)">
+ <div class="shell">
+  <div class="chapter-intro reveal"><div><div class="eyebrow">A map of the scripture</div><h2 class="section-title">The <em>Ashtavakra Gita</em></h2></div><p>A traditional chapter-by-chapter reading map. Open a chapter to see its central theme. The summaries are concise study notes, not literal translations.</p></div>
+  <div class="chapter-list reveal" id="chapterList"></div>
+  <p class="citation-note">The text is commonly presented in 20 chapters. Verse counts and transliteration can vary by edition. Chapter themes are summarized from published chapter synopses. <a href="https://ashtavakragita.dhrma.org/chapters/" target="_blank" rel="noopener">Chapter synopsis source ↗</a></p>
+ </div>
+</section>
+<section class="section sage-section" id="sage">
+  <div class="shell story-grid">
+
+    <!-- Image -->
+    <div class="story-visual reveal">
+      <img
+        src="./assets/kingquestion.png"
+        alt="Sage Ashtavakra in dialogue with King Janaka"
+        class="story-image"
+        loading="lazy"
+      />
+
+      <div class="story-image-overlay"></div>
+
+      <div class="story-image-label">
+        <span class="label-line"></span>
+        <span>THE SAGE · THE KING · THE QUESTION</span>
+      </div>
+    </div>
+
+    <!-- Story content -->
+    <div class="story-copy reveal">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        THE FIGURE BEHIND THE TEACHING
+      </div>
+
+      <h2>
+        Ashtavakra.
+        <br />
+        <em>Beyond appearance.</em>
+      </h2>
+
+      <p class="story-intro">
+        Ashtavakra is a revered sage associated with the Advaita tradition.
+        His name is traditionally explained as “bent in eight places,”
+        referring to the story of his body.
+      </p>
+
+      <p>
+        In the Mahabharata tradition, he enters King Janaka’s court and is
+        remembered for his wisdom and debate. The story points toward a
+        central insight: bodily appearance does not define the truth of a person.
+      </p>
+
+      <!-- Key details -->
+      <div class="fact-list">
+
+        <div class="fact">
+          <div class="fact-number">01</div>
+          <div class="fact-content">
+            <strong>Text</strong>
+            <span>Ashtavakra Gita, also called Ashtavakra Samhita</span>
+          </div>
+        </div>
+
+        <div class="fact">
+          <div class="fact-number">02</div>
+          <div class="fact-content">
+            <strong>Tradition</strong>
+            <span>Advaita Vedanta · radical non-dual inquiry</span>
+          </div>
+        </div>
+
+        <div class="fact">
+          <div class="fact-number">03</div>
+          <div class="fact-content">
+            <strong>Dialogue</strong>
+            <span>Sage Ashtavakra and King Janaka of Mithila</span>
+          </div>
+        </div>
+
+        <div class="fact">
+          <div class="fact-number">04</div>
+          <div class="fact-content">
+            <strong>Structure</strong>
+            <span>20 chapters; commonly counted as 298 verses</span>
+          </div>
+        </div>
+
+        <div class="fact">
+          <div class="fact-number">05</div>
+          <div class="fact-content">
+            <strong>Authorship</strong>
+            <span>
+              Traditionally attributed to Ashtavakra; historical authorship
+              and dating remain uncertain
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="citation-note">
+        Historical and textual details are presented cautiously; traditions
+        and editions differ.
+        <a
+          href="https://www.hariomgroup.org/hariombooks_shastra/vedanta/Ashtavakra-Gita/Ashtavakra-Gita-English.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Read the translator’s introduction <span aria-hidden="true">↗</span>
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+<section class="section practice" id="pause">
+ <div class="shell"><div class="practice-box reveal"><div><div class="eyebrow">A moment of direct inquiry</div><h2>Let the question<br>become <em>quiet.</em></h2><p>For a few breaths, do not try to improve the moment. Notice sound, sensation, and thought as they appear. Then ask gently: what is aware of all this?</p><p class="practice-message" id="practiceMessage" aria-live="polite">No special state is required. Begin where you are.</p></div><div class="practice-action"><div class="breath-orb" aria-hidden="true">अहम्</div><small>Pause · Notice · Inquire</small><button class="button secondary" id="pauseButton" type="button">Offer another reflection ↗</button></div></div></div>
+</section>
+</main>
+<footer class="footer"><div class="shell footer-row"><strong>अष्टावक्र · The Unbound Self</strong><p>A contemplative study page · Inspired by the Ashtavakra Gita</p><p><a href="#top">Return to beginning ↑</a></p></div></footer>
+<script src="./index.js" ></script>
+
+<script>
+const chapters = [
+  [
+    "The Witness",
+    "The one who sees",
+    "Sakshi Bhava",
+    "You are not the body, the mind, or the changing world around you. You are the silent witness in whose presence every thought, feeling, and experience appears and disappears."
+  ],
+  [
+    "The Self",
+    "Beyond body and mind",
+    "Atmadvaita",
+    "The Self is untouched by action, thought, and emotion. Like the sky that remains unchanged by passing clouds, your true nature is vast, still, and free."
+  ],
+  [
+    "The Wise One",
+    "Freedom through understanding",
+    "Jnana Mukti",
+    "The wise one does not struggle to become free, but recognizes the freedom that has always been present. When the illusion of separation dissolves, nothing remains to be attained."
+  ],
+  [
+    "The True Seeker",
+    "Turning inward",
+    "Atma Vichara",
+    "The search for truth begins when attention turns away from objects and toward the one who experiences them. In stillness, the seeker discovers that the sought-after truth is their own nature."
+  ],
+  [
+    "The Dissolution",
+    "Letting the illusion fall",
+    "Ahamkara Laya",
+    "Bondage is not created by the world, but by the belief that you are limited by it. When this mistaken identification dissolves, the mind rests in its natural freedom."
+  ],
+  [
+    "Knowledge and Ignorance",
+    "Seeing clearly",
+    "Vidya and Avidya",
+    "Ignorance is the belief that you are separate from existence, while knowledge is the direct recognition of your indivisible nature. True understanding is not information gathered, but illusion removed."
+  ],
+  [
+    "The Nature of the Self",
+    "Ever-present awareness",
+    "Chaitanya Swarupa",
+    "Awareness does not begin when you think, nor does it end when thoughts become silent. It is the constant presence through which every experience is known."
+  ],
+  [
+    "Bondage and Liberation",
+    "Freedom is already here",
+    "Bandha and Moksha",
+    "You are bound only by the idea that you are bound. Liberation is not a future achievement, but the recognition that your essential nature has never been confined."
+  ],
+  [
+    "Dispassion",
+    "Freedom from craving",
+    "Vairagya",
+    "When the mind stops chasing pleasure and resisting pain, it becomes clear and quiet. Dispassion is not rejection of life, but freedom from being controlled by what comes and goes."
+  ],
+  [
+    "The Stillness of the Self",
+    "Resting in awareness",
+    "Atma Shanti",
+    "The Self is naturally peaceful and requires no effort to become still. When the movement of seeking subsides, this effortless stillness is recognized as your own being."
+  ],
+  [
+    "Wisdom",
+    "Beyond concepts",
+    "Jnana",
+    "Wisdom is not the accumulation of beliefs or philosophical ideas. It is the direct seeing that the knower, the knowing, and the known arise within one undivided awareness."
+  ],
+  [
+    "The Nature of Meditation",
+    "No effort, no distance",
+    "Sahaja Samadhi",
+    "Meditation is not a struggle to create a special state of mind. It is the simple recognition of the awareness that is present before every effort to meditate."
+  ],
+  [
+    "Happiness",
+    "Not dependent on the world",
+    "Ananda",
+    "When happiness depends on people, possessions, or circumstances, it remains fragile. The happiness of the Self is discovered within, independent of what the world gives or takes away."
+  ],
+  [
+    "Peace",
+    "The end of inner conflict",
+    "Shanti",
+    "Peace appears when the mind no longer fights reality or demands that life become different. In accepting what is, the natural silence of awareness becomes evident."
+  ],
+  [
+    "Liberation",
+    "The freedom of being",
+    "Jivanmukti",
+    "Liberation is not escape from the world, but freedom from the mistaken identity that makes the world a source of bondage. The liberated one remains established in awareness while life continues to unfold."
+  ],
+  [
+    "The Knowledge of the Self",
+    "Knowing without thought",
+    "Atma Jnana",
+    "The deepest knowledge is not something the mind can possess or describe. It is the direct recognition of the awareness that makes all knowing possible."
+  ],
+  [
+    "The Nature of the Knower",
+    "The silent observer",
+    "Drashta Swarupa",
+    "Everything that can be observed is changing, but the one who knows these changes remains untouched. Discovering this silent knower is discovering the unchanging ground of experience."
+  ],
+  [
+    "The Way of the Wise",
+    "Living without attachment",
+    "Nishkama Karma",
+    "The wise person moves through life without being inwardly possessed by success, failure, praise, or blame. Actions continue, but the burden of personal doership begins to fall away."
+  ],
+  [
+    "The State of Liberation",
+    "Nothing to gain, nothing to lose",
+    "Sthita Prajna",
+    "The liberated one sees no essential difference between gain and loss, because their peace is no longer dependent on either. Life is allowed to move freely, without disturbing the stillness within."
+  ],
+  [
+    "The Supreme Truth",
+    "You are already That",
+    "Aham Brahmasmi",
+    "The final truth is not somewhere far away or hidden behind a difficult practice. You are the awareness in which the entire search appears—and recognizing this, the search comes to rest."
+  ]
+];
+
+const list = document.getElementById("chapterList");
+
+chapters.forEach((chapter, index) => {
+  const row = document.createElement("article");
+  row.className = "chapter";
+
+  row.innerHTML = `
+    <button type="button" aria-expanded="false" aria-label="Read chapter ${index + 1}: ${chapter[0]}">
+      <span class="chapter-num">${String(index + 1).padStart(2, "0")}</span>
+      <span class="chapter-heading">
+        <h3>${chapter[0]}</h3>
+        <p>${chapter[1]}</p>
+        <small class="chapter-sanskrit">${chapter[2]}</small>
+      </span>
+      <span class="arrow" aria-hidden="true">＋</span>
+    </button>
+    <div class="chapter-extra">${chapter[3]}</div>
+  `;
+
+  const button = row.querySelector("button");
+  const arrow = row.querySelector(".arrow");
+  button.addEventListener("click", () => {
+    const isOpen = row.classList.toggle("open");
+    button.setAttribute("aria-expanded", isOpen);
+    arrow.textContent = isOpen ? "−" : "＋";
+  });
+  list.appendChild(row);
+});
+
+const navToggle=document.getElementById('navToggle'),nav=document.getElementById('siteNav');navToggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');navToggle.setAttribute('aria-expanded',open);navToggle.textContent=open?'CLOSE −':'MENU +'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');navToggle.setAttribute('aria-expanded','false');navToggle.textContent='MENU +'}));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');navToggle.setAttribute('aria-expanded','false');navToggle.textContent='MENU +';navToggle.focus();}});
+window.addEventListener('resize',()=>{if(window.innerWidth>760){nav.classList.remove('open');navToggle.setAttribute('aria-expanded','false');navToggle.textContent='MENU +';}});
+const reflections=['What is aware of this thought?','Can the witness be found as an object?','What remains when a passing experience is simply allowed to pass?','Is awareness arriving—or is it already present?'];let r=0;document.getElementById('pauseButton').addEventListener('click',()=>{r=(r+1)%reflections.length;document.getElementById('practiceMessage').textContent=reflections[r]});
+const reveals=document.querySelectorAll('.reveal');if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});reveals.forEach(el=>observer.observe(el))}else reveals.forEach(el=>el.classList.add('visible'));
+</script>
+</body>
+</html>
