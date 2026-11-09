@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Western zodiac readings and your personal tropical birth-chart life themes.">
+  <meta name="theme-color" content="#100b18">
+  <title>Western Astrology & Personal Life Report | Paras Baba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./astro_styles.css">
+  <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body class="astro-page">
+<header>
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          <i class="fa-solid fa-om"></i>
+        </div>
+
+        <div class="brand-title">
+          <h1>Paras Baba</h1>
+          <span>Katha Vachak • Spiritual Guru</span>
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <!-- Navigation -->
+      <ul class="nav-menu" id="primary-navigation">
+
+        <li><a href="./index.html#about" class="nav-link">About</a></li>
+        <li><a href="./osho.html" class="nav-link">Osho</a></li>
+        <li><a href="./ashtavakra.html" class="nav-link">Ashtavakra</a></li>
+        <li><a href="./index.html#katha-events" class="nav-link">Events</a></li>
+        <li><a href="./index.html#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="./blog.html" class="nav-link">Blog</a></li>
+        <li><a href="./index.html#contact" class="nav-link">Contact</a></li>
+
+      </ul>
+
+      <button class="btn-satsang">
+        Join Satsang
+      </button>
+
+    </header>
+
+<main>
+  <section class="astro-hero">
+    <div class="astro-shell">
+      <span class="astro-eyebrow">The tropical zodiac</span>
+      <h1>Western <em>Astrology.</em></h1>
+      <p>Explore the tropical zodiac, your personal birth chart, planetary aspects, transits and progressions — presented in a clear, mobile-friendly life report.</p>
+      <div class="astro-divider"><span>☼</span></div>
+      <a class="astro-back" href="./Astrology.html">← All astrology paths</a>
+    </div>
+  </section>
+
+  <section class="astro-section">
+    <div class="astro-shell western-page-grid">
+
+      <section class="astro-panel">
+        <span class="astro-eyebrow">Daily zodiac guidance</span>
+        <h2>Choose your Sun sign</h2>
+        <p>Select a sign for a general sign-based reading. For your individual life themes, use the personal birth-chart report below.</p>
+        <div class="astro-sign-grid" id="westernSignGrid">
+          <button class="astro-sign" type="button" data-sign="aries"><span>♈</span><strong>Aries</strong><small>Mar 21 – Apr 19</small></button>
+          <button class="astro-sign" type="button" data-sign="taurus"><span>♉</span><strong>Taurus</strong><small>Apr 20 – May 20</small></button>
+          <button class="astro-sign" type="button" data-sign="gemini"><span>♊</span><strong>Gemini</strong><small>May 21 – Jun 20</small></button>
+          <button class="astro-sign" type="button" data-sign="cancer"><span>♋</span><strong>Cancer</strong><small>Jun 21 – Jul 22</small></button>
+          <button class="astro-sign" type="button" data-sign="leo"><span>♌</span><strong>Leo</strong><small>Jul 23 – Aug 22</small></button>
+          <button class="astro-sign" type="button" data-sign="virgo"><span>♍</span><strong>Virgo</strong><small>Aug 23 – Sep 22</small></button>
+          <button class="astro-sign" type="button" data-sign="libra"><span>♎</span><strong>Libra</strong><small>Sep 23 – Oct 22</small></button>
+          <button class="astro-sign" type="button" data-sign="scorpio"><span>♏</span><strong>Scorpio</strong><small>Oct 23 – Nov 21</small></button>
+          <button class="astro-sign" type="button" data-sign="sagittarius"><span>♐</span><strong>Sagittarius</strong><small>Nov 22 – Dec 21</small></button>
+          <button class="astro-sign" type="button" data-sign="capricorn"><span>♑</span><strong>Capricorn</strong><small>Dec 22 – Jan 19</small></button>
+          <button class="astro-sign" type="button" data-sign="aquarius"><span>♒</span><strong>Aquarius</strong><small>Jan 20 – Feb 18</small></button>
+          <button class="astro-sign" type="button" data-sign="pisces"><span>♓</span><strong>Pisces</strong><small>Feb 19 – Mar 20</small></button>
+        </div>
+        <div class="astro-field" style="margin-top:20px">
+          <label for="westernPeriod">Reading period</label>
+          <select id="westernPeriod">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+        <div class="astro-result" id="westernHoroscopeResult" aria-live="polite">
+          <strong>Choose your zodiac sign</strong><br>Your general sign reading will appear here.
+        </div>
+        <p class="astro-status">Sign-based readings are general. Your personal report uses your birth details and tropical chart calculations.</p>
+      </section>
+
+      <section class="astro-panel western-life-panel" id="westernLife">
+        <span class="astro-eyebrow">Your personal sky map</span>
+        <h2>Generate your Western life report</h2>
+        <p>Calculate your tropical natal chart, major aspects, upcoming planetary transits and secondary progressions. Explore traditional themes for career, love, marriage, finances and personal growth.</p>
+
+        <form class="astro-form" id="westernBirthForm">
+          <div class="astro-field">
+            <label for="westernBirthName">Your name (optional)</label>
+            <input id="westernBirthName" name="name" type="text" maxlength="80" placeholder="Enter your name">
+          </div>
+          <div class="western-form-row">
+            <div class="astro-field">
+              <label for="westernBirthDate">Date of birth</label>
+              <input id="westernBirthDate" name="date" type="date" required>
+            </div>
+            <div class="astro-field">
+              <label for="westernBirthTime">Time of birth</label>
+              <input id="westernBirthTime" name="time" type="time" required>
+            </div>
+          </div>
+          <div class="astro-field">
+            <label for="westernBirthPlace">Place of birth</label>
+            <input id="westernBirthPlace" name="place" type="text" minlength="2" maxlength="120" placeholder="e.g. Nowshera, Jammu and Kashmir, India" required>
+            <small>Enter city, district, state and country for accurate place matching.</small>
+          </div>
+          <div class="western-form-row">
+            <div class="astro-field">
+              <label for="westernHouseSystem">House system</label>
+              <select id="westernHouseSystem" name="house_system">
+                <option value="placidus">Placidus</option>
+                <option value="whole_sign">Whole Sign</option>
+                <option value="equal">Equal</option>
+                <option value="porphyry">Porphyry</option>
+              </select>
+            </div>
+            <div class="astro-field">
+              <label for="westernLanguage">Report language</label>
+              <select id="westernLanguage" name="language">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+              </select>
+            </div>
+          </div>
+          <div class="astro-field">
+            <label for="westernTimeAccuracy">Birth-time accuracy</label>
+            <select id="westernTimeAccuracy" name="time_accuracy">
+              <option value="exact">Exact / recorded time</option>
+              <option value="approximate">Approximate time</option>
+              <option value="unknown">I don't know my birth time</option>
+            </select>
+            <small>If unknown, time-dependent houses and Rising sign may be unavailable. Do not enter a guessed time.</small>
+          </div>
+          <button class="astro-btn" type="submit">Generate my Western life report <span>✧</span></button>
+        </form>
+
+        <div class="astro-result western-life-result" id="westernChartResult" aria-live="polite">
+          <strong>Your personal report will appear here.</strong>
+          <p>Complete the form above to begin.</p>
+        </div>
+      </section>
+
+      <section class="astro-panel">
+        <span class="astro-eyebrow">The Big Three</span>
+        <h2>Sun, Moon & Rising</h2>
+        <ul class="astro-feature-list">
+          <li><i class="fa-solid fa-sun"></i><span><strong>Sun sign</strong> — Identity, vitality and conscious expression.</span></li>
+          <li><i class="fa-solid fa-moon"></i><span><strong>Moon sign</strong> — Emotional needs and instinctive responses.</span></li>
+          <li><i class="fa-solid fa-arrow-up"></i><span><strong>Rising sign</strong> — Ascendant and the orientation of the chart.</span></li>
+        </ul>
+        <div class="astro-note">A precise Rising sign and house placements require an accurate birth time and birthplace. If your birth time is unknown, the report will clearly mark time-dependent information as unavailable.</div>
+        <a class="astro-btn astro-btn-outline" href="./vedic_astrology.html">Explore Vedic Kundli <span>↗</span></a>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="pb-footer" style="background-image: url('./assets/footer_img.png');">
+
+  <div class="pb-footer-glow"></div>
+
+  <div class="pb-footer-container">
+
+    <!-- Connect heading -->
+    <div class="pb-footer-connect">
+      <span class="pb-footer-lotus">❀</span>
+      <span class="pb-footer-eyebrow">A LITTLE HELLO GOES A LONG WAY</span>
+
+      <h2>Let's <em>Connect.</em></h2>
+
+      <p>
+        Every connection begins with a little kindness.
+        Come be a part of our journey of Bhakti, Gyan and Shanti.
+      </p>
+
+      <a href="#contact" class="pb-footer-cta">
+        Get in Touch <span>↗</span>
+      </a>
+    </div>
+
+    <div class="pb-footer-divider"></div>
+
+    <!-- Footer columns -->
+    <div class="pb-footer-main">
+
+      <div class="pb-footer-brand">
+        <div class="pb-footer-logo">ॐ</div>
+        <h3>Paras Baba</h3>
+        <span>Katha Vachak · Spiritual Guide</span>
+
+        <p>
+          Walking together on the path of devotion,
+          wisdom and inner peace.
+        </p>
+      </div>
+
+      <div class="pb-footer-links">
+        <h4>Explore</h4>
+        <a href="#about">About</a>
+        <a href="./osho.html">Osho</a>
+        <a href="./ashtavakra.html">Ashtavakra</a>
+        <a href="./blog.html">Spiritual Blog</a>
+      </div>
+
+      <div class="pb-footer-links">
+        <h4>Discover</h4>
+        <a href="#bhagwat-katha">Bhagwat Katha</a>
+        <a href="#katha-events">Upcoming Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="pb-footer-social">
+        <h4>Stay Connected</h4>
+        <p>Follow the journey and stay close to the satsang family.</p>
+
+        <div class="pb-footer-social-icons">
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom blessing -->
+    <div class="pb-footer-bottom">
+<span>©  Paras Baba. All rights reserved.</span>
+      <p>ॐ शान्तिः शान्तिः शान्तिः</p>
+      <span>Made with <i class="fa-solid fa-heart"></i> and devotion</span>
+    </div>
+
+  </div>
+</footer>
+<script src="./astrology_common.js" defer></script>
+<script src="./western_astro.js" defer></script>
+<script src="./index.js" defer></script>
+
+</body>
+</html>

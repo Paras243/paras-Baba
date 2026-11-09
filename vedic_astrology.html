@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Vedic Rashi readings and prepare your birth details for a Janam Kundli and detailed Jyotish life report.">
+  <meta name="theme-color" content="#100b18">
+  <title>Vedic Astrology & Janam Kundli | Paras Baba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./astro_styles.css">
+  <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body class="astro-page">
+<header>
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          <i class="fa-solid fa-om"></i>
+        </div>
+
+        <div class="brand-title">
+          <h1>Paras Baba</h1>
+          <span>Katha Vachak • Spiritual Guru</span>
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <!-- Navigation -->
+      <ul class="nav-menu" id="primary-navigation">
+
+        <li><a href="./index.html#about" class="nav-link">About</a></li>
+        <li><a href="./osho.html" class="nav-link">Osho</a></li>
+        <li><a href="./ashtavakra.html" class="nav-link">Ashtavakra</a></li>
+        <li><a href="./index.html#katha-events" class="nav-link">Events</a></li>
+        <li><a href="./index.html#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="./blog.html" class="nav-link">Blog</a></li>
+        <li><a href="./index.html#contact" class="nav-link">Contact</a></li>
+
+      </ul>
+
+      <button class="btn-satsang">
+        Join Satsang
+      </button>
+
+    </header>
+<main>
+  <section class="astro-hero">
+    <div class="astro-shell">
+      <span class="astro-eyebrow">Jyotish · The Vedic tradition</span>
+      <h1>Vedic <em>Astrology.</em></h1>
+      <p>Explore the traditional language of the grahas, rashis, bhavas and nakshatras. Begin with a Rashi reading or prepare your birth details for a personalised Janam Kundli and detailed life report.</p>
+      <div class="astro-divider"><span>ॐ</span></div>
+      <a class="astro-back" href="./Astrology.html">← All astrology paths</a>
+    </div>
+  </section>
+  <section class="astro-section">
+    <div class="astro-shell astro-content-grid">
+      <section class="astro-panel">
+        <span class="astro-eyebrow">Daily guidance</span>
+        <h2>Vedic Rashi Reading</h2>
+        <p>Select your Moon sign (Janma Rashi) to request a daily reading. A sign-based reading is general; a personalised reading requires birth-chart calculations.</p>
+        <div class="astro-sign-grid" id="vedicRashiGrid">
+          <button class="astro-sign" type="button" data-sign="mesha"><span>♈</span><strong>Mesha</strong><small>Aries</small></button>
+          <button class="astro-sign" type="button" data-sign="vrishabha"><span>♉</span><strong>Vrishabha</strong><small>Taurus</small></button>
+          <button class="astro-sign" type="button" data-sign="mithuna"><span>♊</span><strong>Mithuna</strong><small>Gemini</small></button>
+          <button class="astro-sign" type="button" data-sign="karka"><span>♋</span><strong>Karka</strong><small>Cancer</small></button>
+          <button class="astro-sign" type="button" data-sign="simha"><span>♌</span><strong>Simha</strong><small>Leo</small></button>
+          <button class="astro-sign" type="button" data-sign="kanya"><span>♍</span><strong>Kanya</strong><small>Virgo</small></button>
+          <button class="astro-sign" type="button" data-sign="tula"><span>♎</span><strong>Tula</strong><small>Libra</small></button>
+          <button class="astro-sign" type="button" data-sign="vrishchika"><span>♏</span><strong>Vrishchika</strong><small>Scorpio</small></button>
+          <button class="astro-sign" type="button" data-sign="dhanu"><span>♐</span><strong>Dhanu</strong><small>Sagittarius</small></button>
+          <button class="astro-sign" type="button" data-sign="makara"><span>♑</span><strong>Makara</strong><small>Capricorn</small></button>
+          <button class="astro-sign" type="button" data-sign="kumbha"><span>♒</span><strong>Kumbha</strong><small>Aquarius</small></button>
+          <button class="astro-sign" type="button" data-sign="meena"><span>♓</span><strong>Meena</strong><small>Pisces</small></button>
+        </div>
+        <div class="astro-result" id="vedicRashiResult" aria-live="polite"><strong>Choose your Janma Rashi</strong><br>Your daily reading will appear here when the astrology service is connected.</div>
+        <p class="astro-status">Daily Rashi reading is a general sign-based interpretation. Generate a birth-chart report for a more detailed traditional analysis.</p>
+      </section>
+      <section class="astro-panel">
+        <span class="astro-eyebrow">Personal birth chart</span>
+        <h2>Prepare your Janam Kundli</h2>
+        <p>Enter accurate birth details. Birth time and birthplace are important for Lagna, bhava and divisional-chart calculations.</p>
+        <form class="astro-form" id="vedicKundliForm">
+          <div class="astro-field"><label for="vedicName">Name (optional)</label><input id="vedicName" name="name" type="text" maxlength="70" placeholder="Your name"></div>
+          <div class="astro-field"><label for="vedicDate">Date of birth</label><input id="vedicDate" name="date" type="date" required></div>
+          <div class="astro-field"><label for="vedicTime">Time of birth</label><input id="vedicTime" name="time" type="time" required></div>
+          <div class="astro-field"><label for="vedicPlace">Place of birth</label><input id="vedicPlace" name="place" type="text" maxlength="120" placeholder="City, state, country" required></div>
+          <div class="astro-field"><label for="vedicKundliLanguage">Report language</label><select id="vedicKundliLanguage" name="language"><option value="en">English</option><option value="hi">हिन्दी</option></select></div>
+          <button class="astro-btn" type="submit">Prepare Kundli details <span>↗</span></button>
+        </form>
+        <div class="astro-result" id="vedicKundliResult" aria-live="polite">Enter your birth details and generate your Kundli. You can then request the detailed Vedic life report.</div>
+      </section>
+    </div>
+  </section>
+  <section class="astro-section" style="padding-top:0">
+    <div class="astro-shell astro-panel">
+      <span class="astro-eyebrow">A deeper Jyotish reading</span>
+      <h2>Explore the different areas of life</h2>
+      <p class="vedic-life-intro">The detailed report organises traditional chart indicators into clear chapters. Interpretations depend on the actual planetary placements and calculations returned for your birth details.</p>
+      <div class="vedic-topic-grid">
+        <article><i class="fa-solid fa-compass"></i><strong>Life direction</strong><span>Lagna, Moon and overall chart themes</span></article>
+        <article><i class="fa-solid fa-briefcase"></i><strong>Career</strong><span>10th house, Saturn and D10</span></article>
+        <article><i class="fa-solid fa-heart"></i><strong>Love & marriage</strong><span>5th and 7th houses, Venus and D9</span></article>
+        <article><i class="fa-solid fa-graduation-cap"></i><strong>Education</strong><span>4th, 5th and 9th houses, Mercury and Jupiter</span></article>
+        <article><i class="fa-solid fa-coins"></i><strong>Wealth</strong><span>2nd and 11th houses and D2</span></article>
+        <article><i class="fa-solid fa-hourglass-half"></i><strong>Life periods</strong><span>Vimshottari Mahadasha and Antardasha</span></article>
+      </div>
+    </div>
+  </section>
+  <section class="astro-section" style="padding-top:0">
+    <div class="astro-shell astro-panel">
+      <span class="astro-eyebrow">What the chart contains</span>
+      <h2>Inside a Vedic birth chart</h2>
+      <ul class="astro-feature-list">
+        <li><i class="fa-solid fa-sun"></i><span><strong>Lagna & Bhavas</strong> — Ascendant and the twelve houses.</span></li>
+        <li><i class="fa-solid fa-moon"></i><span><strong>Rashi & Nakshatra</strong> — Moon sign and lunar mansion.</span></li>
+        <li><i class="fa-solid fa-star"></i><span><strong>Graha placements</strong> — Traditional planetary positions and chart details.</span></li>
+        <li><i class="fa-solid fa-hourglass-half"></i><span><strong>Vimshottari Dasha</strong> — Traditional planetary-period framework, where supported by the provider.</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer class="pb-footer" style="background-image: url('./assets/footer_img.png');">
+
+  <div class="pb-footer-glow"></div>
+
+  <div class="pb-footer-container">
+
+    <!-- Connect heading -->
+    <div class="pb-footer-connect">
+      <span class="pb-footer-lotus">❀</span>
+      <span class="pb-footer-eyebrow">A LITTLE HELLO GOES A LONG WAY</span>
+
+      <h2>Let's <em>Connect.</em></h2>
+
+      <p>
+        Every connection begins with a little kindness.
+        Come be a part of our journey of Bhakti, Gyan and Shanti.
+      </p>
+
+      <a href="#contact" class="pb-footer-cta">
+        Get in Touch <span>↗</span>
+      </a>
+    </div>
+
+    <div class="pb-footer-divider"></div>
+
+    <!-- Footer columns -->
+    <div class="pb-footer-main">
+
+      <div class="pb-footer-brand">
+        <div class="pb-footer-logo">ॐ</div>
+        <h3>Paras Baba</h3>
+        <span>Katha Vachak · Spiritual Guide</span>
+
+        <p>
+          Walking together on the path of devotion,
+          wisdom and inner peace.
+        </p>
+      </div>
+
+      <div class="pb-footer-links">
+        <h4>Explore</h4>
+        <a href="./index.html#about">About</a>
+        <a href="./osho.html">Osho</a>
+        <a href="./ashtavakra.html">Ashtavakra</a>
+        <a href="./blog.html">Spiritual Blog</a>
+      </div>
+
+      <div class="pb-footer-links">
+        <h4>Discover</h4>
+        <a href="./index.html#bhagwat-katha">Bhagwat Katha</a>
+        <a href="./index.html#katha-events">Upcoming Events</a>
+        <a href="./index.html#gallery">Gallery</a>
+        <a href="./index.html#contact">Contact</a>
+      </div>
+
+      <div class="pb-footer-social">
+        <h4>Stay Connected</h4>
+        <p>Follow the journey and stay close to the satsang family.</p>
+
+        <div class="pb-footer-social-icons">
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom blessing -->
+    <div class="pb-footer-bottom">
+<span>©  Paras Baba. All rights reserved.</span>
+      <p>ॐ शान्तिः शान्तिः शान्तिः</p>
+      <span>Made with <i class="fa-solid fa-heart"></i> and devotion</span>
+    </div>
+
+  </div>
+</footer>
+<script src="./astrology_common.js" defer></script>
+<script src="./vedic_astro.js" defer></script>
+<script src="./index.js" defer></script>
+
+</body>
+</html>
