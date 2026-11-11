@@ -660,3 +660,279 @@ body.astro-page {
 @media(max-width:380px) {
   .vedic-topic-grid { grid-template-columns:1fr; }
 }
+
+
+/* ==========================================
+   PARAS BABA — GEMINI AI PREMIUM PANEL
+========================================== */
+
+.gemini-panel {
+  margin: 30px 0;
+  padding: 26px;
+  border: 1px solid #e9dfef;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #fffdf9, #f8f4fb);
+  box-shadow: 0 12px 35px rgba(65, 43, 82, 0.07);
+  color: #30243a;
+}
+
+.gemini-panel-header {
+  margin-bottom: 22px;
+}
+
+.gemini-eyebrow {
+  display: inline-block;
+  color: #9a7435;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.gemini-panel-header h3 {
+  margin: 0 0 9px;
+  color: #674681;
+  font-family: Georgia, serif;
+  font-size: clamp(23px, 4vw, 32px);
+  line-height: 1.25;
+}
+
+.gemini-panel-header p {
+  margin: 0;
+  color: #766c7d;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.gemini-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px;
+  margin: 20px 0;
+  background: #fff;
+  border: 1px solid #e9dfef;
+  border-radius: 12px;
+  color: #655b6b;
+  font-size: 13px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.gemini-consent input {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: #79539a;
+}
+
+.gemini-generate-btn {
+  width: 100%;
+  min-height: 49px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #684681, #9470a9);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.gemini-generate-btn:hover {
+  transform: translateY(-2px);
+}
+
+.gemini-generate-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+.gemini-status {
+  min-height: 22px;
+  margin: 13px 0;
+  color: #776a80;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.gemini-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gemini-insight-card {
+  min-width: 0;
+  padding: 19px;
+  border: 1px solid #ebe3ef;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(55, 35, 70, 0.035);
+}
+
+.gemini-insight-card h4 {
+  position: relative;
+  margin: 0 0 13px;
+  padding-bottom: 11px;
+  color: #674681;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.4;
+  border-bottom: 1px solid #f0eaf3;
+}
+
+.gemini-insight-card h4::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 42px;
+  height: 2px;
+  background: #b28b4c;
+}
+
+.gemini-card-content p {
+  margin: 0 0 12px;
+  color: #5e5664;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.gemini-card-content p:last-child {
+  margin-bottom: 0;
+}
+
+.gemini-card-content ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.gemini-card-content li {
+  margin-bottom: 8px;
+  color: #5e5664;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* Mobile layout */
+
+@media (max-width: 650px) {
+  .gemini-panel {
+    padding: 17px;
+    margin: 22px 0;
+    border-radius: 15px;
+  }
+
+  .gemini-card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gemini-insight-card {
+    padding: 16px;
+  }
+
+  .gemini-panel-header h3 {
+    font-size: 24px;
+  }
+
+  .gemini-card-content p,
+  .gemini-card-content li {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+}
+
+
+/* =========================================
+   INTERACTIVE ASTROLOGY TOPIC SELECTOR
+========================================= */
+
+.gemini-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.gemini-topic-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  padding: 15px;
+  text-align: left;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #eadff0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.gemini-topic-btn:hover,
+.gemini-topic-btn.is-active {
+  border-color: #9162a8;
+  background: #f8f1fb;
+  transform: translateY(-2px);
+}
+
+.gemini-topic-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.gemini-topic-icon {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #f2e8f6;
+  font-size: 19px;
+}
+
+.gemini-topic-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.gemini-topic-copy strong {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.gemini-topic-copy small {
+  color: #81758a;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.gemini-loading {
+  padding: 18px;
+  text-align: center;
+  color: #806091;
+  background: #f8f1fb;
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  .gemini-topic-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .gemini-topic-btn {
+    padding: 13px;
+  }
+}

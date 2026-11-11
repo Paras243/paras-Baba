@@ -226,14 +226,20 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     try {
-      const report = await getPhaladesh(birth);
+   const report = await getPhaladesh(birth);
 
-      displayPhaladesh(
-        report,
-        kundliResult,
-        birth.name
-      );
+displayPhaladesh(
+  report,
+  kundliResult,
+  birth.name
+);
 
+// Add topic-based AI explanations below the original report
+addGeminiExplanation(
+  report,
+  kundliResult,
+  birth.language
+);
     } catch (error) {
       console.error("Phaladesh error:", error);
 
@@ -358,8 +364,392 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    return payload.data ?? payload;
+    
+const finalReport = payload.data ?? payload;
+
+// Diagnostic 1: Check the top-level response structure.
+console.log(
+  "ASTROLOGICS REPORT KEYS:",
+  Object.keys(finalReport || {})
+);
+
+// Diagnostic 2: Check which calculations succeeded.
+console.log(
+  "ASTROLOGICS CALCULATION STATUS:",
+  Object.fromEntries(
+    Object.entries(finalReport?.calculations || {}).map(
+      ([key, value]) => [
+        key,
+        {
+          success: value?.success,
+          hasData: value?.data != null,
+          dataType: Array.isArray(value?.data)
+            ? "array"
+            : typeof value?.data,
+          error: value?.error || null
+        }
+      ]
+    )
+  )
+);
+
+return finalReport;
+
   }
+
+
+  
+// ==========================================
+// GEMINI AI — EXPLAIN ASTROLOGICS REPORT
+// ==========================================
+
+
+// ==========================================
+// GEMINI AI — PREMIUM STRUCTURED UI
+// ==========================================
+
+function addGeminiExplanation(report, container, language = "en") {
+  const section = document.createElement("section");
+  section.className = "gemini-panel";
+
+  const header = document.createElement("div");
+  header.className = "gemini-panel-header";
+
+  const eyebrow = document.createElement("span");
+  eyebrow.className = "gemini-eyebrow";
+  eyebrow.textContent = "✦ PARAS BABA · AI INSIGHTS";
+
+  const heading = document.createElement("h3");
+  heading.textContent = language === "hi"
+    ? "अपनी कुंडली को विस्तार से समझें"
+    : "Explore Your Kundali";
+
+  const description = document.createElement("p");
+  description.textContent = language === "hi"
+    ? "किसी विषय को चुनें और AstroLogics की गणनाओं पर आधारित उसका अलग-अलग विश्लेषण प्राप्त करें।"
+    : "Choose a life area to receive a focused explanation based on your actual AstroLogics calculations.";
+
+  header.append(eyebrow, heading, description);
+
+  const consentBox = document.createElement("label");
+  consentBox.className = "gemini-consent";
+
+  const consent = document.createElement("input");
+  consent.type = "checkbox";
+
+  const consentText = document.createElement("span");
+  consentText.textContent = language === "hi"
+    ? "मैं चुने गए विषय की व्याख्या के लिए अपनी AstroLogics गणना का आवश्यक डेटा Groq AI को भेजने की सहमति देता/देती हूँ।"
+    : "I agree to send the relevant AstroLogics calculation data to Groq AI for the selected explanation.";
+
+  consentBox.append(consent, consentText);
+
+  const topicGrid = document.createElement("div");
+  topicGrid.className = "gemini-topic-grid";
+
+  const topics = [
+    { id: "career", icon: "💼", en: "Career & Profession", hi: "करियर और पेशा", descEn: "Career direction and work strengths", descHi: "करियर दिशा और कार्य क्षमता" },
+    { id: "education", icon: "🎓", en: "Education", hi: "शिक्षा", descEn: "Studies and learning indicators", descHi: "पढ़ाई और शिक्षा के संकेत" },
+    { id: "marriage", icon: "💍", en: "Marriage & Relationships", hi: "विवाह और रिश्ते", descEn: "Partnership and marriage indicators", descHi: "विवाह और संबंधों के संकेत" },
+    { id: "finance", icon: "₹", en: "Finance & Wealth", hi: "धन और वित्त", descEn: "Income, savings and wealth", descHi: "आय, बचत और धन" },
+    { id: "travel", icon: "✈️", en: "Foreign Travel", hi: "विदेश यात्रा", descEn: "Travel and relocation indicators", descHi: "यात्रा और स्थान परिवर्तन" },
+    { id: "dasha", icon: "⏳", en: "Dasha & Timing", hi: "दशा और समय", descEn: "Actual planetary periods and dates", descHi: "वास्तविक ग्रह दशाएँ और तिथियाँ" },
+    { id: "overall", icon: "✦", en: "Overall Overview", hi: "संपूर्ण कुंडली", descEn: "A concise chart overview", descHi: "कुंडली का संक्षिप्त विश्लेषण" }
+  ];
+
+  const status = document.createElement("p");
+  status.className = "gemini-status";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+
+  const output = document.createElement("div");
+  output.className = "gemini-results";
+
+  let activeRequest = 0;
+
+  topics.forEach(topic => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "gemini-topic-btn";
+    button.dataset.topic = topic.id;
+
+    const title = language === "hi" ? topic.hi : topic.en;
+    const desc = language === "hi" ? topic.descHi : topic.descEn;
+
+    const icon = document.createElement("span");
+    icon.className = "gemini-topic-icon";
+    icon.textContent = topic.icon;
+
+    const copy = document.createElement("span");
+    copy.className = "gemini-topic-copy";
+
+    const strong = document.createElement("strong");
+    strong.textContent = title;
+
+    const small = document.createElement("small");
+    small.textContent = desc;
+
+    copy.append(strong, small);
+    button.append(icon, copy);
+
+    button.addEventListener("click", async () => {
+      if (!consent.checked) {
+        status.textContent = language === "hi"
+          ? "कृपया पहले AI व्याख्या के लिए सहमति दें।"
+          : "Please provide consent before requesting an AI explanation.";
+        consent.focus();
+        return;
+      }
+
+      const requestId = ++activeRequest;
+
+      topicGrid.querySelectorAll("button").forEach(item => {
+        item.disabled = true;
+        item.classList.toggle("is-active", item === button);
+      });
+
+      status.textContent = language === "hi"
+        ? `${title} का विश्लेषण तैयार किया जा रहा है...`
+        : `Preparing your ${title} explanation...`;
+
+      output.replaceChildren();
+
+      const loading = document.createElement("p");
+      loading.className = "gemini-loading";
+      loading.textContent = language === "hi"
+        ? "AstroLogics के संबंधित डेटा का विश्लेषण हो रहा है। कृपया प्रतीक्षा करें..."
+        : "Analysing the relevant AstroLogics data. Please wait...";
+      output.appendChild(loading);
+
+      try {
+        const response = await fetch("/.netlify/functions/ai-explain", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            consent: true,
+            report,
+            language: language || "en",
+            topic: topic.id
+          })
+        });
+
+        const payload = await readResponse(response);
+
+        if (requestId !== activeRequest) return;
+        if (!payload.explanation) {
+          throw new Error(payload.error || "AI returned no explanation.");
+        }
+
+        renderGeminiExplanation(payload.explanation, output);
+        status.textContent = language === "hi"
+          ? `${title} की व्याख्या तैयार है।`
+          : `${title} explanation is ready.`;
+
+      } catch (error) {
+        if (requestId !== activeRequest) return;
+
+        console.error("Topic AI explanation error:", error);
+        output.replaceChildren();
+
+        const errorText = document.createElement("p");
+        errorText.textContent = error.message || "Unable to generate this explanation.";
+        output.appendChild(errorText);
+
+        status.textContent = language === "hi"
+          ? "व्याख्या तैयार नहीं हो सकी। कृपया बाद में प्रयास करें।"
+          : "The explanation could not be generated. Please try again.";
+
+      } finally {
+        if (requestId === activeRequest) {
+          topicGrid.querySelectorAll("button").forEach(item => {
+            item.disabled = false;
+          });
+        }
+      }
+    });
+
+    topicGrid.appendChild(button);
+  });
+
+  section.append(header, consentBox, topicGrid, status, output);
+  container.appendChild(section);
+}
+
+// ==========================================
+// RENDER AI RESPONSE AS STRUCTURED CARDS
+// ==========================================
+
+
+function renderGeminiExplanation(text, container) {
+  container.replaceChildren();
+
+  const lines = String(text || "")
+    .replace(/\r/g, "")
+    .split("\n");
+
+  let currentCard = null;
+  let cardGrid = document.createElement("div");
+
+  cardGrid.className = "gemini-card-grid";
+
+  // Render inline Markdown safely without innerHTML.
+  function appendInlineMarkdown(parent, value) {
+    const pattern = /(\*\*[^*]+\*\*|(?<!\*)\*[^*]+\*(?!\*)|`[^`]+`)/g;
+
+    let lastIndex = 0;
+    let match;
+
+    while ((match = pattern.exec(value)) !== null) {
+      if (match.index > lastIndex) {
+        parent.appendChild(
+          document.createTextNode(
+            value.slice(lastIndex, match.index)
+          )
+        );
+      }
+
+      const token = match[0];
+      const content = token.slice(1, -1);
+
+      if (token.startsWith("**")) {
+        const strong = document.createElement("strong");
+        strong.textContent = token.slice(2, -2);
+        parent.appendChild(strong);
+      } else if (token.startsWith("`")) {
+        const code = document.createElement("code");
+        code.textContent = content;
+        parent.appendChild(code);
+      } else {
+        const italic = document.createElement("em");
+        italic.textContent = content;
+        parent.appendChild(italic);
+      }
+
+      lastIndex = pattern.lastIndex;
+    }
+
+    if (lastIndex < value.length) {
+      parent.appendChild(
+        document.createTextNode(value.slice(lastIndex))
+      );
+    }
+  }
+
+  // Create an individual insight card.
+  function createCard(title) {
+    const card = document.createElement("article");
+    card.className = "gemini-insight-card";
+
+    const heading = document.createElement("h4");
+    heading.textContent = title;
+
+    const body = document.createElement("div");
+    body.className = "gemini-card-content";
+
+    card.append(heading, body);
+    cardGrid.appendChild(card);
+
+    return body;
+  }
+
+  function ensureCard() {
+    if (!currentCard) {
+      currentCard = createCard("AI Interpretation");
+    }
+
+    return currentCard;
+  }
+
+  // Keep track of consecutive bullet lists.
+  let currentList = null;
+  let currentListType = "";
+
+  function resetList() {
+    currentList = null;
+    currentListType = "";
+  }
+
+  lines.forEach(rawLine => {
+    const line = rawLine.trim();
+
+    if (!line) {
+      resetList();
+      return;
+    }
+
+    // Markdown headings.
+    const headingMatch = line.match(/^#{1,3}\s+(.+)$/);
+
+    if (headingMatch) {
+      currentCard = createCard(
+        headingMatch[1].replace(/\*\*/g, "")
+      );
+
+      resetList();
+      return;
+    }
+
+    // Bold standalone headings.
+    const boldHeading = line.match(/^\*\*(.+)\*\*:?$/);
+
+    if (boldHeading) {
+      currentCard = createCard(boldHeading[1]);
+      resetList();
+      return;
+    }
+
+    const body = ensureCard();
+
+    // Unordered and numbered lists.
+    const bulletMatch = line.match(/^[-*•]\s+(.+)$/);
+    const numberMatch = line.match(/^\d+[.)]\s+(.+)$/);
+
+    if (bulletMatch || numberMatch) {
+      const listType = numberMatch ? "ol" : "ul";
+
+      if (!currentList || currentListType !== listType) {
+        currentList = document.createElement(listType);
+        body.appendChild(currentList);
+        currentListType = listType;
+      }
+
+      const item = document.createElement("li");
+
+      appendInlineMarkdown(
+        item,
+        bulletMatch ? bulletMatch[1] : numberMatch[1]
+      );
+
+      currentList.appendChild(item);
+      return;
+    }
+
+    resetList();
+
+    // Normal paragraphs.
+    const paragraph = document.createElement("p");
+
+    appendInlineMarkdown(paragraph, line);
+
+    body.appendChild(paragraph);
+  });
+
+  // Fallback for empty or unsupported output.
+  if (!cardGrid.children.length) {
+    const body = createCard("AI Interpretation");
+    const paragraph = document.createElement("p");
+
+    appendInlineMarkdown(paragraph, String(text || ""));
+
+    body.appendChild(paragraph);
+  }
+
+  container.appendChild(cardGrid);
+}
+
+
+
+
 
   // ==========================================
   // COMMON POST REQUEST
