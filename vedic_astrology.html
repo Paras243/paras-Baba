@@ -62,14 +62,42 @@
 <main>
   <section class="astro-hero">
     <div class="astro-shell">
-      <span class="astro-eyebrow">Jyotish · The Vedic tradition</span>
-      <h1>Vedic <em>Astrology.</em></h1>
-      <p>Explore the traditional language of the grahas, rashis, bhavas and nakshatras. Begin with a Rashi reading or prepare your birth details for a personalised Janam Kundli and detailed life report.</p>
+      <span class="astro-eyebrow">Paras Baba · Vedic Jyotish</span>
+      <h1>Your Complete <em>Kundali Report</em></h1>
+      <p>Technical calculations, traditional Pandit's interpretation and a personal question-answer experience — together in one place.</p>
       <div class="astro-divider"><span>ॐ</span></div>
-      <a class="astro-back" href="./Astrology.html">← All astrology paths</a>
+      <a class="astro-back" href="#vedic-kundli">Begin with your birth details ↓</a>
     </div>
   </section>
-  <section class="astro-section">
+
+  <!-- MOBILE-FIRST ASTROLOGY DASHBOARD -->
+  <section class="astro-dashboard-section" id="astro-dashboard" aria-labelledby="astro-dashboard-title">
+    <div class="astro-shell">
+      <div class="astro-dashboard-heading">
+        <span class="astro-eyebrow">Your personal astrology space</span>
+        <h2 id="astro-dashboard-title">Discover your <em>Kundali.</em></h2>
+        <p>Generate your birth chart to unlock technical planetary analysis, Pandit-style interpretation and personal questions.</p>
+      </div>
+      <a class="astro-dashboard-cta" href="#vedic-kundli">
+        <span class="astro-dashboard-cta-icon"><i class="fa-solid fa-sparkles" aria-hidden="true"></i></span>
+        <span><strong>Prepare your Janam Kundli</strong><small>Your birth details power both sections of your personalised report</small></span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <div class="astro-dashboard-grid" id="astroDashboardGrid">
+        <button class="astro-dashboard-card" type="button" data-astro-topic="overall"><span class="astro-dashboard-icon"><i class="fa-solid fa-compass"></i></span><strong>Life Overview</strong><small>Your chart's bigger picture</small><span class="astro-card-action">Explore <i class="fa-solid fa-arrow-right"></i></span></button>
+        <button class="astro-dashboard-card" type="button" data-astro-topic="career"><span class="astro-dashboard-icon"><i class="fa-solid fa-briefcase"></i></span><strong>Career & Work</strong><small>Profession and work themes</small><span class="astro-card-action">Explore <i class="fa-solid fa-arrow-right"></i></span></button>
+        <button class="astro-dashboard-card" type="button" data-astro-topic="marriage"><span class="astro-dashboard-icon"><i class="fa-solid fa-heart"></i></span><strong>Marriage & Love</strong><small>Partnership and relationship themes</small><span class="astro-card-action">Explore <i class="fa-solid fa-arrow-right"></i></span></button>
+        <button class="astro-dashboard-card" type="button" data-astro-topic="education"><span class="astro-dashboard-icon"><i class="fa-solid fa-graduation-cap"></i></span><strong>Education</strong><small>Learning and study indicators</small><span class="astro-card-action">Explore <i class="fa-solid fa-arrow-right"></i></span></button>
+        <button class="astro-dashboard-card" type="button" data-astro-topic="finance"><span class="astro-dashboard-icon"><i class="fa-solid fa-coins"></i></span><strong>Money & Wealth</strong><small>Income and savings themes</small><span class="astro-card-action">Explore <i class="fa-solid fa-arrow-right"></i></span></button>
+        <button class="astro-dashboard-card" type="button" data-astro-topic="travel"><span class="astro-dashboard-icon"><i class="fa-solid fa-plane"></i></span><strong>Travel & Abroad</strong><small>Travel and relocation indicators</small><span class="astro-card-action">Explore <i class="fa-solid fa-arrow-right"></i></span></button>
+        <button class="astro-dashboard-card" type="button" data-astro-topic="dasha"><span class="astro-dashboard-icon"><i class="fa-solid fa-hourglass-half"></i></span><strong>Dasha & Timing</strong><small>Planetary periods, if returned</small><span class="astro-card-action">Explore <i class="fa-solid fa-arrow-right"></i></span></button>
+        <a class="astro-dashboard-card astro-dashboard-link" href="#vedic-rashi"><span class="astro-dashboard-icon"><i class="fa-solid fa-moon"></i></span><strong>Daily Rashi</strong><small>Choose your Janma Rashi</small><span class="astro-card-action">View signs <i class="fa-solid fa-arrow-right"></i></span></a>
+      </div>
+      <p class="astro-dashboard-status" id="astroDashboardStatus" role="status" aria-live="polite">Select a life area. If you have not generated a report yet, we will guide you to the Kundali form.</p>
+    </div>
+  </section>
+
+  <section class="astro-section" id="vedic-rashi">
     <div class="astro-shell astro-content-grid">
       <section class="astro-panel">
         <span class="astro-eyebrow">Daily guidance</span>
@@ -92,7 +120,7 @@
         <div class="astro-result" id="vedicRashiResult" aria-live="polite"><strong>Choose your Janma Rashi</strong><br>Your daily reading will appear here when the astrology service is connected.</div>
         <p class="astro-status">Daily Rashi reading is a general sign-based interpretation. Generate a birth-chart report for a more detailed traditional analysis.</p>
       </section>
-      <section class="astro-panel">
+      <section class="astro-panel" id="vedic-kundli">
         <span class="astro-eyebrow">Personal birth chart</span>
         <h2>Prepare your Janam Kundli</h2>
         <p>Enter accurate birth details. Birth time and birthplace are important for Lagna, bhava and divisional-chart calculations.</p>
@@ -108,34 +136,25 @@
       </section>
     </div>
   </section>
-  <section class="astro-section" style="padding-top:0">
-    <div class="astro-shell astro-panel">
-      <span class="astro-eyebrow">A deeper Jyotish reading</span>
-      <h2>Explore the different areas of life</h2>
-      <p class="vedic-life-intro">The detailed report organises traditional chart indicators into clear chapters. Interpretations depend on the actual planetary placements and calculations returned for your birth details.</p>
-      <div class="vedic-topic-grid">
-        <article><i class="fa-solid fa-compass"></i><strong>Life direction</strong><span>Lagna, Moon and overall chart themes</span></article>
-        <article><i class="fa-solid fa-briefcase"></i><strong>Career</strong><span>10th house, Saturn and D10</span></article>
-        <article><i class="fa-solid fa-heart"></i><strong>Love & marriage</strong><span>5th and 7th houses, Venus and D9</span></article>
-        <article><i class="fa-solid fa-graduation-cap"></i><strong>Education</strong><span>4th, 5th and 9th houses, Mercury and Jupiter</span></article>
-        <article><i class="fa-solid fa-coins"></i><strong>Wealth</strong><span>2nd and 11th houses and D2</span></article>
-        <article><i class="fa-solid fa-hourglass-half"></i><strong>Life periods</strong><span>Vimshottari Mahadasha and Antardasha</span></article>
+
+  <!-- GENERATED KUNDALI: TWO CLEARLY SEPARATED SECTIONS -->
+  <section class="astro-report-dashboard" id="vedicReportDashboard" aria-live="polite">
+    <div class="astro-shell">
+      <div class="astro-report-placeholder">
+        <span class="astro-eyebrow">Your personalised report</span>
+        <h2>Your Kundali journey begins here</h2>
+        <p>Enter your birth details and select <strong>Generate Full Phaladesh</strong>. Your technical calculations and Pandit's interpretation will appear in two separate sections below.</p>
       </div>
     </div>
   </section>
-  <section class="astro-section" style="padding-top:0">
-    <div class="astro-shell astro-panel">
-      <span class="astro-eyebrow">What the chart contains</span>
-      <h2>Inside a Vedic birth chart</h2>
-      <ul class="astro-feature-list">
-        <li><i class="fa-solid fa-sun"></i><span><strong>Lagna & Bhavas</strong> — Ascendant and the twelve houses.</span></li>
-        <li><i class="fa-solid fa-moon"></i><span><strong>Rashi & Nakshatra</strong> — Moon sign and lunar mansion.</span></li>
-        <li><i class="fa-solid fa-star"></i><span><strong>Graha placements</strong> — Traditional planetary positions and chart details.</span></li>
-        <li><i class="fa-solid fa-hourglass-half"></i><span><strong>Vimshottari Dasha</strong> — Traditional planetary-period framework, where supported by the provider.</span></li>
-      </ul>
-    </div>
-  </section>
+
 </main>
+<nav class="astro-mobile-nav" aria-label="Astrology quick navigation">
+  <a href="#astro-dashboard"><i class="fa-solid fa-house"></i><span>Home</span></a>
+  <a href="#vedic-kundli"><i class="fa-solid fa-star"></i><span>Kundali</span></a>
+  <a href="#vedicReportDashboard"><i class="fa-solid fa-chart-column"></i><span>Report</span></a>
+  <a href="#askYourAstrologer"><i class="fa-solid fa-comments"></i><span>Ask Pandit</span></a>
+</nav>
 <footer class="pb-footer" style="background-image: url('./assets/footer_img.png');">
 
   <div class="pb-footer-glow"></div>

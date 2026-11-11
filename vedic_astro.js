@@ -21,7 +21,41 @@ document.addEventListener("DOMContentLoaded", () => {
   let phaladeshInFlight = false;
   let kundliInFlight = false;
   let lastPhaladeshRequestAt = 0;
+  let pendingDashboardTopic = "";
   const PHALADESH_COOLDOWN_MS = 12000;
+
+  const dashboardGrid = document.getElementById("astroDashboardGrid");
+  const dashboardStatus = document.getElementById("astroDashboardStatus");
+
+  dashboardGrid?.addEventListener("click", event => {
+    const card = event.target.closest("[data-astro-topic]");
+    if (!card) return;
+
+    const topic = card.dataset.astroTopic;
+    const topicButton = document.querySelector(
+      `.gemini-topic-btn[data-topic="${topic}"]`
+    );
+
+    if (topicButton) {
+      topicButton.click();
+      document.querySelector(".gemini-panel")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+      return;
+    }
+
+    pendingDashboardTopic = topic;
+    if (dashboardStatus) {
+      dashboardStatus.textContent =
+        "First enter your birth details, generate your Kundali, then select “Generate Full Phaladesh”. Your chosen topic will open automatically.";
+    }
+    document.getElementById("vedic-kundli")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+    form?.querySelector('input[name="date"]')?.focus({ preventScroll: true });
+  });
 
   // ==========================================
   // RASHI MAPPING
@@ -227,19 +261,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
    const report = await getPhaladesh(birth);
+   const reportDashboard = document.getElementById("vedicReportDashboard");
+   const reportHost = reportDashboard?.querySelector(".astro-shell") || kundliResult;
+   reportHost.replaceChildren();
 
-displayPhaladesh(
-  report,
-  kundliResult,
-  birth.name
-);
+   const technicalSection = document.createElement("section");
+   technicalSection.className = "astro-report-section astro-technical-section";
+   technicalSection.id = "technicalAnalysis";
+   const technicalHeader = document.createElement("div");
+   technicalHeader.className = "astro-report-heading";
+   technicalHeader.innerHTML = '<span class="astro-section-number">SECTION 1</span><div><h2>Planetary Positions & Technical Analysis</h2><p>Detailed calculations from your Vedic birth chart.</p></div>';
+   const technicalContent = document.createElement("div");
+   technicalContent.className = "astro-technical-content";
+   technicalSection.append(technicalHeader, technicalContent);
 
-// Add topic-based AI explanations below the original report
-addGeminiExplanation(
-  report,
-  kundliResult,
-  birth.language
-);
+   const panditSection = document.createElement("section");
+   panditSection.className = "astro-report-section astro-pandit-section";
+   panditSection.id = "panditInterpretation";
+   const panditHeader = document.createElement("div");
+   panditHeader.className = "astro-report-heading";
+   panditHeader.innerHTML = '<span class="astro-section-number">SECTION 2</span><div><h2>Pandit’s Kundali Interpretation</h2><p>Traditional meanings explained in clear, personal language.</p></div>';
+   const panditContent = document.createElement("div");
+   panditContent.className = "astro-pandit-content";
+   panditSection.append(panditHeader, panditContent);
+
+   reportHost.append(technicalSection, panditSection);
+   displayPhaladesh(report, technicalContent, birth.name);
+   addGeminiExplanation(report, panditContent, birth.language);
+   reportDashboard?.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (error) {
       console.error("Phaladesh error:", error);
 
@@ -457,6 +506,46 @@ function addGeminiExplanation(report, container, language = "en") {
     { id: "overall", icon: "✦", en: "Overall Overview", hi: "संपूर्ण कुंडली", descEn: "A concise chart overview", descHi: "कुंडली का संक्षिप्त विश्लेषण" }
   ];
 
+  const askSection = document.createElement("section");
+  askSection.className = "astro-ask-panel";
+  askSection.id = "askYourAstrologer";
+
+  const askTitle = document.createElement("h4");
+  askTitle.textContent = language === "hi" ? "अपने ज्योतिषी से प्रश्न पूछें" : "Ask Your Astrologer";
+  const askCopy = document.createElement("p");
+  askCopy.textContent = language === "hi"
+    ? "अपनी कुंडली से जुड़ा व्यक्तिगत प्रश्न लिखें। उत्तर उपलब्ध AstroLogics गणनाओं पर आधारित होगा।"
+    : "Ask a personal question about your Kundali. The answer will be grounded in the available AstroLogics calculations.";
+
+  const questionInput = document.createElement("textarea");
+  questionInput.className = "astro-question-input";
+  questionInput.rows = 3;
+  questionInput.maxLength = 700;
+  questionInput.placeholder = language === "hi"
+    ? "उदाहरण: मेरी कुंडली में सरकारी नौकरी के क्या संकेत हैं?"
+    : "e.g. What does my Kundali indicate about a government career?";
+
+  const askButton = document.createElement("button");
+  askButton.type = "button";
+  askButton.className = "astro-ask-button";
+  askButton.textContent = language === "hi" ? "प्रश्न भेजें" : "Ask Pandit";
+
+  const suggestions = document.createElement("div");
+  suggestions.className = "astro-question-suggestions";
+  [
+    "What does my chart indicate about my career?",
+    "What should I understand about marriage in my chart?",
+    "What does my current Dasha mean?"
+  ].forEach(prompt => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.textContent = prompt;
+    chip.addEventListener("click", () => { questionInput.value = prompt; });
+    suggestions.appendChild(chip);
+  });
+
+  askSection.append(askTitle, askCopy, questionInput, askButton, suggestions);
+
   const status = document.createElement("p");
   status.className = "gemini-status";
   status.setAttribute("role", "status");
@@ -464,6 +553,53 @@ function addGeminiExplanation(report, container, language = "en") {
 
   const output = document.createElement("div");
   output.className = "gemini-results";
+
+  askButton.addEventListener("click", async () => {
+    const question = questionInput.value.trim();
+    if (!question) {
+      status.textContent = language === "hi" ? "कृपया अपना प्रश्न लिखें।" : "Please type your question first.";
+      questionInput.focus();
+      return;
+    }
+    if (!consent.checked) {
+      status.textContent = language === "hi"
+        ? "AI उत्तर के लिए पहले सहमति दें।"
+        : "Please provide consent before sending your question and relevant chart data to Groq AI.";
+      consent.focus();
+      return;
+    }
+
+    askButton.disabled = true;
+    askButton.textContent = language === "hi" ? "उत्तर तैयार हो रहा है..." : "Preparing your answer...";
+    status.textContent = language === "hi"
+      ? "आपकी कुंडली के उपलब्ध गणना डेटा का अध्ययन किया जा रहा है..."
+      : "Your astrologer is reviewing the available chart calculations...";
+    output.replaceChildren();
+
+    try {
+      const response = await fetch("/.netlify/functions/ai-explain", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          consent: true,
+          report,
+          language: language || "en",
+          topic: "overall",
+          question
+        })
+      });
+      const payload = await readResponse(response);
+      if (!payload.explanation) throw new Error(payload.error || "AI returned no answer.");
+      renderGeminiExplanation(payload.explanation, output);
+      status.textContent = language === "hi" ? "आपका उत्तर तैयार है।" : "Your answer is ready.";
+      output.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } catch (error) {
+      status.textContent = error.message || "Unable to answer your question right now.";
+    } finally {
+      askButton.disabled = false;
+      askButton.textContent = language === "hi" ? "प्रश्न भेजें" : "Ask Pandit";
+    }
+  });
 
   let activeRequest = 0;
 
@@ -571,8 +707,23 @@ function addGeminiExplanation(report, container, language = "en") {
     topicGrid.appendChild(button);
   });
 
-  section.append(header, consentBox, topicGrid, status, output);
+  section.append(header, consentBox, topicGrid, askSection, status, output);
   container.appendChild(section);
+
+  if (pendingDashboardTopic) {
+    const requestedTopic = pendingDashboardTopic;
+    pendingDashboardTopic = "";
+    const requestedButton = section.querySelector(
+      `.gemini-topic-btn[data-topic="${requestedTopic}"]`
+    );
+    if (requestedButton) {
+      window.setTimeout(() => requestedButton.click(), 150);
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (dashboardStatus) {
+      dashboardStatus.textContent =
+        "That topic is not available in the current report. Please choose another available life area.";
+    }
+  }
 }
 
 // ==========================================
@@ -995,79 +1146,57 @@ function renderGeminiExplanation(text, container) {
     const wealth = calc("wealthAnalysis") || report?.wealth || {};
     const shadbala = calc("planetaryStrength") || report?.shadbala || {};
 
-    const heading = document.createElement("h3");
-    heading.textContent = name ? `${name}'s Vedic Life Report` : "Your Vedic Life Report";
-    container.appendChild(heading);
-
     const intro = document.createElement("p");
     intro.className = "vedic-report-intro";
-    intro.textContent = "A traditional Jyotish reading based on the birth-chart and supporting calculations returned for the birth details you entered. Each chapter explains the relevant chart factors in clear language.";
+    intro.textContent = name
+      ? `Technical birth-chart results prepared for ${name}. The values below are displayed from the AstroLogics response.`
+      : "The values below are displayed from the AstroLogics response. Missing calculations are not filled in or estimated.";
     container.appendChild(intro);
 
     const profile = extractChartProfile(kundli);
-    renderVedicSummary(profile, container);
+    const summary = document.createElement("div");
+    summary.className = "vedic-technical-summary";
 
-    const chapters = buildVedicChapters({
-      profile, kundli, divisional, dasha, currentDasha, yogas, wealth, shadbala
+    [
+      ["Lagna (Ascendant)", profile.lagna || "Not returned"],
+      ["Moon sign", profile.moon?.sign_label || profile.moon?.sign || "Not returned"],
+      ["Lagna Nakshatra", profile.lagnaNakshatra || "Not returned"],
+      ["Planets returned", String(Array.isArray(kundli?.planets) ? kundli.planets.length : 0)]
+    ].forEach(([label, value]) => {
+      const card = document.createElement("article");
+      card.className = "vedic-technical-stat";
+      const small = document.createElement("small");
+      small.textContent = label;
+      const strong = document.createElement("strong");
+      strong.textContent = value;
+      card.append(small, strong);
+      summary.appendChild(card);
     });
-
-    const chapterGrid = document.createElement("div");
-    chapterGrid.className = "vedic-life-chapters";
-
-    chapters.forEach(chapter => {
-      const section = document.createElement("section");
-      section.className = "vedic-report-section vedic-life-chapter";
-
-      const heading = document.createElement("h4");
-      heading.textContent = chapter.title;
-
-      const paragraph = document.createElement("p");
-      paragraph.className = "vedic-chapter-copy";
-      paragraph.textContent = chapter.copy;
-
-      section.append(heading, paragraph);
-
-      if (chapter.factors.length) {
-        const factorTitle = document.createElement("small");
-        factorTitle.className = "vedic-factor-label";
-        factorTitle.textContent = "Chart factors considered";
-        const factors = document.createElement("div");
-        factors.className = "vedic-factor-list";
-        chapter.factors.forEach(factor => {
-          const chip = document.createElement("span");
-          chip.className = "vedic-factor-chip";
-          chip.textContent = factor;
-          factors.appendChild(chip);
-        });
-        section.append(factorTitle, factors);
-      }
-      chapterGrid.appendChild(section);
-    });
-
-    container.appendChild(chapterGrid);
-
-    // Preserve the detailed source calculations below the readable interpretation.
-    const details = document.createElement("details");
-    details.className = "vedic-technical-details";
-    const summary = document.createElement("summary");
-    summary.textContent = "Explore detailed Kundli calculations";
-    details.appendChild(summary);
+    container.appendChild(summary);
 
     if (Object.keys(kundli).length) {
-      const section = createReportSection("Birth Chart & Planetary Positions");
-      displayKundli(kundli, section);
-      details.appendChild(section);
+      const planetSection = createReportSection("Planetary Positions & Birth Chart");
+      displayKundli(kundli, planetSection, name);
+      container.appendChild(planetSection);
     }
+
+    const detailGrid = document.createElement("div");
+    detailGrid.className = "vedic-technical-grid";
     [
       ["Divisional Charts — D2, D9 & D10", divisional],
       ["Vimshottari Dasha Timeline", dasha],
       ["Current Mahadasha & Antardasha", currentDasha],
-      ["Important Yogas", yogas],
+      ["Yogas & Doshas", yogas],
       ["Wealth Indicators", wealth],
       ["Planetary Strength — Shadbala", shadbala]
     ].forEach(([title, data]) => {
-      if (data && Object.keys(data).length) appendReportSection(details, title, data);
+      if (data && typeof data === "object" && Object.keys(data).length) {
+        const section = createReportSection(title);
+        renderObject(data, section);
+        detailGrid.appendChild(section);
+      }
     });
+    if (detailGrid.children.length) container.appendChild(detailGrid);
 
     const failed = Object.entries(calculations)
       .filter(([, item]) => item && !item.success)
@@ -1075,23 +1204,16 @@ function renderGeminiExplanation(text, container) {
     if (failed.length) {
       const note = document.createElement("p");
       note.className = "vedic-calculation-note";
-      note.textContent = `Some supporting calculations were unavailable: ${failed.join(", ")}. Interpretations are limited to the chart data that was successfully returned.`;
-      details.appendChild(note);
+      note.textContent = `Unavailable calculations: ${failed.join(", ")}. The interpretation will be limited to successfully returned data.`;
+      container.appendChild(note);
     }
 
     if (report?.meta) {
       const meta = document.createElement("small");
       meta.className = "vedic-report-meta";
       meta.textContent = `Calculation engine: ${report.meta.engine_version || "Provider"} · Credits used: ${report.meta.credits_charged ?? "Not supplied"}`;
-      details.appendChild(meta);
+      container.appendChild(meta);
     }
-
-    container.appendChild(details);
-
-    const disclaimer = document.createElement("p");
-    disclaimer.className = "astro-note";
-    disclaimer.textContent = "Vedic astrology is a traditional interpretive system, not a scientifically established way to predict events. These themes are reflective, not guarantees about career, marriage, money, health or education. Use practical judgement for important life decisions.";
-    container.appendChild(disclaimer);
   }
 
   function extractChartProfile(kundli) {
@@ -1249,87 +1371,132 @@ function renderGeminiExplanation(text, container) {
     return section;
   }
 
-  function appendReportSection(container, title, data) {
-    if (
-      data === undefined ||
-      data === null
-    ) return;
+ 
+function appendReportSection(container, title, data) {
+  if (data === undefined || data === null) return;
 
-    const section = createReportSection(title);
+  const section = createReportSection(title);
+  section.classList.add("astro-technical-card");
 
-    renderObject(data, section);
+  const details = document.createElement("details");
+  details.className = "astro-technical-accordion";
 
-    container.appendChild(section);
-  }
+  const summary = document.createElement("summary");
+  summary.textContent = title;
+
+  const content = document.createElement("div");
+  content.className = "astro-technical-card-content";
+
+  renderObject(data, content);
+
+  details.append(summary, content);
+  section.appendChild(details);
+
+  container.appendChild(section);
+}
+
 
   // ==========================================
   // SAFE RECURSIVE DATA RENDERER
   // ==========================================
 
-  function renderObject(value, container, depth = 0) {
-    if (depth > 5 || value == null) return;
+  
+function renderObject(value, container, depth = 0) {
+  if (value === undefined || value === null) return;
 
-    if (
-      typeof value === "string" ||
-      typeof value === "number" ||
-      typeof value === "boolean"
-    ) {
-      const paragraph = document.createElement("p");
-      paragraph.textContent = String(value);
-      container.appendChild(paragraph);
-      return;
-    }
+  // Primitive values
+  if (
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean"
+  ) {
+    const valueEl = document.createElement("span");
+    valueEl.className = "astro-data-value";
+    valueEl.textContent = String(value);
+    container.appendChild(valueEl);
+    return;
+  }
 
-    if (Array.isArray(value)) {
-      if (!value.length) {
-        const empty = document.createElement("p");
-        empty.textContent = "No entries returned.";
-        container.appendChild(empty);
-        return;
+  // Arrays
+  if (Array.isArray(value)) {
+    if (!value.length) return;
+
+    const list = document.createElement("div");
+    list.className = "astro-data-list";
+
+    value.forEach((item, index) => {
+      const itemCard = document.createElement("div");
+      itemCard.className = "astro-data-card";
+
+      if (item && typeof item === "object") {
+        const itemTitle = document.createElement("h6");
+        itemTitle.textContent =
+          item.name || item.label || item.planet ||
+          `Entry ${index + 1}`;
+
+        itemCard.appendChild(itemTitle);
+        renderObject(item, itemCard, depth + 1);
+      } else {
+        itemCard.textContent = String(item);
       }
 
-      const list = document.createElement("ul");
+      list.appendChild(itemCard);
+    });
 
-      value.forEach(item => {
-        const li = document.createElement("li");
-
-        if (item && typeof item === "object") {
-          renderObject(item, li, depth + 1);
-        } else {
-          li.textContent = String(item);
-        }
-
-        list.appendChild(li);
-      });
-
-      container.appendChild(list);
-      return;
-    }
-
-    if (typeof value === "object") {
-      Object.entries(value).forEach(([key, item]) => {
-        if (item === undefined || item === null) return;
-
-        const wrapper = document.createElement("div");
-        wrapper.className = "vedic-report-item";
-
-        const label = document.createElement("strong");
-        label.textContent = formatLabel(key);
-
-        wrapper.appendChild(label);
-
-        if (typeof item === "object") {
-          renderObject(item, wrapper, depth + 1);
-        } else {
-          const text = document.createElement("span");
-          text.textContent = `: ${String(item)}`;
-          wrapper.appendChild(text);
-        }
-
-        container.appendChild(wrapper);
-      });
-    }
+    container.appendChild(list);
+    return;
   }
+
+  // Nested objects
+  if (typeof value === "object") {
+    const entries = Object.entries(value).filter(
+      ([, item]) => item !== undefined && item !== null
+    );
+
+    if (!entries.length) return;
+
+    const group = document.createElement("div");
+    group.className = "astro-data-group";
+
+    entries.forEach(([key, item]) => {
+      const row = document.createElement("div");
+      row.className = "astro-data-row";
+
+      const label = document.createElement("strong");
+      label.textContent = formatLabel(key);
+
+      row.appendChild(label);
+
+      if (typeof item === "object") {
+        const nested = document.createElement("details");
+        nested.className = "astro-data-nested";
+
+        const summary = document.createElement("summary");
+        summary.textContent = Array.isArray(item)
+          ? `${formatLabel(key)} (${item.length})`
+          : `View ${formatLabel(key)}`;
+
+        const content = document.createElement("div");
+        content.className = "astro-data-nested-content";
+
+        renderObject(item, content, depth + 1);
+
+        nested.append(summary, content);
+        row.appendChild(nested);
+      } else {
+        const output = document.createElement("span");
+        output.className = "astro-data-value";
+        output.textContent = String(item);
+        row.appendChild(output);
+      }
+
+      group.appendChild(row);
+    });
+
+    container.appendChild(group);
+  }
+}
+
 
   // ==========================================
   // UTILITIES

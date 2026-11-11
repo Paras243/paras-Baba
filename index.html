@@ -559,8 +559,8 @@
         <!-- CTA BUTTONS -->
         <div class="cta-group">
 
-          <a href="#bhagwat-katha" class="btn-watch">
-            Watch Katha
+          <a href="./Astrology.html" class="btn-watch">
+            Horoscope
             <i class="fa-solid fa-play"></i>
           </a>
 
@@ -951,58 +951,74 @@
   </div>
 
 </section>
-<!-- BHAGWAT KATHA VIDEOS -->
-<section class="pb-youtube-section" id="bhagwat-katha">
+<!-- WISDOM BEYOND WORDS — VIDEO LIBRARY -->
+<section class="pb-youtube-section pb-wisdom-library" id="wisdom-beyond-words">
   <div class="pb-youtube-container">
-
     <div class="pb-youtube-heading">
-      <span class="pb-youtube-eyebrow">THE WISDOM OF SHRIMAD BHAGWAT</span>
-      <h2>Bhagwat <em>Katha.</em></h2>
+      <span class="pb-youtube-eyebrow">LISTEN · REFLECT · REALISE</span>
+      <h2>Wisdom <em>Beyond Words.</em></h2>
       <p>
-        Listen, reflect, and immerse yourself in the timeless stories
-        and teachings of Shrimad Bhagwat.
+        Explore timeless teachings, sacred stories and reflections that invite
+        you to look within and bring wisdom into everyday life.
       </p>
     </div>
 
-    <div class="pb-youtube-toolbar">
+    <div class="pb-wisdom-intro-row">
       <div>
-        <span class="pb-youtube-small-label">VIDEO LIBRARY</span>
-        <h3>Explore Katha Videos</h3>
+        <span class="pb-youtube-small-label">A LIBRARY FOR THE SEEKER</span>
+        <h3>Choose a path of exploration</h3>
       </div>
-
-      <form class="pb-youtube-search" id="pbYoutubeSearchForm">
-        <input
-          type="search"
-          id="pbYoutubeSearch"
-          placeholder="Search Bhagwat Katha..."
-          aria-label="Search Bhagwat Katha videos"
-        />
+      <form class="pb-youtube-search" id="pbYoutubeSearchForm" role="search">
+        <input type="search" id="pbYoutubeSearch"
+          placeholder="Search wisdom, meditation..."
+          aria-label="Search videos" />
         <button type="submit" aria-label="Search videos">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
     </div>
 
-    <div class="pb-youtube-grid" id="pbYoutubeGrid">
-      <div class="pb-youtube-status">
-        Loading Bhagwat Katha videos...
-      </div>
+    <div class="pb-wisdom-filters" id="pbWisdomFilters" aria-label="Video categories">
+      <button class="pb-wisdom-filter is-active" type="button" data-query="Sanatan Dharma spiritual wisdom" aria-pressed="true">All wisdom</button>
+      <button class="pb-wisdom-filter" type="button" data-query="Osho meditation discourse">Osho</button>
+      <button class="pb-wisdom-filter" type="button" data-query="Ashtavakra Gita teachings">Ashtavakra Gita</button>
+      <button class="pb-wisdom-filter" type="button" data-query="Bhagavad Gita spiritual teachings">Bhagavad Gita</button>
+      <button class="pb-wisdom-filter" type="button" data-query="Shrimad Bhagwat Katha">Bhagwat Katha</button>
+      <button class="pb-wisdom-filter" type="button" data-query="Meditation inner peace spiritual discourse">Meditation</button>
+      <button class="pb-wisdom-filter" type="button" data-query="Bhakti bhajan mantra satsang">Bhakti & Mantra</button>
+    </div>
+
+    <div class="pb-wisdom-feature-note">
+      <span class="pb-wisdom-note-mark">ॐ</span>
+      <p>“Wisdom begins when we pause long enough to truly listen.”</p>
+    </div>
+
+    <div class="pb-youtube-grid" id="pbYoutubeGrid" aria-live="polite">
+      <div class="pb-youtube-status">Preparing the wisdom library…</div>
     </div>
 
     <div class="pb-youtube-footer">
-      <a
-        href="https://www.youtube.com/results?search_query=Shrimad+Bhagwat+Katha"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Explore more on YouTube <span>↗</span>
+      <a id="pbWisdomYoutubeMore"
+         href="https://www.youtube.com/results?search_query=Sanatan+Dharma+spiritual+wisdom"
+         target="_blank" rel="noopener noreferrer">
+        Explore more teachings on YouTube <span>↗</span>
       </a>
     </div>
+  </div>
 
+  <div class="pb-wisdom-player" id="pbWisdomPlayer" aria-hidden="true">
+    <div class="pb-wisdom-player-backdrop" data-player-close></div>
+    <div class="pb-wisdom-player-dialog" role="dialog" aria-modal="true" aria-label="Video player">
+      <button class="pb-wisdom-player-close" type="button" data-player-close aria-label="Close video">×</button>
+      <div class="pb-wisdom-player-frame">
+        <iframe id="pbWisdomIframe" title="Wisdom video"
+          src="about:blank" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p id="pbWisdomPlayerTitle">Now playing</p>
+    </div>
   </div>
 </section>
-
-
 
 <!-- ============ WISDOM SECTION ============ -->
 <section class="pb-wisdom" id="wisdom">
@@ -1036,7 +1052,7 @@
       <!-- Ashtavakra Card -->
       <a href="./ashtavakra.html" class="pb-wisdom-card">
         <img
-          src="./assets/ashtavakra.jpg"
+          src="./assets/Ashtavakra.jpg"
           alt="Sage Ashtavakra"
           loading="lazy"
         />
@@ -1333,7 +1349,7 @@
 
       <div class="pb-footer-links">
         <h4>Discover</h4>
-        <a href="#bhagwat-katha">Bhagwat Katha</a>
+        <a href="#wisdom-beyond-words">Wisdom Beyond Words</a>
         <a href="#katha-events">Upcoming Events</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
@@ -1519,159 +1535,173 @@
 
   </script>
   <script>
-  const youtubeGrid = document.getElementById("pbYoutubeGrid");
-  const youtubeSearch = document.getElementById("pbYoutubeSearch");
-  const youtubeSearchForm = document.getElementById("pbYoutubeSearchForm");
+(() => {
+  const grid = document.getElementById("pbYoutubeGrid");
+  const searchInput = document.getElementById("pbYoutubeSearch");
+  const searchForm = document.getElementById("pbYoutubeSearchForm");
+  const filters = document.getElementById("pbWisdomFilters");
+  const moreLink = document.getElementById("pbWisdomYoutubeMore");
+  const player = document.getElementById("pbWisdomPlayer");
+  const iframe = document.getElementById("pbWisdomIframe");
+  const playerTitle = document.getElementById("pbWisdomPlayerTitle");
 
-  // Add your Google YouTube Data API key here.
+  // Keep the key out of this public file in production.
+  // The current setup still requires a valid YouTube Data API key here.
   const YOUTUBE_API_KEY = "YOUR_YOUTUBE_API_KEY";
+  const YOUTUBE_API_URL = "https://www.googleapis.com/youtube/v3/search";
+  const MAX_RESULTS = 9;
+  let requestController = null;
+  let activeQuery = "Sanatan Dharma spiritual wisdom";
+  const cache = new Map();
 
-  const YOUTUBE_API_URL =
-    "https://www.googleapis.com/youtube/v3/search";
-
-  async function fetchKathaVideos(query = "Shrimad Bhagwat Katha") {
-    youtubeGrid.innerHTML = `
-      <div class="pb-youtube-status">
-        Gathering spiritual videos...
-      </div>
-    `;
-
-    try {
-      const params = new URLSearchParams({
-        part: "snippet",
-        q: query,
-        type: "video",
-        maxResults: "12",
-        order: "relevance",
-        videoEmbeddable: "true",
-        key: YOUTUBE_API_KEY
-      });
-
-      const response = await fetch(
-        `${YOUTUBE_API_URL}?${params.toString()}`
-      );
-
-      const data = await response.json();
-
-      if (!response.ok || data.error) {
-        throw new Error(
-          data.error?.message || "Unable to load YouTube videos."
-        );
-      }
-
-      const videos = data.items || [];
-
-      if (!videos.length) {
-        youtubeGrid.innerHTML = `
-          <div class="pb-youtube-status">
-            No videos found. Try another search.
-          </div>
-        `;
-        return;
-      }
-
-      renderKathaVideos(videos);
-
-    } catch (error) {
-      console.error("YouTube API error:", error);
-
-      youtubeGrid.innerHTML = `
-        <div class="pb-youtube-status">
-          <h3>Videos are temporarily unavailable</h3>
-          <p>${escapeYoutubeHTML(error.message)}</p>
-          <br>
-          <button class="filter-btn" onclick="fetchKathaVideos()">
-            Try again
-          </button>
-        </div>
-      `;
-    }
-  }
-
-  function renderKathaVideos(videos) {
-    youtubeGrid.innerHTML = videos.map(video => {
-      const videoId = video.id?.videoId;
-      const snippet = video.snippet || {};
-
-      if (!videoId) return "";
-
-      const thumbnail =
-        snippet.thumbnails?.high?.url ||
-        snippet.thumbnails?.medium?.url ||
-        snippet.thumbnails?.default?.url ||
-        "";
-
-      const title = snippet.title || "Bhagwat Katha";
-      const channel = snippet.channelTitle || "YouTube Channel";
-
-      return `
-        <article class="pb-youtube-card">
-
-          <a
-            class="pb-youtube-thumbnail"
-            href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Watch ${escapeYoutubeHTML(title)}"
-          >
-            <img
-              src="${escapeYoutubeHTML(thumbnail)}"
-              alt="${escapeYoutubeHTML(title)}"
-              loading="lazy"
-            >
-
-            <span class="pb-youtube-play">
-              <i class="fa-solid fa-play"></i>
-            </span>
-          </a>
-
-          <div class="pb-youtube-card-content">
-
-            <span class="pb-youtube-channel">
-              ${escapeYoutubeHTML(channel)}
-            </span>
-
-            <h4>${escapeYoutubeHTML(title)}</h4>
-
-            <a
-              class="pb-youtube-watch"
-              href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Watch Katha <span>↗</span>
-            </a>
-
-          </div>
-        </article>
-      `;
-    }).join("");
-  }
-
-  function escapeYoutubeHTML(value) {
+  function escapeHTML(value) {
     return String(value).replace(/[&<>"']/g, character => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#039;"
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
     })[character]);
   }
 
-  youtubeSearchForm.addEventListener("submit", event => {
-    event.preventDefault();
+  function openPlayer(videoId, title) {
+    iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0`;
+    playerTitle.textContent = title;
+    player.classList.add("is-open");
+    player.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
 
-    const query = youtubeSearch.value.trim();
+  function closePlayer() {
+    player.classList.remove("is-open");
+    player.setAttribute("aria-hidden", "true");
+    iframe.src = "about:blank";
+    document.body.style.overflow = "";
+  }
 
-    if (query.length >= 2) {
-      fetchKathaVideos(query);
-    } else {
-      fetchKathaVideos();
-    }
+  player.querySelectorAll("[data-player-close]").forEach(el => {
+    el.addEventListener("click", closePlayer);
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && player.classList.contains("is-open")) closePlayer();
   });
 
-  // Load Bhagwat Katha videos when the page opens.
-  fetchKathaVideos();
+  function renderVideos(videos) {
+    const cards = videos.map(video => {
+      const videoId = video.id && video.id.videoId;
+      if (!videoId) return "";
+      const snippet = video.snippet || {};
+      const title = snippet.title || "Spiritual teaching";
+      const channel = snippet.channelTitle || "YouTube";
+      const thumbnail = snippet.thumbnails?.high?.url ||
+        snippet.thumbnails?.medium?.url || snippet.thumbnails?.default?.url || "";
+      return `
+        <article class="pb-youtube-card">
+          <button class="pb-youtube-thumbnail" type="button"
+            data-video-id="${escapeHTML(videoId)}" data-video-title="${escapeHTML(title)}"
+            aria-label="Play ${escapeHTML(title)}">
+            <img src="${escapeHTML(thumbnail)}" alt="${escapeHTML(title)}"
+              loading="lazy" decoding="async">
+            <span class="pb-youtube-play"><i class="fa-solid fa-play"></i></span>
+          </button>
+          <div class="pb-youtube-card-content">
+            <span class="pb-youtube-channel">${escapeHTML(channel)}</span>
+            <h4>${escapeHTML(title)}</h4>
+            <button class="pb-youtube-watch" type="button"
+              data-video-id="${escapeHTML(videoId)}" data-video-title="${escapeHTML(title)}">
+              Watch teaching <span>↗</span>
+            </button>
+          </div>
+        </article>`;
+    }).join("");
+
+    grid.innerHTML = cards || '<div class="pb-youtube-status">No videos found. Try another topic.</div>';
+    grid.querySelectorAll("[data-video-id]").forEach(button => {
+      button.addEventListener("click", () =>
+        openPlayer(button.dataset.videoId, button.dataset.videoTitle));
+    });
+  }
+
+  async function loadVideos(query, force = false) {
+    if (!grid) return;
+    activeQuery = query;
+    moreLink.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+
+    if (YOUTUBE_API_KEY === "YOUR_YOUTUBE_API_KEY" || !YOUTUBE_API_KEY.trim()) {
+      grid.innerHTML = `
+        <div class="pb-youtube-status pb-youtube-config">
+          <span class="pb-youtube-config-icon">ॐ</span>
+          <h3>Your wisdom library is ready</h3>
+          <p>Add a valid YouTube Data API key to load video results. Your category filters and search will work once the key is configured.</p>
+          <a href="${moreLink.href}" target="_blank" rel="noopener noreferrer">Browse this topic on YouTube ↗</a>
+        </div>`;
+      return;
+    }
+
+    const cacheKey = query.toLowerCase();
+    if (!force && cache.has(cacheKey)) {
+      renderVideos(cache.get(cacheKey));
+      return;
+    }
+
+    if (requestController) requestController.abort();
+    requestController = new AbortController();
+    grid.innerHTML = '<div class="pb-youtube-status">Gathering thoughtful teachings…</div>';
+
+    const params = new URLSearchParams({
+      part: "snippet", q: query, type: "video",
+      maxResults: String(MAX_RESULTS), order: "relevance",
+      videoEmbeddable: "true", key: YOUTUBE_API_KEY
+    });
+
+    try {
+      const response = await fetch(`${YOUTUBE_API_URL}?${params}`, {
+        signal: requestController.signal
+      });
+      const data = await response.json();
+      if (!response.ok || data.error) {
+        throw new Error(data.error?.message || "Unable to load videos.");
+      }
+      const videos = data.items || [];
+      cache.set(cacheKey, videos);
+      renderVideos(videos);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Wisdom library error:", error);
+      grid.innerHTML = `
+        <div class="pb-youtube-status">
+          <h3>Videos are temporarily unavailable</h3>
+          <p>${escapeHTML(error.message)}</p>
+          <button class="pb-wisdom-retry" type="button">Try again</button>
+        </div>`;
+      grid.querySelector(".pb-wisdom-retry")?.addEventListener("click", () => loadVideos(activeQuery, true));
+    }
+  }
+
+  filters?.addEventListener("click", event => {
+    const button = event.target.closest("[data-query]");
+    if (!button) return;
+    filters.querySelectorAll(".pb-wisdom-filter").forEach(item => {
+      const selected = item === button;
+      item.classList.toggle("is-active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    searchInput.value = "";
+    loadVideos(button.dataset.query);
+  });
+
+  searchForm?.addEventListener("submit", event => {
+    event.preventDefault();
+    const query = searchInput.value.trim();
+    if (query.length < 2) {
+      loadVideos(activeQuery);
+      return;
+    }
+    filters.querySelectorAll(".pb-wisdom-filter").forEach(item => {
+      item.classList.remove("is-active");
+      item.setAttribute("aria-pressed", "false");
+    });
+    loadVideos(query);
+  });
+
+  loadVideos(activeQuery);
+})();
 </script>
   <script>
   // =========================================

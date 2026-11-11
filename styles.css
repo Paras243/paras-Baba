@@ -3303,3 +3303,381 @@ header {
     font-size: 20px;
   }
 }
+
+
+
+/* =========================================
+   WISDOM BEYOND WORDS — SOFT PINK THEME
+========================================= */
+
+.pb-wisdom-library {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(64px, 8vw, 104px) 6%;
+  background:
+    radial-gradient(ellipse at 50% 0%, #fff0f4 0%, transparent 65%),
+    linear-gradient(180deg, #fff8fa 0%, #fff0f4 100%);
+}
+
+.pb-wisdom-library .pb-youtube-container {
+  max-width: 1240px;
+}
+
+.pb-wisdom-library .pb-youtube-heading {
+  max-width: 720px;
+  margin-bottom: 52px;
+}
+
+.pb-wisdom-library .pb-youtube-eyebrow,
+.pb-wisdom-library .pb-youtube-small-label {
+  color: #c47791;
+  letter-spacing: 2.4px;
+}
+
+.pb-wisdom-library .pb-youtube-heading h2 {
+  color: #513746;
+  font-size: clamp(40px, 5.5vw, 64px);
+  letter-spacing: -1.5px;
+}
+
+.pb-wisdom-library .pb-youtube-heading h2 em {
+  color: #c47791;
+}
+
+.pb-wisdom-library .pb-youtube-heading p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #806b76;
+  font-size: 14px;
+}
+
+.pb-wisdom-intro-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.pb-wisdom-intro-row h3 {
+  margin-top: 8px;
+  color: #513746;
+  font: 500 clamp(21px, 2.5vw, 28px)/1.2 "Playfair Display", Georgia, serif;
+}
+
+.pb-wisdom-library .pb-youtube-search {
+  flex: 0 1 340px;
+  border: 1px solid #efd4df;
+  background: #ffffff;
+}
+
+.pb-wisdom-library .pb-youtube-search input {
+  color: #513746;
+}
+
+.pb-wisdom-library .pb-youtube-search input::placeholder {
+  color: #aa929d;
+}
+
+.pb-wisdom-library .pb-youtube-search button {
+  background: #c47791;
+  color: #ffffff;
+}
+
+.pb-wisdom-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0 0 34px;
+}
+
+.pb-wisdom-filter {
+  min-height: 39px;
+  padding: 9px 15px;
+  border: 1px solid #edcfdb;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #805b6c;
+  font: 600 11px "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.pb-wisdom-filter:hover {
+  transform: translateY(-2px);
+  border-color: #c47791;
+  color: #a65373;
+}
+
+.pb-wisdom-filter.is-active {
+  border-color: #c47791;
+  background: #c47791;
+  color: #ffffff;
+}
+
+.pb-wisdom-feature-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 0 0 34px;
+  padding: 18px;
+  border-top: 1px solid #efd8e1;
+  border-bottom: 1px solid #efd8e1;
+  text-align: center;
+}
+
+.pb-wisdom-note-mark {
+  color: #c47791;
+  font: 26px Georgia, serif;
+}
+
+.pb-wisdom-feature-note p {
+  margin: 0;
+  color: #806b76;
+  font: italic 16px "Playfair Display", Georgia, serif;
+}
+
+.pb-wisdom-library .pb-youtube-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.pb-wisdom-library .pb-youtube-card {
+  border: 1px solid #f0dce4;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(150, 91, 115, .08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pb-wisdom-library .pb-youtube-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(150, 91, 115, .14);
+}
+
+.pb-wisdom-library .pb-youtube-thumbnail {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.pb-wisdom-library .pb-youtube-play {
+  background: #ffffff;
+  color: #c47791;
+}
+
+.pb-wisdom-library .pb-youtube-card-content {
+  padding: 18px;
+}
+
+.pb-wisdom-library .pb-youtube-channel {
+  color: #bd718c;
+}
+
+.pb-wisdom-library .pb-youtube-card h4 {
+  min-height: 48px;
+  color: #513746;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.pb-wisdom-library .pb-youtube-watch {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #b56582;
+  font: 700 11px "Montserrat", sans-serif;
+  cursor: pointer;
+}
+
+.pb-wisdom-library .pb-youtube-status {
+  color: #806b76;
+  background: #fff;
+  border: 1px solid #f0dce4;
+  border-radius: 14px;
+}
+
+.pb-youtube-config h3 {
+  margin: 10px 0;
+  color: #513746;
+  font: 500 26px "Playfair Display", Georgia, serif;
+}
+
+.pb-youtube-config p {
+  max-width: 560px;
+  margin: 0 auto 16px;
+  line-height: 1.8;
+}
+
+.pb-youtube-config a {
+  color: #b56582;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pb-youtube-config-icon {
+  color: #c47791;
+  font-size: 30px;
+}
+
+.pb-wisdom-retry {
+  margin-top: 14px;
+  padding: 10px 18px;
+  border: 1px solid #c47791;
+  border-radius: 30px;
+  background: #fff;
+  color: #b56582;
+  cursor: pointer;
+}
+
+.pb-wisdom-library .pb-youtube-footer a {
+  color: #b56582;
+}
+
+.pb-wisdom-player {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.pb-wisdom-player.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pb-wisdom-player-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(48, 27, 39, .78);
+}
+
+.pb-wisdom-player-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  padding: 18px;
+  border: 1px solid #efd4df;
+  border-radius: 16px;
+  background: #fff8fa;
+  box-shadow: 0 24px 80px rgba(70, 35, 50, .25);
+}
+
+.pb-wisdom-player-close {
+  display: block;
+  margin: 0 0 10px auto;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #e8c7d4;
+  border-radius: 50%;
+  background: #fff;
+  color: #805b6c;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.pb-wisdom-player-frame {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.pb-wisdom-player-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.pb-wisdom-player-dialog > p {
+  margin: 13px 2px 2px;
+  color: #513746;
+  font: 500 16px "Playfair Display", Georgia, serif;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .pb-wisdom-library .pb-youtube-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .pb-wisdom-library {
+    padding: 62px 0;
+  }
+
+  .pb-wisdom-library .pb-youtube-container {
+    width: calc(100% - 32px);
+  }
+
+  .pb-wisdom-library .pb-youtube-heading {
+    margin-bottom: 36px;
+  }
+
+  .pb-wisdom-library .pb-youtube-heading h2 {
+    font-size: clamp(37px, 10vw, 48px);
+  }
+
+  .pb-wisdom-intro-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .pb-wisdom-library .pb-youtube-search {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .pb-wisdom-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 2px 1px 10px;
+    margin-right: -2px;
+    scrollbar-width: thin;
+  }
+
+  .pb-wisdom-filter {
+    flex: 0 0 auto;
+  }
+
+  .pb-wisdom-feature-note {
+    gap: 10px;
+    padding: 15px 8px;
+  }
+
+  .pb-wisdom-feature-note p {
+    font-size: 14px;
+  }
+
+  .pb-wisdom-library .pb-youtube-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pb-wisdom-library .pb-youtube-card-content {
+    padding: 15px;
+  }
+
+  .pb-wisdom-player {
+    padding: 12px;
+  }
+
+  .pb-wisdom-player-dialog {
+    padding: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pb-wisdom-library *,
+  .pb-wisdom-player * {
+    transition-duration: .01ms !important;
+  }
+}

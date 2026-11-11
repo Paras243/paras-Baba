@@ -163,55 +163,104 @@ exports.handler = async (event) => {
 // VEDIC PHALADESH
 // --------------------------------
 
+
 async function createPhaladesh(key, body, lang) {
   const requestBody = {
     birth: body.birth,
+
+    include: [
+      "kundli",
+      "divisional:D2,D9,D10",
+      "dasha:2",
+      "current_dasha",
+      "yogas",
+      "wealth",
+      "shadbala"
+    ],
+
     options: {
       lang,
       ayanamsa: "lahiri",
-      house_system: "whole_sign"
+      house_system: "whole_sign",
+      tone: "descriptive"
     }
   };
 
-  const calculations = {
-    birthChart: () =>
-      apiPost(key, "/kundli", requestBody),
+  const result = await apiPost(
+    key,
+    "/kundli/bundle",
+    requestBody
+  );
 
-    divisionalCharts: () =>
-      apiPost(key, "/kundli/divisional", requestBody),
+  if (!result.ok) {
+    const error = result.data?.error || result.data;
 
-    vimshottariDasha: () =>
-      apiPost(key, "/dasha/vimshottari", {
-        ...requestBody,
-        depth: 2
-      }),
+    const failed = {
+      success: false,
+      status: result.status,
+      error
+    };
 
-    yogas: () =>
-      apiPost(key, "/kundli/yogas", requestBody),
+    return respond(200, {
+      success: true,
+      system: "vedic",
+      reportType: "phaladesh",
+      language: lang,
+      calculations: {
+        birthChart: failed,
+        divisionalCharts: failed,
+        vimshottariDasha: failed,
+        currentDasha: failed,
+        yogas: failed,
+        wealthAnalysis: failed,
+        planetaryStrength: failed
+      }
+    });
+  }
 
-    wealthAnalysis: () =>
-      apiPost(key, "/kundli/wealth", requestBody),
+  const reportData = result.data?.data ?? result.data;
 
-    planetaryStrength: () =>
-      apiPost(key, "/kundli/shadbala", requestBody),
+  const meta = result.data?.meta;
+  const warnings = result.data?.warnings || [];
 
-    currentDasha: () =>
-      apiPost(key, "/dasha/vimshottari/current", {
-        ...requestBody,
-        at: new Date().toISOString()
-      })
+  const wrapCalculation = (data) => {
+    if (data == null) {
+      return {
+        success: false,
+        data: null,
+        error: "Calculation data was not returned by AstroLogics."
+      };
+    }
+
+    return {
+      success: true,
+      data,
+      meta,
+      warnings
+    };
   };
 
-  const results = await runCalculations(calculations);
+  const calculations = {
+    birthChart: wrapCalculation(reportData.kundli),
+    divisionalCharts: wrapCalculation(reportData.divisional),
+    vimshottariDasha: wrapCalculation(reportData.dasha),
+    currentDasha: wrapCalculation(reportData.current_dasha),
+    yogas: wrapCalculation(reportData.yogas),
+    wealthAnalysis: wrapCalculation(reportData.wealth),
+    planetaryStrength: wrapCalculation(reportData.shadbala)
+  };
 
   return respond(200, {
     success: true,
     system: "vedic",
     reportType: "phaladesh",
     language: lang,
-    calculations: results
+    calculations,
+    meta,
+    warnings
   });
 }
+
 
 // --------------------------------
 // WESTERN LIFE READING

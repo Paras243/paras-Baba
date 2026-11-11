@@ -1,69 +1,96 @@
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector(".nav-menu");
-    const menuIcon = menuToggle.querySelector("i");
+/* =========================================
+   PARAS BABA — RESPONSIVE MOBILE NAVIGATION
+   ========================================= */
 
-    // Toggle mobile menu
-    menuToggle.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-      const isOpen = navMenu.classList.toggle("is-open");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-menu");
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
+  // Stop safely if navigation elements are unavailable
+  if (!menuToggle || !navMenu) {
+    return;
+  }
 
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen
-          ? "Close navigation menu"
-          : "Open navigation menu"
-      );
+  const menuIcon = menuToggle.querySelector("i");
 
+  // Close mobile navigation
+  const closeMenu = () => {
+
+    navMenu.classList.remove("is-open");
+
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute(
+      "aria-label",
+      "Open navigation menu"
+    );
+
+    if (menuIcon) {
+      menuIcon.classList.add("fa-bars");
+      menuIcon.classList.remove("fa-xmark");
+    }
+
+  };
+
+  // Toggle mobile navigation
+  menuToggle.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+    const isOpen = navMenu.classList.toggle("is-open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen
+        ? "Close navigation menu"
+        : "Open navigation menu"
+    );
+
+    if (menuIcon) {
       menuIcon.classList.toggle("fa-bars", !isOpen);
       menuIcon.classList.toggle("fa-xmark", isOpen);
+    }
 
+  });
+
+  // Close menu after clicking a navigation link
+  navMenu.querySelectorAll("a").forEach((link) => {
+
+    link.addEventListener("click", () => {
+      closeMenu();
     });
 
-    // Close menu after clicking a navigation link
-    navMenu.querySelectorAll("a").forEach(link => {
+  });
 
-      link.addEventListener("click", () => {
+  // Close menu when clicking outside the header
+  document.addEventListener("click", (event) => {
 
-        navMenu.classList.remove("is-open");
+    if (
+      !event.target.closest("header") &&
+      navMenu.classList.contains("is-open")
+    ) {
+      closeMenu();
+    }
 
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          "Open navigation menu"
-        );
+  });
 
-        menuIcon.classList.add("fa-bars");
-        menuIcon.classList.remove("fa-xmark");
+  // Close menu when pressing Escape
+  document.addEventListener("keydown", (event) => {
 
-      });
+    if (
+      event.key === "Escape" &&
+      navMenu.classList.contains("is-open")
+    ) {
+      closeMenu();
+      menuToggle.focus();
+    }
 
-    });
+  });
 
-    // Close menu when clicking outside the header
-    document.addEventListener("click", event => {
-
-      if (
-        !event.target.closest("header") &&
-        navMenu.classList.contains("is-open")
-      ) {
-
-        navMenu.classList.remove("is-open");
-
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute(
-          "aria-label",
-          "Open navigation menu"
-        );
-
-        menuIcon.classList.add("fa-bars");
-        menuIcon.classList.remove("fa-xmark");
-
-      }
-
-    });
+});
