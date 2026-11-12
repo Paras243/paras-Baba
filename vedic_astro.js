@@ -366,10 +366,11 @@ document.addEventListener("DOMContentLoaded", () => {
   async function getKundli(birth) {
     const payload = await postAstrology("kundli", {
       birth: {
-        date: birth.date,
-        time: birth.time,
-        place: { query: birth.place }
-      },
+  date: birth.date,
+  time: birth.time,
+  place: { query: birth.place },
+  timezone: "auto"
+},
       options: {
         lang: birth.language,
         ayanamsa: "lahiri",
@@ -386,11 +387,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function getPhaladesh(birth) {
     const payload = await postAstrology("phaladesh", {
-      birth: {
-        date: birth.date,
-        time: birth.time,
-        place: { query: birth.place }
-      },
+     birth: {
+  date: birth.date,
+  time: birth.time,
+  place: { query: birth.place },
+  timezone: "auto"
+},
 
       name: birth.name || undefined,
 

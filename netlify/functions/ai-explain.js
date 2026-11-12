@@ -52,9 +52,11 @@ function compactForAI(value, depth = 0) {
   if (typeof value !== "object") return value;
   if (depth >= 3) return "[Further details omitted]";
 
-  if (Array.isArray(value)) {
-    return value.slice(0, 6).map(item => compactForAI(item, depth + 1));
-  }
+ if (Array.isArray(value)) {
+  return value
+    .slice(0, 12)
+    .map(item => compactForAI(item, depth + 1));
+}
 
   const ignoredKeys = new Set([
     "meta", "warnings", "request_id", "doc_url",
@@ -193,6 +195,8 @@ STRICT RULES:
 11. If the user asks a personal question, answer that exact question first, then explain which supplied chart factors support the traditional interpretation.
 12. Use natural consultation language such as "In your Kundali..." or "Traditionally, this placement is understood as..."; do not claim to be a human Pandit or a real person.
 13. Never invent remedies, mantras, gemstones, rituals, dates or chart factors. If asked for a remedy not present in the supplied data, say the report does not provide one.
+14. Never infer exaltation, debilitation, own sign, or planetary dignity from a Shadbala score. State these only when the supplied AstroLogics data explicitly confirms the dignity. A high strength score does not mean a planet is exalted.
+15. When discussing planetary placements, preserve the exact sign, degree and house returned by AstroLogics. Never change or reinterpret the technical placement.
 
 TOPIC GUIDANCE:
 ${topicGuidance[topic]}
